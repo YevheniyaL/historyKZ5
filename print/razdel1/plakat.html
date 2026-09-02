@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>От чоппинга до кургана</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #E7E2D5;
+    --surface: #F2EEE2;
+    --surface-2: #DFD9C8;
+    --ink: #2A2420;
+    --ink-soft: #5C5346;
+    --ink-faint: #948A78;
+    --line: #C9C0A9;
+    --track-evo: #6E7B4F;
+    --track-evo-soft: #DCE1CC;
+    --track-age: #3B5A66;
+    --track-age-soft: #CFDDE1;
+    --track-society: #A8471E;
+    --track-society-soft: #E7CDBC;
+    --track-economy: #8B5E34;
+    --track-economy-soft: #E9DCC7;
+    --shadow: 0 1px 2px rgba(42,36,32,0.06), 0 8px 24px -12px rgba(42,36,32,0.18);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #201B17;
+      --surface: #2A241F;
+      --surface-2: #342D26;
+      --ink: #EDE6D8;
+      --ink-soft: #BBAF9B;
+      --ink-faint: #7D7364;
+      --line: #453D33;
+      --track-evo: #A9BB86;
+      --track-evo-soft: #3A4030;
+      --track-age: #8FB7C4;
+      --track-age-soft: #2C3D42;
+      --track-society: #E08152;
+      --track-society-soft: #4A342A;
+      --track-economy: #D2A876;
+      --track-economy-soft: #3E3222;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #201B17;
+    --surface: #2A241F;
+    --surface-2: #342D26;
+    --ink: #EDE6D8;
+    --ink-soft: #BBAF9B;
+    --ink-faint: #7D7364;
+    --line: #453D33;
+    --track-evo: #A9BB86;
+    --track-evo-soft: #3A4030;
+    --track-age: #8FB7C4;
+    --track-age-soft: #2C3D42;
+    --track-society: #E08152;
+    --track-society-soft: #4A342A;
+    --track-economy: #D2A876;
+    --track-economy-soft: #3E3222;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Karla', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.5;
+  }
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; text-wrap: balance; margin: 0; }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .hero {
+    position: relative;
+    padding: 2.5rem 2rem 2.75rem;
+    border-radius: 22px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .hero .eyebrow { margin-bottom: 0.9rem; }
+  .hero h1 {
+    font-size: clamp(2.1rem, 5vw, 3rem);
+    font-weight: 900;
+    font-optical-sizing: auto;
+    letter-spacing: -0.01em;
+    max-width: 16ch;
+  }
+  .hero p {
+    margin: 1rem 0 0;
+    max-width: 56ch;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+  }
+  .hero .source {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+  .hero .ochre-field {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  :root:not([data-theme="light"]) .hero .ochre-field { opacity: 0.35; }
+  :root[data-theme="dark"] .hero .ochre-field { opacity: 0.35; }
+
+  .section-head {
+    margin: 3.5rem 0 1.25rem;
+  }
+  .section-head h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .section-head p {
+    margin: 0.4rem 0 0;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+
+  .track {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1.5rem 1.5rem 1.6rem;
+    box-shadow: var(--shadow);
+  }
+  .track + .track { margin-top: 1.1rem; }
+
+  .track-label {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;
+  }
+  .track-dot {
+    width: 0.7rem; height: 0.7rem;
+    border-radius: 50%;
+    flex: none;
+  }
+  .track[data-track="evo"] .track-dot { background: var(--track-evo); }
+  .track[data-track="age"] .track-dot { background: var(--track-age); }
+  .track[data-track="society"] .track-dot { background: var(--track-society); }
+  .track[data-track="economy"] .track-dot { background: var(--track-economy); }
+
+  .track-note {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    margin: 0 0 1.1rem;
+    max-width: 62ch;
+  }
+
+  .flow {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    row-gap: 1rem;
+  }
+  .node {
+    flex: 1 1 130px;
+    min-width: 118px;
+    border-radius: 12px;
+    padding: 0.7rem 0.8rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .track[data-track="evo"] .node { background: var(--track-evo-soft); }
+  .track[data-track="age"] .node { background: var(--track-age-soft); }
+  .track[data-track="society"] .node { background: var(--track-society-soft); }
+  .track[data-track="economy"] .node { background: var(--track-economy-soft); }
+
+  .arrow {
+    flex: 0 0 auto;
+    align-self: center;
+    color: var(--ink-faint);
+    font-size: 1.1rem;
+    padding: 0 0.1rem;
+  }
+
+  .grid-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+  @media (max-width: 620px) {
+    .grid-two { grid-template-columns: 1fr; }
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+  }
+  .card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .culture-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+  }
+  .culture {
+    background: var(--surface-2);
+    border-radius: 10px;
+    padding: 0.7rem 0.8rem;
+  }
+  .culture dt {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--track-society);
+  }
+  .culture dd {
+    margin: 0.2rem 0 0;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+
+  .belief-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .belief-band {
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .belief-band .tag {
+    font-weight: 500;
+    font-size: 0.76rem;
+    color: var(--ink-faint);
+  }
+
+  .outcome {
+    margin-top: 3.5rem;
+    padding: 1.75rem 2rem;
+    border-radius: 18px;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+  }
+  .outcome h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+  }
+  .outcome p {
+    margin: 0;
+    color: var(--ink-soft);
+    max-width: 68ch;
+  }
+  .outcome p + p { margin-top: 0.6rem; }
+  .outcome .bridge {
+    color: var(--track-society);
+    font-weight: 600;
+  }
+
+  .credit {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background: #fff !important; }
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    .poster, .page { zoom: 0.88; box-shadow: none !important; }
+    .poster *, .page * { box-shadow: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <svg class="ochre-field" aria-hidden="true" viewBox="0 0 880 260" preserveAspectRatio="xMaxYMid slice">
+      <g fill="currentColor" style="color: var(--track-society)">
+        <circle cx="760" cy="40" r="3"/><circle cx="800" cy="60" r="2"/><circle cx="830" cy="30" r="2.5"/>
+        <circle cx="780" cy="90" r="2"/><circle cx="850" cy="80" r="3"/><circle cx="820" cy="120" r="2"/>
+        <circle cx="860" cy="140" r="2.5"/><circle cx="790" cy="150" r="2"/><circle cx="740" cy="70" r="2"/>
+        <circle cx="700" cy="110" r="1.8"/><circle cx="840" cy="180" r="2"/><circle cx="770" cy="200" r="2.4"/>
+      </g>
+    </svg>
+    <p class="eyebrow">История Казахстана · 5 класс · Раздел I</p>
+    <h1>От чоппинга до кургана</h1>
+    <p>§1–19 — это не список эпох для зубрёжки, а одна история: как древний человек на территории
+      Казахстана постепенно менял орудия, менял хозяйство и менял представления о мире вокруг себя.
+      Четыре линии ниже идут одновременно и сходятся в одной точке — рождении сакской культуры,
+      с которой начинается Раздел II.</p>
+    <p class="source">По учебнику «История Казахстана», 5 класс (Б.Е. Кумеков и др.), стр. 6–55</p>
+  </header>
+
+  <div class="section-head">
+    <h2>Четыре линии одного раздела</h2>
+    <p>Учебник смешивает биологическую эволюцию человека и археологическую периодизацию по
+      орудиям труда в одном рассказе — здесь они разведены по отдельным дорожкам.</p>
+  </div>
+
+  <div class="track" data-track="evo">
+    <div class="track-label"><span class="track-dot"></span>Эволюция человека</div>
+    <p class="track-note">Кто именно жил на этой территории — биологический вид</p>
+    <div class="flow">
+      <div class="node">Человек умелый<br><span style="font-weight:400">Homo habilis</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Человек прямоходящий<br><span style="font-weight:400">Homo erectus</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Современный человек<br><span style="font-weight:400">кроманьонец</span></div>
+    </div>
+  </div>
+
+  <div class="track" data-track="age">
+    <div class="track-label"><span class="track-dot"></span>Периодизация по орудиям</div>
+    <p class="track-note">Из чего люди делали орудия труда — археологический век</p>
+    <div class="flow">
+      <div class="node">Палеолит<br><span style="font-weight:400">чоппинги, бифасы</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Мезолит<br><span style="font-weight:400">микролиты, лук</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Неолит<br><span style="font-weight:400">керамика</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Энеолит<br><span style="font-weight:400">медь</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Бронза<br><span style="font-weight:400">медь + олово</span></div>
+    </div>
+  </div>
+
+  <div class="track" data-track="society">
+    <div class="track-label"><span class="track-dot"></span>Общество</div>
+    <p class="track-note">Как люди объединялись друг с другом</p>
+    <div class="flow">
+      <div class="node">Человеческое стадо<br><span style="font-weight:400">20–30 человек</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Первобытная община<br><span style="font-weight:400">3–4 тыс. человек</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Род<br><span style="font-weight:400">общее хозяйство</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Племя<br><span style="font-weight:400">союз родов</span></div>
+    </div>
+  </div>
+
+  <div class="track" data-track="economy">
+    <div class="track-label"><span class="track-dot"></span>Хозяйство</div>
+    <p class="track-note">Главная сквозная идея раздела: от готовых даров природы — к собственному производству</p>
+    <div class="flow">
+      <div class="node">Присваивающее хозяйство<br><span style="font-weight:400">охота, собирательство, рыболовство</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Производящее хозяйство<br><span style="font-weight:400">скотоводство, земледелие, ремёсла</span></div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Культуры Казахстана эпохи камня и металлов</h2>
+    <p>Каждая — со своей территорией и своей «визитной карточкой».</p>
+  </div>
+
+  <div class="grid-two">
+    <div class="card">
+      <h3>Где и чем славятся</h3>
+      <dl class="culture-grid">
+        <div class="culture"><dt>Кельтиминарская</dt><dd>Приаралье — рыболовство</dd></div>
+        <div class="culture"><dt>Атбасарская</dt><dd>Сев. Казахстан — первое коневодство</dd></div>
+        <div class="culture"><dt>Ботайская</dt><dd>останки &gt;70 тыс. лошадей</dd></div>
+        <div class="culture"><dt>Андроновская</dt><dd>вся территория, кроме Запада</dd></div>
+        <div class="culture"><dt>Срубная</dt><dd>Западный Казахстан — срубы в могилах</dd></div>
+        <div class="culture"><dt>Бегазы-дандыбаевская</dt><dd>Центр. Казахстан — переход к сакам</dd></div>
+      </dl>
+    </div>
+    <div class="card">
+      <h3>Во что верили</h3>
+      <div class="belief-stack">
+        <div class="belief-band">Курган <span class="tag">модель Вселенной</span></div>
+        <div class="belief-band">Красная охра <span class="tag">жизнь, кровь, огонь</span></div>
+        <div class="belief-band">Культ предков <span class="tag">вожди помогают из загробного мира</span></div>
+        <div class="belief-band">Солнце и огонь <span class="tag">главные божества</span></div>
+        <div class="belief-band">Позже — луна и звёзды <span class="tag">ночные перекочёвки</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="outcome">
+    <h2>Куда это ведёт</h2>
+    <p>К концу раздела все четыре линии сходятся: освоение бронзы повышает производительность
+      труда → скотоводство становится отгонным → зарождается <span class="bridge">частная
+      собственность</span> и первое табу → общинный строй эпохи ранних металлов уступает место
+      новому укладу жизни.</p>
+    <p>На этой границе появляются пастбищное животноводство и верховая езда — с них начинается
+      <span class="bridge">Раздел II. Эпоха раннего железа. Саки</span>.</p>
+  </div>
+
+  <p class="credit">Инфографика по выжимке к Разделу I · EDU_5 / summaries / historyKZ</p>
+
+</div>
+
+</body>
+</html>

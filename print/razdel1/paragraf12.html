@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Печать карточек — §§18–19. Религиозные представления племён эпохи ранних металлов</title>
+<style>
+  body {
+    font-family: 'PT Sans', Arial, sans-serif;
+    color: #222;
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+  .instructions {
+    background: #f2f5fa;
+    border: 1px solid #c7d3e3;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .instructions b { color: #1a3a66; }
+  .page-label {
+    font-size: 13px;
+    color: #888;
+    margin: 26px 0 6px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 40mm;
+    border: 1px solid #333;
+    page-break-before: always;
+  }
+  .cell {
+    border: 1px dashed #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 14px;
+  }
+  .cell.term { font-size: 18px; font-weight: bold; color: #1a3a66; }
+  .cell.def { font-size: 13px; line-height: 1.4; }
+  @media print {
+    .instructions { display: block; }
+    .page-label { display: none; }
+    @page { size: A4; margin: 10mm; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Карточки §§18–19. Религиозные представления племён эпохи ранних металлов — печать для вырезания (стр. 52–55)</h1>
+<div class="instructions">
+  <p><b>Если принтер печатает с двух сторон (дуплекс):</b> в диалоге печати
+  включите "Печать на двух сторонах" / "Two-sided" и переплёт по
+  <b>длинному краю</b>. Термин и определение окажутся на разных сторонах
+  одной карточки. Разрежьте лист по пунктирным линиям — получится
+  4 двусторонних карточек.</p>
+  <p><b>Если принтер печатает только с одной стороны:</b> напечатайте
+  первый лист (термины), переверните эту же стопку и вставьте в лоток снова,
+  чтобы напечатать второй лист (определения) на обратной стороне. Сначала
+  проверьте на одном листе, что термин и определение совпали на одной
+  карточке, прежде чем печатать весь тираж.</p>
+</div>
+
+<p class="page-label">Лист 1 — термины (лицевая сторона)</p>
+<div class="grid">
+  <div class="cell term">курган</div>
+  <div class="cell term">красная охра</div>
+  <div class="cell term">культ предков</div>
+  <div class="cell term">табу</div>
+</div>
+
+<p class="page-label">Лист 2 — определения (обратная сторона, тот же порядок ячеек)</p>
+<div class="grid">
+  <div class="cell def">Насыпь над погребением; по представлениям индоиранцев — «модель Вселенной».</div>
+  <div class="cell def">Символ жизни, крови и огня; использовалась в погребальных обрядах.</div>
+  <div class="cell def">Вера в то, что похороненные вожди и жрецы продолжают помогать общине из загробного мира.</div>
+  <div class="cell def">Запрет на пользование скотом и орудиями, присвоенными вождями; появился к поздней бронзе.</div>
+</div>
+
+</body>
+</html>
