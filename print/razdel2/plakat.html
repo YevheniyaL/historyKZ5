@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Золотой человек и мир саков</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #E9E0CE;
+    --surface: #F5EFDE;
+    --surface-2: #E5D8B8;
+    --ink: #2E2311;
+    --ink-soft: #5F5230;
+    --ink-faint: #948765;
+    --line: #D2C296;
+    --track-gold: #A8791E;
+    --track-gold-soft: #EEDFAE;
+    --track-people: #6E4B2A;
+    --track-people-soft: #E3D2BD;
+    --track-culture: #3B6659;
+    --track-culture-soft: #CFE1D9;
+    --shadow: 0 1px 2px rgba(46,35,17,0.06), 0 8px 24px -12px rgba(46,35,17,0.2);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1E1A10;
+      --surface: #292315; --surface-2: #332B1A;
+      --ink: #EFE6CE; --ink-soft: #BFB088; --ink-faint: #83775A;
+      --line: #453B26;
+      --track-gold: #E0B155; --track-gold-soft: #443B2C;
+      --track-people: #D2A876; --track-people-soft: #3E3222;
+      --track-culture: #8FC4B4; --track-culture-soft: #263B33;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1E1A10;
+    --surface: #292315; --surface-2: #332B1A;
+    --ink: #EFE6CE; --ink-soft: #BFB088; --ink-faint: #83775A;
+    --line: #453B26;
+    --track-gold: #E0B155; --track-gold-soft: #443B2C;
+    --track-people: #D2A876; --track-people-soft: #3E3222;
+    --track-culture: #8FC4B4; --track-culture-soft: #263B33;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Karla', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.5;
+  }
+  .page { max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; text-wrap: balance; margin: 0; }
+  .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+
+  .hero {
+    position: relative; padding: 2.5rem 2rem 2.75rem; border-radius: 22px;
+    background: var(--surface); border: 1px solid var(--line); overflow: hidden; box-shadow: var(--shadow);
+  }
+  .hero .eyebrow { margin-bottom: 0.9rem; }
+  .hero h1 { font-size: clamp(2.1rem, 5vw, 3rem); font-weight: 900; font-optical-sizing: auto; letter-spacing: -0.01em; max-width: 16ch; }
+  .hero p { margin: 1rem 0 0; max-width: 56ch; color: var(--ink-soft); font-size: 1.05rem; }
+  .hero .source { margin-top: 1.5rem; font-size: 0.85rem; color: var(--ink-faint); }
+  .hero .gold-field { position: absolute; inset: 0; pointer-events: none; opacity: 0.55; }
+  :root:not([data-theme="light"]) .hero .gold-field { opacity: 0.35; }
+  :root[data-theme="dark"] .hero .gold-field { opacity: 0.35; }
+
+  .section-head { margin: 3.5rem 0 1.25rem; }
+  .section-head h2 { font-size: 1.5rem; font-weight: 700; }
+  .section-head p { margin: 0.4rem 0 0; color: var(--ink-soft); max-width: 60ch; }
+
+  .track { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem 1.5rem 1.6rem; box-shadow: var(--shadow); }
+  .track + .track { margin-top: 1.1rem; }
+  .track-label { display: flex; align-items: center; gap: 0.55rem; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 0.3rem; }
+  .track-dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; flex: none; }
+  .track[data-track="gold"] .track-dot { background: var(--track-gold); }
+  .track[data-track="people"] .track-dot { background: var(--track-people); }
+  .track-note { color: var(--ink-soft); font-size: 0.92rem; margin: 0 0 1.1rem; max-width: 62ch; }
+
+  .flow { display: flex; align-items: stretch; flex-wrap: wrap; gap: 0.5rem; row-gap: 1rem; }
+  .node { flex: 1 1 130px; min-width: 118px; border-radius: 12px; padding: 0.7rem 0.8rem; font-size: 0.88rem; font-weight: 600; color: var(--ink); display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.3; }
+  .track[data-track="gold"] .node { background: var(--track-gold-soft); }
+  .track[data-track="people"] .node { background: var(--track-people-soft); }
+  .arrow { flex: 0 0 auto; align-self: center; color: var(--ink-faint); font-size: 1.1rem; padding: 0 0.1rem; }
+
+  .grid-two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+  @media (max-width: 620px) { .grid-two { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; box-shadow: var(--shadow); }
+  .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+
+  .kurgan-grid { display: grid; grid-template-columns: 1fr; gap: 0.6rem; }
+  .kurgan { background: var(--surface-2); border-radius: 10px; padding: 0.65rem 0.85rem; }
+  .kurgan dt { font-family: 'Fraunces', serif; font-weight: 600; font-size: 0.95rem; color: var(--track-gold); }
+  .kurgan dd { margin: 0.2rem 0 0; font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4; }
+
+  .people-stack { display: flex; flex-direction: column; gap: 0.5rem; }
+  .people-band { border-radius: 10px; padding: 0.65rem 0.9rem; font-size: 0.9rem; font-weight: 600; background: var(--surface-2); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+  .people-band .tag { font-weight: 500; font-size: 0.76rem; color: var(--ink-faint); }
+
+  .outcome { margin-top: 3.5rem; padding: 1.75rem 2rem; border-radius: 18px; background: var(--surface-2); border: 1px solid var(--line); }
+  .outcome h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.7rem; }
+  .outcome p { margin: 0; color: var(--ink-soft); max-width: 68ch; }
+  .outcome p + p { margin-top: 0.6rem; }
+  .outcome .bridge { color: var(--track-gold); font-weight: 600; }
+
+  .credit { margin-top: 2rem; font-size: 0.8rem; color: var(--ink-faint); text-align: center; }
+
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    .poster, .page { zoom: 0.88; box-shadow: none !important; }
+    .poster *, .page * { box-shadow: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <svg class="gold-field" aria-hidden="true" viewBox="0 0 880 260" preserveAspectRatio="xMaxYMid slice">
+      <g fill="currentColor" style="color: var(--track-gold)">
+        <circle cx="760" cy="40" r="3"/><circle cx="800" cy="60" r="2"/><circle cx="830" cy="30" r="2.5"/>
+        <circle cx="780" cy="90" r="2"/><circle cx="850" cy="80" r="3"/><circle cx="820" cy="120" r="2"/>
+        <circle cx="860" cy="140" r="2.5"/><circle cx="790" cy="150" r="2"/><circle cx="740" cy="70" r="2"/>
+        <circle cx="700" cy="110" r="1.8"/><circle cx="840" cy="180" r="2"/><circle cx="770" cy="200" r="2.4"/>
+      </g>
+    </svg>
+    <p class="eyebrow">История Казахстана · 5 класс · Раздел II</p>
+    <h1>Золотой человек и мир саков</h1>
+    <p>§20–30 — первый раздел, где степь Казахстана выходит на страницы истории соседних
+      цивилизаций: у племён появляются имена (саки, савроматы, массагеты), у событий —
+      точные даты, а у героев — лица, известные по золотым находкам в курганах.</p>
+    <p class="source">По учебнику «История Казахстана», 5 класс (Б.Е. Кумеков и др.), стр. 56–81</p>
+  </header>
+
+  <div class="section-head">
+    <h2>Что изменилось по сравнению с Разделом I</h2>
+    <p>Три новшества эпохи раннего железа задают всё остальное — они связаны причиной и следствием.</p>
+  </div>
+
+  <div class="track" data-track="gold">
+    <div class="track-label"><span class="track-dot"></span>Три новшества эпохи</div>
+    <p class="track-note">Каждое следующее звено — следствие предыдущего</p>
+    <div class="flow">
+      <div class="node">Пастбищное животноводство<br><span style="font-weight:400">овцы, козы, лошади тебенюются</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Верховая езда<br><span style="font-weight:400">быстрые перекочёвки</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Железные изделия<br><span style="font-weight:400">ковка металла</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Частная собственность на скот<br><span style="font-weight:400">богатые и бедные, знать</span></div>
+    </div>
+  </div>
+
+  <div class="track" data-track="people">
+    <div class="track-label"><span class="track-dot"></span>Кто с кем соседствовал</div>
+    <p class="track-note">Степные племена теперь встречаются с великими державами древности</p>
+    <div class="flow">
+      <div class="node">Саки<br><span style="font-weight:400">Жетысу, Ю. и Ц. Казахстан</span></div>
+      <div class="arrow">↔</div>
+      <div class="node">Персия<br><span style="font-weight:400">Кир, Дарий I</span></div>
+      <div class="arrow">↔</div>
+      <div class="node">Греция<br><span style="font-weight:400">Александр Македонский</span></div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Опорные образы раздела</h2>
+    <p>Три кургана Алтая и главная находка Жетысу — держатся в памяти лучше любого текста.</p>
+  </div>
+
+  <div class="grid-two">
+    <div class="card">
+      <h3>Курганы</h3>
+      <dl class="kurgan-grid">
+        <div class="kurgan"><dt>Шиликтинский</dt><dd>«золотой» курган, VIII в. до н.э., раскопки С.С. Черникова</dd></div>
+        <div class="kurgan"><dt>Берельский и Пазырыкский</dt><dd>«замёрзшие» курганы Алтая — сохранились дерево, ткань, мумии</dd></div>
+        <div class="kurgan"><dt>Иссыкский (Есикский)</dt><dd>«Золотой человек», найден К. Акишевым в 1970 г.</dd></div>
+        <div class="kurgan"><dt>Бесшатырский могильник</dt><dd>курганы на р. Или, диаметром до 105 м</dd></div>
+      </dl>
+    </div>
+    <div class="card">
+      <h3>Народы раздела</h3>
+      <div class="people-stack">
+        <div class="people-band">Саки <span class="tag">Жетысу, Юг и Центр</span></div>
+        <div class="people-band">Савроматы <span class="tag">Приуралье — Дон</span></div>
+        <div class="people-band">Массагеты <span class="tag">Северное Приаралье</span></div>
+        <div class="people-band">Аргиппеи <span class="tag">Алтай</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="outcome">
+    <h2>Куда это ведёт</h2>
+    <p>Погребения саков этого раздела показывают чёткую социальную структуру — вожди,
+      воины, жрецы, богатые и бедные общинники: признак <span class="bridge">зарождающейся
+      государственности</span>. Массагетский союз даёт начало новым племенам — сармат-аланам,
+      аорсам, дахам, кангюям.</p>
+      <p>С этих племён начинаются следующие разделы учебника —
+      <span class="bridge">Раздел III. Жизнь древних кочевников</span> и далее усуни, кангюи,
+      сарматы, хунну.</p>
+  </div>
+
+  <p class="credit">Инфографика по выжимке к Разделу II · EDU_5 / summaries / historyKZ</p>
+
+</div>
+
+</body>
+</html>
