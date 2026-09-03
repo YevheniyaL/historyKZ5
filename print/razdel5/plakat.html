@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Что расскажет курган</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #E6DFDA;
+    --surface: #F2ECE7;
+    --surface-2: #DFD5CC;
+    --ink: #2B231D;
+    --ink-soft: #5C5148;
+    --ink-faint: #94897E;
+    --line: #CDC0B3;
+    --track-rite: #8A3B2E;
+    --track-rite-soft: #E9CCC3;
+    --track-power: #4A5A3A;
+    --track-power-soft: #DBE1CB;
+    --shadow: 0 1px 2px rgba(43,35,29,0.06), 0 8px 24px -12px rgba(43,35,29,0.2);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1C1713;
+      --surface: #25201B; --surface-2: #2E2822;
+      --ink: #ECE4DC; --ink-soft: #BAAEA0; --ink-faint: #7C7266;
+      --line: #423A31;
+      --track-rite: #E29886; --track-rite-soft: #45312A;
+      --track-power: #A9C088; --track-power-soft: #35402A;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1C1713;
+    --surface: #25201B; --surface-2: #2E2822;
+    --ink: #ECE4DC; --ink-soft: #BAAEA0; --ink-faint: #7C7266;
+    --line: #423A31;
+    --track-rite: #E29886; --track-rite-soft: #45312A;
+    --track-power: #A9C088; --track-power-soft: #35402A;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Karla', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.5;
+  }
+  .page { max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; text-wrap: balance; margin: 0; }
+  .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+
+  .hero {
+    position: relative; padding: 2.5rem 2rem 2.75rem; border-radius: 22px;
+    background: var(--surface); border: 1px solid var(--line); overflow: hidden; box-shadow: var(--shadow);
+  }
+  .hero .eyebrow { margin-bottom: 0.9rem; }
+  .hero h1 { font-size: clamp(2.1rem, 5vw, 3rem); font-weight: 900; font-optical-sizing: auto; letter-spacing: -0.01em; max-width: 16ch; }
+  .hero p { margin: 1rem 0 0; max-width: 56ch; color: var(--ink-soft); font-size: 1.05rem; }
+  .hero .source { margin-top: 1.5rem; font-size: 0.85rem; color: var(--ink-faint); }
+  .hero .field { position: absolute; inset: 0; pointer-events: none; opacity: 0.5; }
+  :root:not([data-theme="light"]) .hero .field { opacity: 0.35; }
+  :root[data-theme="dark"] .hero .field { opacity: 0.35; }
+
+  .section-head { margin: 3.5rem 0 1.25rem; }
+  .section-head h2 { font-size: 1.5rem; font-weight: 700; }
+  .section-head p { margin: 0.4rem 0 0; color: var(--ink-soft); max-width: 60ch; }
+
+  .track { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem 1.5rem 1.6rem; box-shadow: var(--shadow); }
+  .track + .track { margin-top: 1.1rem; }
+  .track-label { display: flex; align-items: center; gap: 0.55rem; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 0.3rem; }
+  .track-dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; flex: none; }
+  .track[data-track="rite"] .track-dot { background: var(--track-rite); }
+  .track[data-track="power"] .track-dot { background: var(--track-power); }
+  .track-note { color: var(--ink-soft); font-size: 0.92rem; margin: 0 0 1.1rem; max-width: 62ch; }
+
+  .flow { display: flex; align-items: stretch; flex-wrap: wrap; gap: 0.5rem; row-gap: 1rem; }
+  .node { flex: 1 1 130px; min-width: 118px; border-radius: 12px; padding: 0.7rem 0.8rem; font-size: 0.88rem; font-weight: 600; color: var(--ink); display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.3; }
+  .track[data-track="rite"] .node { background: var(--track-rite-soft); }
+  .track[data-track="power"] .node { background: var(--track-power-soft); }
+  .arrow { flex: 0 0 auto; align-self: center; color: var(--ink-faint); font-size: 1.1rem; padding: 0 0.1rem; }
+
+  .grid-two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+  @media (max-width: 620px) { .grid-two { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; box-shadow: var(--shadow); }
+  .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+
+  .fact-grid { display: grid; grid-template-columns: 1fr; gap: 0.6rem; }
+  .fact { background: var(--surface-2); border-radius: 10px; padding: 0.65rem 0.85rem; }
+  .fact dt { font-family: 'Fraunces', serif; font-weight: 600; font-size: 0.95rem; color: var(--track-rite); }
+  .fact dd { margin: 0.2rem 0 0; font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4; }
+
+  .outcome { margin-top: 3.5rem; padding: 1.75rem 2rem; border-radius: 18px; background: var(--surface-2); border: 1px solid var(--line); }
+  .outcome h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.7rem; }
+  .outcome p { margin: 0; color: var(--ink-soft); max-width: 68ch; }
+  .outcome p + p { margin-top: 0.6rem; }
+  .outcome .bridge { color: var(--track-rite); font-weight: 600; }
+
+  .credit { margin-top: 2rem; font-size: 0.8rem; color: var(--ink-faint); text-align: center; }
+
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    .poster, .page { zoom: 0.88; box-shadow: none !important; }
+    .poster *, .page * { box-shadow: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <svg class="field" aria-hidden="true" viewBox="0 0 880 260" preserveAspectRatio="xMaxYMid slice">
+      <g fill="currentColor" style="color: var(--track-rite)">
+        <circle cx="760" cy="40" r="3"/><circle cx="800" cy="60" r="2"/><circle cx="830" cy="30" r="2.5"/>
+        <circle cx="780" cy="90" r="2"/><circle cx="850" cy="80" r="3"/><circle cx="820" cy="120" r="2"/>
+        <circle cx="860" cy="140" r="2.5"/><circle cx="790" cy="150" r="2"/><circle cx="740" cy="70" r="2"/>
+        <circle cx="700" cy="110" r="1.8"/><circle cx="840" cy="180" r="2"/><circle cx="770" cy="200" r="2.4"/>
+      </g>
+    </svg>
+    <p class="eyebrow">История Казахстана · 5 класс · Раздел V</p>
+    <h1>Что расскажет курган</h1>
+    <p>§41–44 — последнее звено цепочки «савроматы → сарматы → аланы», начатой ещё в
+      Разделе II. У сарматов нет своей письменности, но по одному только обряду
+      погребения археологи прослеживают, как в их обществе менялась власть.</p>
+    <p class="source">По учебнику «История Казахстана», 5 класс (Б.Е. Кумеков и др.), стр. 108–114</p>
+  </header>
+
+  <div class="section-head">
+    <h2>Один народ — три имени</h2>
+    <p>Сарматы — не новый народ «из ниоткуда», а продолжение уже знакомой линии.</p>
+  </div>
+
+  <div class="track" data-track="power">
+    <div class="track-label"><span class="track-dot"></span>Родственная цепочка</div>
+    <p class="track-note">Раздел II, §§29–30 → Раздел V — одна и та же линия племён</p>
+    <div class="flow">
+      <div class="node">Массагеты<br><span style="font-weight:400">Северное Приаралье</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Савроматы<br><span style="font-weight:400">Приуралье, союзники скифов</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Сарматы<br><span style="font-weight:400">разгромили скифов, II в. до н.э.</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Аланы<br><span style="font-weight:400">ведущее племя, II в. н.э.</span></div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Обряд как исторический источник</h2>
+    <p>Без единой строчки текста — только по земле — можно узнать, кто пришёл к власти и когда.</p>
+  </div>
+
+  <div class="track" data-track="rite">
+    <div class="track-label"><span class="track-dot"></span>Что меняется в погребении с приходом аланов</div>
+    <div class="flow">
+      <div class="node">Кремация (саки)<br><span style="font-weight:400">Раздел II</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Ингумация (сарматы)<br><span style="font-weight:400">курган без сожжения</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Ямы мельче, курганы ниже<br><span style="font-weight:400">приход аланов</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Ориентировка юг → север<br><span style="font-weight:400">смена божества</span></div>
+    </div>
+  </div>
+
+  <div class="grid-two">
+    <div class="card">
+      <h3>Знаменитые находки</h3>
+      <dl class="fact-grid">
+        <div class="fact"><dt>Филипповский курган</dt><dd>свыше 600 золотых предметов в тайниках</dd></div>
+        <div class="fact"><dt>Аралтобе</dt><dd>вождь похоронен «в позе всадника»</dd></div>
+        <div class="fact"><dt>Курган у с. Володарка</dt><dd>фалары с мифом о Беллерофонте — связи с Грецией</dd></div>
+      </dl>
+    </div>
+    <div class="card">
+      <h3>Общество и быт</h3>
+      <dl class="fact-grid">
+        <div class="fact"><dt>Курганы до 7 м</dt><dd>у знати, до 2 м — у рядовых общинников</dd></div>
+        <div class="fact"><dt>Деформация черепа</dt><dd>обычай знатных аланов, перенят у хунну</dd></div>
+        <div class="fact"><dt>Хозяйство</dt><dd>преимущественно овцеводство, по Страбону</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="outcome">
+    <h2>Куда это ведёт</h2>
+    <p>Ритуально разбитые зеркала в женских погребениях и «магическая» символика цветов
+      (охра, уголь, жёлтая сера) показывают: за сменой власти у сарматов стоит целая
+      система верований, а не только военная сила — те же <span class="bridge">аланы</span>
+      несут эту культуру дальше на запад в Великом переселении народов.</p>
+      <p>Параллельно в степи усиливается другая держава —
+      <span class="bridge">Раздел VI. Хунну. Гунны</span>.</p>
+  </div>
+
+  <p class="credit">Инфографика по выжимке к Разделу V · EDU_5 / summaries / historyKZ</p>
+
+</div>
+
+</body>
+</html>
