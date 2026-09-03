@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Между двух держав</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #E4DFE9;
+    --surface: #F0ECF4;
+    --surface-2: #DDD5E5;
+    --ink: #251F2C;
+    --ink-soft: #574E62;
+    --ink-faint: #8A8093;
+    --line: #C7BDD1;
+    --track-state: #5A3F82;
+    --track-state-soft: #DDD0EA;
+    --track-trade: #2E6E6B;
+    --track-trade-soft: #CFE3E1;
+    --shadow: 0 1px 2px rgba(37,31,44,0.06), 0 8px 24px -12px rgba(37,31,44,0.2);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1B1721;
+      --surface: #24202B; --surface-2: #2D2735;
+      --ink: #E9E4EE; --ink-soft: #B6ABC1; --ink-faint: #7A6F86;
+      --line: #3E3548;
+      --track-state: #B79BDD; --track-state-soft: #3B2E4E;
+      --track-trade: #7FC2BE; --track-trade-soft: #223B39;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1B1721;
+    --surface: #24202B; --surface-2: #2D2735;
+    --ink: #E9E4EE; --ink-soft: #B6ABC1; --ink-faint: #7A6F86;
+    --line: #3E3548;
+    --track-state: #B79BDD; --track-state-soft: #3B2E4E;
+    --track-trade: #7FC2BE; --track-trade-soft: #223B39;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Karla', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.5;
+  }
+  .page { max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; text-wrap: balance; margin: 0; }
+  .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+
+  .hero {
+    position: relative; padding: 2.5rem 2rem 2.75rem; border-radius: 22px;
+    background: var(--surface); border: 1px solid var(--line); overflow: hidden; box-shadow: var(--shadow);
+  }
+  .hero .eyebrow { margin-bottom: 0.9rem; }
+  .hero h1 { font-size: clamp(2.1rem, 5vw, 3rem); font-weight: 900; font-optical-sizing: auto; letter-spacing: -0.01em; max-width: 16ch; }
+  .hero p { margin: 1rem 0 0; max-width: 56ch; color: var(--ink-soft); font-size: 1.05rem; }
+  .hero .source { margin-top: 1.5rem; font-size: 0.85rem; color: var(--ink-faint); }
+  .hero .field { position: absolute; inset: 0; pointer-events: none; opacity: 0.5; }
+  :root:not([data-theme="light"]) .hero .field { opacity: 0.35; }
+  :root[data-theme="dark"] .hero .field { opacity: 0.35; }
+
+  .section-head { margin: 3.5rem 0 1.25rem; }
+  .section-head h2 { font-size: 1.5rem; font-weight: 700; }
+  .section-head p { margin: 0.4rem 0 0; color: var(--ink-soft); max-width: 60ch; }
+
+  .track { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem 1.5rem 1.6rem; box-shadow: var(--shadow); }
+  .track + .track { margin-top: 1.1rem; }
+  .track-label { display: flex; align-items: center; gap: 0.55rem; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 0.3rem; }
+  .track-dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; flex: none; }
+  .track[data-track="state"] .track-dot { background: var(--track-state); }
+  .track[data-track="trade"] .track-dot { background: var(--track-trade); }
+  .track-note { color: var(--ink-soft); font-size: 0.92rem; margin: 0 0 1.1rem; max-width: 62ch; }
+
+  .flow { display: flex; align-items: stretch; flex-wrap: wrap; gap: 0.5rem; row-gap: 1rem; }
+  .node { flex: 1 1 130px; min-width: 118px; border-radius: 12px; padding: 0.7rem 0.8rem; font-size: 0.88rem; font-weight: 600; color: var(--ink); display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.3; }
+  .track[data-track="state"] .node { background: var(--track-state-soft); }
+  .track[data-track="trade"] .node { background: var(--track-trade-soft); }
+  .arrow { flex: 0 0 auto; align-self: center; color: var(--ink-faint); font-size: 1.1rem; padding: 0 0.1rem; }
+
+  .grid-two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+  @media (max-width: 620px) { .grid-two { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; box-shadow: var(--shadow); }
+  .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+
+  .state-grid { display: grid; grid-template-columns: 1fr; gap: 0.6rem; }
+  .state-item { background: var(--surface-2); border-radius: 10px; padding: 0.65rem 0.85rem; }
+  .state-item dt { font-family: 'Fraunces', serif; font-weight: 600; font-size: 0.95rem; color: var(--track-state); }
+  .state-item dd { margin: 0.2rem 0 0; font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4; }
+
+  .between-stack { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+  .between-power { border-radius: 10px; padding: 0.6rem 1rem; font-size: 0.92rem; font-weight: 700; background: var(--track-trade-soft); color: var(--ink); width: 100%; text-align: center; }
+  .between-mid { font-size: 0.82rem; color: var(--ink-faint); font-weight: 600; }
+
+  .outcome { margin-top: 3.5rem; padding: 1.75rem 2rem; border-radius: 18px; background: var(--surface-2); border: 1px solid var(--line); }
+  .outcome h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.7rem; }
+  .outcome p { margin: 0; color: var(--ink-soft); max-width: 68ch; }
+  .outcome p + p { margin-top: 0.6rem; }
+  .outcome .bridge { color: var(--track-state); font-weight: 600; }
+
+  .credit { margin-top: 2rem; font-size: 0.8rem; color: var(--ink-faint); text-align: center; }
+
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    .poster, .page { zoom: 0.88; box-shadow: none !important; }
+    .poster *, .page * { box-shadow: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <svg class="field" aria-hidden="true" viewBox="0 0 880 260" preserveAspectRatio="xMaxYMid slice">
+      <g fill="currentColor" style="color: var(--track-state)">
+        <circle cx="760" cy="40" r="3"/><circle cx="800" cy="60" r="2"/><circle cx="830" cy="30" r="2.5"/>
+        <circle cx="780" cy="90" r="2"/><circle cx="850" cy="80" r="3"/><circle cx="820" cy="120" r="2"/>
+        <circle cx="860" cy="140" r="2.5"/><circle cx="790" cy="150" r="2"/><circle cx="740" cy="70" r="2"/>
+        <circle cx="700" cy="110" r="1.8"/><circle cx="840" cy="180" r="2"/><circle cx="770" cy="200" r="2.4"/>
+      </g>
+    </svg>
+    <p class="eyebrow">История Казахстана · 5 класс · Раздел IV</p>
+    <h1>Между двух держав</h1>
+    <p>§36–40 — следующий шаг после саков: на месте распавшихся племенных союзов
+      возникают усуни и кангюи — уже настоящие государства с титулами, чиновниками,
+      столицами и даже библиотекой. Оба лавируют между двумя сверхдержавами эпохи —
+      ханьским Китаем и державой хунну.</p>
+    <p class="source">По учебнику «История Казахстана», 5 класс (Б.Е. Кумеков и др.), стр. 98–107</p>
+  </header>
+
+  <div class="section-head">
+    <h2>Признаки настоящего государства</h2>
+    <p>В отличие от Раздела II–III, здесь впервые появляются все атрибуты государственности сразу.</p>
+  </div>
+
+  <div class="track" data-track="state">
+    <div class="track-label"><span class="track-dot"></span>От союза племён к государству</div>
+    <p class="track-note">Каждый следующий элемент — то, чего не было у более ранних сакских союзов</p>
+    <div class="flow">
+      <div class="node">Наследственный титул<br><span style="font-weight:400">гуньмо у усуней</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Чиновничий аппарат<br><span style="font-weight:400">8 категорий у усуней</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Столица-город<br><span style="font-weight:400">Чегучен, Тарбан</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Библиотека<br><span style="font-weight:400">в Тарбане у кангюев</span></div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Малое государство между двух держав</h2>
+    <p>И усуни, и кангюи используют одну и ту же стратегию выживания — сюжет, который повторится в истории Казахстана ещё не раз.</p>
+  </div>
+
+  <div class="track" data-track="trade">
+    <div class="track-label"><span class="track-dot"></span>Дипломатия лавирования</div>
+    <div class="between-stack">
+      <div class="between-power">Ханьский Китай</div>
+      <div class="between-mid">↕ союз то с одним, то с другим ↕</div>
+      <div class="between-power">Усуни и кангюи</div>
+      <div class="between-mid">↕</div>
+      <div class="between-power">Держава хунну</div>
+    </div>
+  </div>
+
+  <div class="grid-two">
+    <div class="card">
+      <h3>Усуни</h3>
+      <dl class="state-grid">
+        <div class="state-item"><dt>Территория</dt><dd>Илийская долина, столица Чегучен на Иссык-Куле</dd></div>
+        <div class="state-item"><dt>Хозяйство</dt><dd>скотоводство + земледелие, до 500 скакунов у знати</dd></div>
+        <div class="state-item"><dt>Находка</dt><dd>Каргалинская диадема — вершина ювелирного дела</dd></div>
+      </dl>
+    </div>
+    <div class="card">
+      <h3>Кангюи</h3>
+      <dl class="state-grid">
+        <div class="state-item"><dt>Территория</dt><dd>Отрарско-Каратауский оазис + низовья Сырдарьи</dd></div>
+        <div class="state-item"><dt>Столица</dt><dd>Тарбан — будущий средневековый Отрар</dd></div>
+        <div class="state-item"><dt>Экономика</dt><dd>посредническая торговля на Шёлковом пути</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="outcome">
+    <h2>Куда это ведёт</h2>
+    <p>Кангюи-земледельцы (отрарско-каратауская культура) и кангюи-скотоводы
+      (джетыасарская культура) — <span class="bridge">две ветви одного народа</span>,
+      показывающие, что оседлость и кочевье в этот период уже не противоречат друг
+      другу, а сосуществуют внутри одного государства.</p>
+      <p>Похожая судьба ждёт следующие племена региона —
+      <span class="bridge">Раздел V. Сарматы</span> и далее хунну.</p>
+  </div>
+
+  <p class="credit">Инфографика по выжимке к Разделу IV · EDU_5 / summaries / historyKZ</p>
+
+</div>
+
+</body>
+</html>
