@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Эффект домино</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #E3E1DC;
+    --surface: #EFEDE6;
+    --surface-2: #DCD9CE;
+    --ink: #23221C;
+    --ink-soft: #55524A;
+    --ink-faint: #8A867A;
+    --line: #C6C1B2;
+    --track-asia: #6B3E2E;
+    --track-asia-soft: #E6D0C4;
+    --track-europe: #2E5266;
+    --track-europe-soft: #CBDBE3;
+    --shadow: 0 1px 2px rgba(35,34,28,0.06), 0 8px 24px -12px rgba(35,34,28,0.2);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #18170F;
+      --surface: #211F17; --surface-2: #2A2820;
+      --ink: #E9E6DC; --ink-soft: #B5B0A0; --ink-faint: #797467;
+      --line: #3F3B2E;
+      --track-asia: #DE9D82; --track-asia-soft: #47332A;
+      --track-europe: #8FBCD1; --track-europe-soft: #253B45;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #18170F;
+    --surface: #211F17; --surface-2: #2A2820;
+    --ink: #E9E6DC; --ink-soft: #B5B0A0; --ink-faint: #797467;
+    --line: #3F3B2E;
+    --track-asia: #DE9D82; --track-asia-soft: #47332A;
+    --track-europe: #8FBCD1; --track-europe-soft: #253B45;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Karla', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.5;
+  }
+  .page { max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; text-wrap: balance; margin: 0; }
+  .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+
+  .hero {
+    position: relative; padding: 2.5rem 2rem 2.75rem; border-radius: 22px;
+    background: var(--surface); border: 1px solid var(--line); overflow: hidden; box-shadow: var(--shadow);
+  }
+  .hero .eyebrow { margin-bottom: 0.9rem; }
+  .hero h1 { font-size: clamp(2.1rem, 5vw, 3rem); font-weight: 900; font-optical-sizing: auto; letter-spacing: -0.01em; max-width: 16ch; }
+  .hero p { margin: 1rem 0 0; max-width: 56ch; color: var(--ink-soft); font-size: 1.05rem; }
+  .hero .source { margin-top: 1.5rem; font-size: 0.85rem; color: var(--ink-faint); }
+  .hero .field { position: absolute; inset: 0; pointer-events: none; opacity: 0.5; }
+  :root:not([data-theme="light"]) .hero .field { opacity: 0.35; }
+  :root[data-theme="dark"] .hero .field { opacity: 0.35; }
+
+  .section-head { margin: 3.5rem 0 1.25rem; }
+  .section-head h2 { font-size: 1.5rem; font-weight: 700; }
+  .section-head p { margin: 0.4rem 0 0; color: var(--ink-soft); max-width: 60ch; }
+
+  .track { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem 1.5rem 1.6rem; box-shadow: var(--shadow); }
+  .track + .track { margin-top: 1.1rem; }
+  .track-label { display: flex; align-items: center; gap: 0.55rem; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 0.3rem; }
+  .track-dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; flex: none; }
+  .track[data-track="asia"] .track-dot { background: var(--track-asia); }
+  .track[data-track="europe"] .track-dot { background: var(--track-europe); }
+  .track-note { color: var(--ink-soft); font-size: 0.92rem; margin: 0 0 1.1rem; max-width: 62ch; }
+
+  .flow { display: flex; align-items: stretch; flex-wrap: wrap; gap: 0.5rem; row-gap: 1rem; }
+  .node { flex: 1 1 130px; min-width: 118px; border-radius: 12px; padding: 0.7rem 0.8rem; font-size: 0.88rem; font-weight: 600; color: var(--ink); display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.3; }
+  .track[data-track="asia"] .node { background: var(--track-asia-soft); }
+  .track[data-track="europe"] .node { background: var(--track-europe-soft); }
+  .arrow { flex: 0 0 auto; align-self: center; color: var(--ink-faint); font-size: 1.1rem; padding: 0 0.1rem; }
+
+  .grid-two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+  @media (max-width: 620px) { .grid-two { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; box-shadow: var(--shadow); }
+  .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+
+  .fact-grid { display: grid; grid-template-columns: 1fr; gap: 0.6rem; }
+  .fact { background: var(--surface-2); border-radius: 10px; padding: 0.65rem 0.85rem; }
+  .fact dt { font-family: 'Fraunces', serif; font-weight: 600; font-size: 0.95rem; color: var(--track-asia); }
+  .fact dd { margin: 0.2rem 0 0; font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4; }
+
+  .outcome { margin-top: 3.5rem; padding: 1.75rem 2rem; border-radius: 18px; background: var(--surface-2); border: 1px solid var(--line); }
+  .outcome h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.7rem; }
+  .outcome p { margin: 0; color: var(--ink-soft); max-width: 68ch; }
+  .outcome p + p { margin-top: 0.6rem; }
+  .outcome .bridge { color: var(--track-europe); font-weight: 600; }
+
+  .credit { margin-top: 2rem; font-size: 0.8rem; color: var(--ink-faint); text-align: center; }
+
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    .poster, .page { zoom: 0.88; box-shadow: none !important; }
+    .poster *, .page * { box-shadow: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <svg class="field" aria-hidden="true" viewBox="0 0 880 260" preserveAspectRatio="xMaxYMid slice">
+      <g fill="currentColor" style="color: var(--track-asia)">
+        <circle cx="760" cy="40" r="3"/><circle cx="800" cy="60" r="2"/><circle cx="830" cy="30" r="2.5"/>
+        <circle cx="780" cy="90" r="2"/><circle cx="850" cy="80" r="3"/><circle cx="820" cy="120" r="2"/>
+        <circle cx="860" cy="140" r="2.5"/><circle cx="790" cy="150" r="2"/><circle cx="740" cy="70" r="2"/>
+        <circle cx="700" cy="110" r="1.8"/><circle cx="840" cy="180" r="2"/><circle cx="770" cy="200" r="2.4"/>
+      </g>
+    </svg>
+    <p class="eyebrow">История Казахстана · 5 класс · Раздел VI</p>
+    <h1>Эффект домино</h1>
+    <p>§45–49 показывает, как одно решение шаньюя Моде в степях Монголии через несколько
+      веков и посредников докатывается до падения Западной Римской империи. Хунну (Азия)
+      и гунны (Европа) — разные, но связанные народы: не путать одно с другим.</p>
+    <p class="source">По учебнику «История Казахстана», 5 класс (Б.Е. Кумеков и др.), стр. 115–126</p>
+  </header>
+
+  <div class="section-head">
+    <h2>Государство хунну (Азия)</h2>
+    <p>Первый народ в учебнике с настоящей письменной государственной традицией — договоры, титулатура, чёткая структура.</p>
+  </div>
+
+  <div class="track" data-track="asia">
+    <div class="track-label"><span class="track-dot"></span>От реформ Моде до распада</div>
+    <div class="flow">
+      <div class="node">Шаньюй Моде<br><span style="font-weight:400">реформы, 209 г. до н.э.</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Разгром юэчжи<br><span style="font-weight:400">165 г. до н.э.</span></div>
+      <div class="arrow">→</div>
+      <div class="node">«Договор о мире и родстве»<br><span style="font-weight:400">дань от Китая</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Распад на юг/север<br><span style="font-weight:400">52 г. до н.э. → 155 г. н.э.</span></div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Цепная реакция на запад</h2>
+    <p>Изгнание одного народа запускает миграцию, которая через века меняет карту другого континента.</p>
+  </div>
+
+  <div class="track" data-track="europe">
+    <div class="track-label"><span class="track-dot"></span>Великое переселение народов</div>
+    <div class="flow">
+      <div class="node">Хунну изгоняют юэчжи<br><span style="font-weight:400">Азия, III–II вв. до н.э.</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Гунны разбивают готов<br><span style="font-weight:400">375 г. н.э., Крым</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Готы бегут за Дунай<br><span style="font-weight:400">в Римскую империю</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Крах Зап. Рима<br><span style="font-weight:400">ускорен гуннами</span></div>
+    </div>
+  </div>
+
+  <div class="grid-two">
+    <div class="card">
+      <h3>Хозяйство и власть хунну</h3>
+      <dl class="fact-grid">
+        <div class="fact"><dt>Иволгинское городище</dt><dd>доказало: не только скотоводство, но и земледелие</dd></div>
+        <div class="fact"><dt>Удельно-иерархическая система</dt><dd>власть — от старшего брата к младшему</dd></div>
+        <div class="fact"><dt>Шаньюй = «сын Неба»</dt><dd>светская власть + культ Тенгри</dd></div>
+      </dl>
+    </div>
+    <div class="card">
+      <h3>Аттила и гунны</h3>
+      <dl class="fact-grid">
+        <div class="fact"><dt>Правил с 445 г.</dt><dd>войны с Восточной Римской империей</dd></div>
+        <div class="fact"><dt>451 г. — Каталаунская битва</dt><dd>единственное поражение Аттилы</dd></div>
+        <div class="fact"><dt>452 г. — поход на Рим</dt><dd>город не взят, получен выкуп</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="outcome">
+    <h2>Куда это ведёт</h2>
+    <p>Гунны изменили этническую карту Европы и оставили след в этногенезе поволжских
+      народов и венгров («хунгары») — а часть северных хунну осталась в
+      <span class="bridge">Западном Казахстане</span>, объединившись с аланами из
+      Раздела V.</p>
+      <p>Весь курс подводит итог в <span class="bridge">Разделе VII. Обзор древней
+      истории Казахстана</span>.</p>
+  </div>
+
+  <p class="credit">Инфографика по выжимке к Разделу VI · EDU_5 / summaries / historyKZ</p>
+
+</div>
+
+</body>
+</html>
