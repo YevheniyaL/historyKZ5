@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Степь как государство</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #E2E4DE;
+    --surface: #EEF0E8;
+    --surface-2: #DCE0D3;
+    --ink: #21261F;
+    --ink-soft: #52584D;
+    --ink-faint: #868C7D;
+    --line: #C4CABB;
+    --track-econ: #3B6659;
+    --track-econ-soft: #CFE1D9;
+    --track-society: #6E5B2A;
+    --track-society-soft: #E3D7B8;
+    --track-cosmos: #3B4E7A;
+    --track-cosmos-soft: #CFD6E8;
+    --shadow: 0 1px 2px rgba(33,38,31,0.06), 0 8px 24px -12px rgba(33,38,31,0.2);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171A15;
+      --surface: #21251E; --surface-2: #2A2F24;
+      --ink: #E6E9DF; --ink-soft: #B2B8A7; --ink-faint: #767C6C;
+      --line: #3A4033;
+      --track-econ: #8FC4B4; --track-econ-soft: #263B33;
+      --track-society: #D2BE7E; --track-society-soft: #3E3722;
+      --track-cosmos: #96A8DA; --track-cosmos-soft: #2A3350;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171A15;
+    --surface: #21251E; --surface-2: #2A2F24;
+    --ink: #E6E9DF; --ink-soft: #B2B8A7; --ink-faint: #767C6C;
+    --line: #3A4033;
+    --track-econ: #8FC4B4; --track-econ-soft: #263B33;
+    --track-society: #D2BE7E; --track-society-soft: #3E3722;
+    --track-cosmos: #96A8DA; --track-cosmos-soft: #2A3350;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Karla', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.5;
+  }
+  .page { max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; text-wrap: balance; margin: 0; }
+  .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+
+  .hero {
+    position: relative; padding: 2.5rem 2rem 2.75rem; border-radius: 22px;
+    background: var(--surface); border: 1px solid var(--line); overflow: hidden; box-shadow: var(--shadow);
+  }
+  .hero .eyebrow { margin-bottom: 0.9rem; }
+  .hero h1 { font-size: clamp(2.1rem, 5vw, 3rem); font-weight: 900; font-optical-sizing: auto; letter-spacing: -0.01em; max-width: 16ch; }
+  .hero p { margin: 1rem 0 0; max-width: 56ch; color: var(--ink-soft); font-size: 1.05rem; }
+  .hero .source { margin-top: 1.5rem; font-size: 0.85rem; color: var(--ink-faint); }
+  .hero .steppe-field { position: absolute; inset: 0; pointer-events: none; opacity: 0.5; }
+  :root:not([data-theme="light"]) .hero .steppe-field { opacity: 0.35; }
+  :root[data-theme="dark"] .hero .steppe-field { opacity: 0.35; }
+
+  .section-head { margin: 3.5rem 0 1.25rem; }
+  .section-head h2 { font-size: 1.5rem; font-weight: 700; }
+  .section-head p { margin: 0.4rem 0 0; color: var(--ink-soft); max-width: 60ch; }
+
+  .track { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem 1.5rem 1.6rem; box-shadow: var(--shadow); }
+  .track + .track { margin-top: 1.1rem; }
+  .track-label { display: flex; align-items: center; gap: 0.55rem; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 0.3rem; }
+  .track-dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; flex: none; }
+  .track[data-track="econ"] .track-dot { background: var(--track-econ); }
+  .track[data-track="society"] .track-dot { background: var(--track-society); }
+  .track-note { color: var(--ink-soft); font-size: 0.92rem; margin: 0 0 1.1rem; max-width: 62ch; }
+
+  .flow { display: flex; align-items: stretch; flex-wrap: wrap; gap: 0.5rem; row-gap: 1rem; }
+  .node { flex: 1 1 130px; min-width: 118px; border-radius: 12px; padding: 0.7rem 0.8rem; font-size: 0.88rem; font-weight: 600; color: var(--ink); display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.3; }
+  .track[data-track="econ"] .node { background: var(--track-econ-soft); }
+  .track[data-track="society"] .node { background: var(--track-society-soft); }
+  .arrow { flex: 0 0 auto; align-self: center; color: var(--ink-faint); font-size: 1.1rem; padding: 0 0.1rem; }
+
+  .grid-two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+  @media (max-width: 620px) { .grid-two { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; box-shadow: var(--shadow); }
+  .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+
+  .cosmos-stack { display: flex; flex-direction: column; gap: 0.5rem; }
+  .cosmos-band { border-radius: 10px; padding: 0.65rem 0.9rem; font-size: 0.9rem; font-weight: 600; background: var(--track-cosmos-soft); color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+  .cosmos-band .tag { font-weight: 500; font-size: 0.76rem; color: var(--ink-faint); }
+
+  .estate-grid { display: grid; grid-template-columns: 1fr; gap: 0.6rem; }
+  .estate { background: var(--surface-2); border-radius: 10px; padding: 0.65rem 0.85rem; }
+  .estate dt { font-family: 'Fraunces', serif; font-weight: 600; font-size: 0.95rem; color: var(--track-society); }
+  .estate dd { margin: 0.2rem 0 0; font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4; }
+
+  .outcome { margin-top: 3.5rem; padding: 1.75rem 2rem; border-radius: 18px; background: var(--surface-2); border: 1px solid var(--line); }
+  .outcome h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.7rem; }
+  .outcome p { margin: 0; color: var(--ink-soft); max-width: 68ch; }
+  .outcome p + p { margin-top: 0.6rem; }
+  .outcome .bridge { color: var(--track-econ); font-weight: 600; }
+
+  .credit { margin-top: 2rem; font-size: 0.8rem; color: var(--ink-faint); text-align: center; }
+
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    .poster, .page { zoom: 0.88; box-shadow: none !important; }
+    .poster *, .page * { box-shadow: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <svg class="steppe-field" aria-hidden="true" viewBox="0 0 880 260" preserveAspectRatio="xMaxYMid slice">
+      <g fill="currentColor" style="color: var(--track-econ)">
+        <circle cx="760" cy="40" r="3"/><circle cx="800" cy="60" r="2"/><circle cx="830" cy="30" r="2.5"/>
+        <circle cx="780" cy="90" r="2"/><circle cx="850" cy="80" r="3"/><circle cx="820" cy="120" r="2"/>
+        <circle cx="860" cy="140" r="2.5"/><circle cx="790" cy="150" r="2"/><circle cx="740" cy="70" r="2"/>
+        <circle cx="700" cy="110" r="1.8"/><circle cx="840" cy="180" r="2"/><circle cx="770" cy="200" r="2.4"/>
+      </g>
+    </svg>
+    <p class="eyebrow">История Казахстана · 5 класс · Раздел III</p>
+    <h1>Степь как государство</h1>
+    <p>§31–35 отвечает не «что было у саков», а «почему у них возникли признаки
+      государства»: как был устроен выпас скота, откуда взялось богатство, как работала
+      степная торговля и во что верили кочевники, глядя на три яруса своего мира.</p>
+    <p class="source">По учебнику «История Казахстана», 5 класс (Б.Е. Кумеков и др.), стр. 82–97</p>
+  </header>
+
+  <div class="section-head">
+    <h2>От пастбища до власти</h2>
+    <p>Хозяйственная необходимость напрямую превращается в политическую власть — вот
+      главный механизм раздела.</p>
+  </div>
+
+  <div class="track" data-track="econ">
+    <div class="track-label"><span class="track-dot"></span>Хозяйство и власть</div>
+    <p class="track-note">Три уровня управления пастбищами — от рода до отдельной семьи</p>
+    <div class="flow">
+      <div class="node">Вожди родов и племён<br><span style="font-weight:400">делят территории весной</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Старейшины общин<br><span style="font-weight:400">управляют маршрутами</span></div>
+      <div class="arrow">→</div>
+      <div class="node">2–3 семьи<br><span style="font-weight:400">принцип первозахвата</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Центральная власть<br><span style="font-weight:400">признак государства</span></div>
+    </div>
+  </div>
+
+  <div class="track" data-track="econ">
+    <div class="track-label"><span class="track-dot"></span>Степной путь → Шёлковый путь</div>
+    <p class="track-note">Обмен между земледельцами и скотоводами вырастает в международную торговлю</p>
+    <div class="flow">
+      <div class="node">Обмен продуктами труда<br><span style="font-weight:400">земледельцы ↔ скотоводы</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Степной путь<br><span style="font-weight:400">Хуанхэ → Алтай → Причерноморье</span></div>
+      <div class="arrow">→</div>
+      <div class="node">Великий Шёлковый путь<br><span style="font-weight:400">оформился в II в. до н.э.</span></div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Общество и космос</h2>
+    <p>Земное устройство трёх сословий отражалось в устройстве всей Вселенной саков.</p>
+  </div>
+
+  <div class="grid-two">
+    <div class="card">
+      <h3>Три сословия (по легенде)</h3>
+      <dl class="estate-grid">
+        <div class="estate"><dt>Воины «ратайштар»</dt><dd>«стоящие на колеснице»; красный цвет</dd></div>
+        <div class="estate"><dt>Жрецы</dt><dd>белый цвет; вождь совмещал роль верховного жреца</dd></div>
+        <div class="estate"><dt>Саки-общинники «восьминогие»</dt><dd>жёлтый/синий; по двум волам для плуга</dd></div>
+      </dl>
+    </div>
+    <div class="card">
+      <h3>Три яруса мира</h3>
+      <div class="cosmos-stack">
+        <div class="cosmos-band">Небо <span class="tag">верх — крылатые кони</span></div>
+        <div class="cosmos-band">Земля <span class="tag">середина — конь</span></div>
+        <div class="cosmos-band">Подземный мир <span class="tag">низ — козёл</span></div>
+        <div class="cosmos-band">Митра <span class="tag">верховное божество, солнце и конь</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="outcome">
+    <h2>Куда это ведёт</h2>
+    <p>Головной убор «Золотого человека» (Раздел II) — не просто украшение, а
+      <span class="bridge">модель этого космоса</span>: золотые горы и деревья — небо,
+      земные звери — подземный мир, четыре стрелы — четыре стороны света. Так религия и
+      общественный строй раздела связывают степь VII–III вв. до н.э. в единую картину.</p>
+      <p>С усилением связей со Степным и Шёлковым путями степные племена продолжают
+      историю в <span class="bridge">Разделе IV. Усуни и кангюи</span>.</p>
+  </div>
+
+  <p class="credit">Инфографика по выжимке к Разделу III · EDU_5 / summaries / historyKZ</p>
+
+</div>
+
+</body>
+</html>
