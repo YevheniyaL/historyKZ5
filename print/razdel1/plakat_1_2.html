@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>§1.2 Стоянки эпохи камня — плакат-схема</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --paper: #FFFDF8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74; --line: #D8CBA9;
+    --c1: #8A6A4B; --c1-soft: #EFE4D2;   /* начало */
+    --c2: #B0522E; --c2-soft: #F6E0D3;   /* археологи */
+    --c3: #7A4E9A; --c3-soft: #ECE2F2;   /* возраст */
+    --c4: #3B6E8F; --c4-soft: #DCEAF3;   /* ранний палеолит */
+    --c5: #4E7D3A; --c5-soft: #E1ECD7;   /* поздний палеолит */
+    --c6: #6B6456; --c6-soft: #ECE8DE;   /* слова, вопросы */
+    --hl: #FFE9A8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --paper: #2A251C;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+      --c1: #C9A87E; --c1-soft: #3B3222; --c2: #E08F6B; --c2-soft: #452F24;
+      --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
+      --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
+      --hl: #5C5020;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --paper: #2A251C;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+    --c1: #C9A87E; --c1-soft: #3B3222; --c2: #E08F6B; --c2-soft: #452F24;
+    --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
+    --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
+    --hl: #5C5020;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.33; }
+  .wrap { padding-block: 1.5rem 3rem; padding-inline: 1rem; }
+  .sheet { max-width: 800px; margin: 0 auto 2rem; background: var(--paper); border-radius: 14px; padding: 1.4rem 1.5rem; box-shadow: 0 8px 24px -12px rgba(46,42,34,0.25); }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; margin: 0; text-wrap: balance; }
+
+  /* шапка */
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin: 0; }
+  h1 { font-size: 1.6rem; font-weight: 900; line-height: 1.1; margin: 0.15rem 0 0.1rem; }
+  .sheet-tag { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); border-radius: 999px; padding: 0.15rem 0.7rem; white-space: nowrap; }
+  .rq { font-size: 0.92rem; margin: 0.25rem 0 0; }
+  .rq b { background: var(--hl); border-radius: 4px; padding: 0 0.25rem; }
+  .intro { font-size: 0.9rem; color: var(--ink-soft); margin: 0.2rem 0 0; }
+
+  .words { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.45rem; margin-top: 0.6rem; }
+  .word { background: var(--c6-soft); border-radius: 10px; padding: 0.4rem 0.55rem; font-size: 0.8rem; }
+  .word b { display: block; font-size: 0.95rem; }
+
+  /* блоки */
+  .blk { border-radius: 12px; padding: 0.55rem 0.8rem 0.65rem; margin-top: 0.6rem; background: var(--soft); }
+  .blk h2 { font-size: 1.05rem; color: var(--c); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.45rem; }
+  .num { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--c); color: var(--paper); font-family: 'Karla', sans-serif; font-size: 0.82rem; font-weight: 700; flex: none; }
+  .b1 { --c: var(--c1); --soft: var(--c1-soft); }
+  .b2 { --c: var(--c2); --soft: var(--c2-soft); }
+  .b3 { --c: var(--c3); --soft: var(--c3-soft); }
+  .b4 { --c: var(--c4); --soft: var(--c4-soft); }
+  .b5 { --c: var(--c5); --soft: var(--c5-soft); }
+  .b6 { --c: var(--c6); --soft: var(--c6-soft); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .pair .blk { margin-top: 0.6rem; }
+
+  /* ① начало */
+  .start { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
+  .big-year { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.6rem; color: var(--c1); line-height: 1; }
+  .start p { margin: 0; font-size: 0.92rem; flex: 1 1 300px; }
+  .start small { display: block; color: var(--ink-soft); font-size: 0.78rem; margin-top: 0.1rem; }
+
+  /* ② археологи */
+  .people { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; }
+  .person { background: var(--paper); border-radius: 10px; padding: 0.45rem 0.65rem 0.5rem; border-left: 5px solid var(--c2); }
+  .person h3 { font-size: 1rem; color: var(--ink); }
+  .person h3 small { font-family: 'Karla', sans-serif; font-weight: 400; font-size: 0.78rem; color: var(--ink-soft); }
+  .person .who { font-size: 0.8rem; color: var(--ink-soft); margin: 0.05rem 0 0.25rem; }
+  .row { display: grid; grid-template-columns: 1.3rem 1fr; font-size: 0.86rem; margin-top: 0.12rem; }
+  .row .ico { font-size: 0.85rem; }
+  .tag { display: inline-block; background: var(--c2-soft); border-radius: 999px; padding: 0 0.45rem; font-size: 0.78rem; font-weight: 700; }
+  .more { font-size: 0.76rem; color: var(--ink-soft); margin: 0.4rem 0 0; }
+
+  /* ③ методы */
+  .methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; }
+  .method { background: var(--paper); border-radius: 9px; padding: 0.4rem 0.55rem; font-size: 0.84rem; }
+  .method b { display: block; font-size: 0.93rem; color: var(--c3); }
+  .hint { font-size: 0.78rem; color: var(--ink-soft); margin: 0.4rem 0 0; }
+
+  /* ④ ⑤ палеолит */
+  .when { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.05rem; color: var(--c); }
+  .chainv { list-style: none; margin: 0.3rem 0 0; padding: 0; }
+  .chainv li { background: var(--paper); border-radius: 8px; padding: 0.25rem 0.55rem; font-size: 0.86rem; text-align: center; }
+  .chainv li b { font-size: 0.9rem; }
+  .chainv li.to { background: none; padding: 0; line-height: 0.95; font-size: 0.8rem; color: var(--c); font-weight: 700; }
+  .line { font-size: 0.86rem; margin: 0.35rem 0 0; }
+
+  /* ⑥ ⑦ */
+  .qs { margin: 0; padding-left: 1.15rem; font-size: 0.88rem; }
+  .qs li { margin-bottom: 0.15rem; }
+  .fact { font-size: 0.88rem; margin: 0; }
+
+  .legend { font-size: 0.72rem; color: var(--ink-faint); margin: 0.5rem 0 0; }
+
+  .lb { margin-left: auto; font-family: 'Karla', sans-serif; font-size: 0.72rem; font-weight: 700;
+        color: var(--c); background: var(--paper); border-radius: 999px; padding: 0 0.45rem; white-space: nowrap; }
+  .word { position: relative; }
+  .word .lb { position: absolute; right: 0.4rem; top: 0.3rem; background: none; color: var(--ink-faint); padding: 0; }
+
+  /* пропуски */
+  .gap { display: inline-block; min-width: 5.5em; border-bottom: 1.5px solid var(--ink-soft); height: 1.1em; vertical-align: -0.2em; }
+  .gap.s { min-width: 3.2em; } .gap.l { min-width: 8.5em; } .gap.xl { min-width: 12em; }
+  .gap.full { display: block; min-width: 0; width: 100%; height: 1.45em; }
+  .fill .word { line-height: 1.5; }
+  .fill .row, .fill .method, .fill .line, .fill .fact, .fill .start p { line-height: 1.85; }
+  .fill .chainv li { line-height: 1.7; }
+  .fill .person .who { line-height: 1.9; margin-bottom: 0; }
+
+  @media (max-width: 640px) {
+    .words, .people, .methods, .pair { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    @page { size: A4; margin: 8mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-shadow: none !important; }
+    .wrap { padding: 0; }
+    .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; background: #fff; break-after: page; zoom: 0.88; }
+    .blk, .pair .blk { margin-top: 0.45rem; }
+    .words { margin-top: 0.45rem; }
+    .sheet:last-child { break-after: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ================= ЛИСТ 1: учим ================= -->
+<section class="sheet">
+  <div class="top">
+    <div>
+      <p class="eyebrow">История Казахстана 5 · НИШ · Раздел 1 · уроки 1–2 · стр. 16–19</p>
+      <h1>§1.2 Стоянки эпохи камня в Казахстане</h1>
+    </div>
+    <span class="sheet-tag">учим</span>
+  </div>
+  <p class="rq">Исследовательский вопрос: <b>какие находки эпохи камня обнаружили археологи?</b></p>
+
+  <div class="words">
+    <div class="word"><span class="lb">ур. 1</span><b>Артефакт</b>любой искусственно созданный объект, продукт деятельности человека</div>
+    <div class="word"><span class="lb">ур. 1</span><b>Стоянка</b>поселение древних людей: в пещерах и на открытых местах, чаще у рек и водоёмов</div>
+    <div class="word"><span class="lb">ур. 2</span><b>Нуклеус</b>кусок камня, от которого откалывали отщепы или пластины для каменных орудий</div>
+    <div class="word"><span class="lb">ур. 2</span><b>Техника оббивки</b>гальку оббивали друг о друга, чтобы получить орудия с острыми краями</div>
+  </div>
+
+  <div class="blk b1">
+    <h2><span class="num">1</span>С чего началось<span class="lb">ур. 1</span></h2>
+    <div class="start">
+      <span class="big-year">1946</span>
+      <p>Создана <b>Академия наук Казахской ССР</b> — начались целенаправленные исследования каменного века.
+        <small>Археологи: Х. Алпысбаев, А. Медоев, Ж. Таймагамбетов, А. Астафьев, а также О. Артюхова, В. Зайберт, В. Волошин, В. Мерц и др.</small></p>
+    </div>
+  </div>
+
+  <div class="blk b2">
+    <h2><span class="num">2</span>Кто что нашёл<span class="lb">ур. 1–2</span></h2>
+    <div class="people">
+      <div class="person">
+        <h3>Х. Алпысбаев <small>(1928–1978)</small></h3>
+        <p class="who">первый учёный, исследовавший палеолит Казахстана; один из первых казахских археологов</p>
+        <div class="row"><span class="ico">📍</span><span>горы <b>Каратау</b>: <b>Борыказган, Танирказган</b> · 50–60-е годы</span></div>
+        <div class="row"><span class="ico">⏳</span><span>множество орудий → <span class="tag">ранний палеолит · ~1 млн лет назад</span></span></div>
+      </div>
+      <div class="person">
+        <h3>А. Медоев</h3>
+        <p class="who">памятники раннего палеолита в Западном, Восточном и Центральном Казахстане</p>
+        <div class="row"><span class="ico">📍</span><span><b>Шакпаката</b> (Мангыстау)</span></div>
+        <div class="row"><span class="ico">📍</span><span><b>1963</b> · Северное Прибалхашье: <b>Семизбугы, Хантау, Чингиз</b></span></div>
+        <div class="row"><span class="ico">🔎</span><span>нуклеусы, скребла, остроконечники, ножевидные пластины, скребки, отщепы, кости животных</span></div>
+      </div>
+      <div class="person">
+        <h3>Ж. Таймагамбетов</h3>
+        <div class="row"><span class="ico">📍</span><span><b>Майбулак</b>, <b>стоянка им. Ч. Валиханова</b></span></div>
+        <div class="row"><span class="ico">⏳</span><span>там получены <b>радиоуглеродные даты</b></span></div>
+      </div>
+      <div class="person">
+        <h3>А. Астафьев</h3>
+        <div class="row"><span class="ico">📍</span><span><b>Мангыстау</b></span></div>
+        <div class="row"><span class="ico">🔎</span><span>каменные пластины, скребки, проколки, ножи, свёрла</span></div>
+        <div class="row"><span class="ico">⏳</span><span><span class="tag">мезолит и неолит</span> — конец каменного века</span></div>
+      </div>
+    </div>
+    <p class="more">Ещё стоянки палеолита: Арыстанды, Кызылтау, Кошкорган, Батпак, Шульбинка, Шоктас, Ешкитау. <i>✏️ Все учить не нужно — главные выделены выше.</i></p>
+  </div>
+
+  <div class="blk b3">
+    <h2><span class="num">3</span>Как узнают возраст находки<span class="lb">ур. 1</span></h2>
+    <div class="methods">
+      <div class="method"><b>По культурным слоям</b>чем глубже слой, тем находка древнее</div>
+      <div class="method"><b>Радиоуглеродный</b>новый метод: возраст артефактов, сделанных 50 тыс. лет назад</div>
+      <div class="method"><b>Палеонтологический</b>по останкам древних животных</div>
+    </div>
+    <p class="hint"><i>✏️ Радиоуглеродный метод «достаёт» примерно до 50 тыс. лет — поэтому такие даты есть у Майбулака и стоянки им. Ч. Валиханова, а у орудий Каратау (~1 млн лет) нет.</i></p>
+  </div>
+
+  <div class="pair">
+    <div class="blk b4">
+      <h2><span class="num">4</span>Ранний палеолит<span class="lb">ур. 2</span></h2>
+      <p class="fact"><span class="when">~1 млн лет назад</span> · Борыказган, Танирказган</p>
+      <ul class="chainv">
+        <li><b>речная галька</b></li><li class="to">↓</li>
+        <li><b>техника оббивки</b> — бьют камень о камень</li><li class="to">↓</li>
+        <li><b>острые края</b> → орудия, чтобы рубить и резать</li>
+      </ul>
+      <p class="line">Похожи на орудия <b>Азии и Африки</b> → <b>единый путь развития человечества</b>.</p>
+    </div>
+    <div class="blk b5">
+      <h2><span class="num">5</span>Поздний палеолит<span class="lb">ур. 2</span></h2>
+      <p class="fact"><span class="when">~40 тыс. лет назад</span></p>
+      <ul class="chainv">
+        <li><b>суровый климат</b> — конец ледникового периода</li><li class="to">↓</li>
+        <li><b>памятников мало</b></li><li class="to">↓</li>
+        <li>все — у <b>Каспия</b>, в <b>долинах крупных рек</b> или у <b>подножий гор</b> на востоке и юге</li>
+      </ul>
+      <p class="line">Новые орудия: <b>резцы, проколки, свёрла, орудия из кости</b>.</p>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="blk b6">
+      <h2><span class="num">6</span>В это время…<span class="lb">ур. 2</span></h2>
+      <p class="fact">Древнейшие орудия человечества — <b>ущелье Олдувай</b> (Восточная Африка), <b>2,7 млн – 800 тыс. лет назад</b>.</p>
+    </div>
+    <div class="blk b6">
+      <h2><span class="num">7</span>Ответь устно<span class="lb">ур. 1–2</span></h2>
+      <ol class="qs">
+        <li>Откуда мы знаем о жизни древних людей?</li>
+        <li>Какой была жизнь древних жителей Каратау?</li>
+        <li>Почему памятников позднего палеолита мало?</li>
+      </ol>
+    </div>
+  </div>
+
+  <p class="legend">Без пометки — учебник НИШ · <i>✏️ — моё пояснение</i> · Лист с пропусками — отдельный файл</p>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лента времени — Раздел 1</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --surface: #FBF7EE; --surface-2: #EAE0C8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74;
+    --line: #D8CBA9;
+    --stone: #8A6A4B; --stone-soft: #E6D9C2;
+    --bronze-soft: #E9E0BC; --iron-soft: #DDE1E4;
+    --dot: #B0522E;
+    --atm: #B9863A; --atm-soft: #F5E6CB;
+    --shadow: 0 1px 2px rgba(46,42,34,0.06), 0 8px 24px -12px rgba(46,42,34,0.18);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --surface: #2A251C; --surface-2: #342E22;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F;
+      --line: #443C2C;
+      --stone: #C9A87E; --stone-soft: #3B3222;
+      --bronze-soft: #3A351E; --iron-soft: #2C3033;
+      --dot: #E08F6B;
+      --atm: #D9AE6A; --atm-soft: #3F3220;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --surface: #2A251C; --surface-2: #342E22;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F;
+    --line: #443C2C;
+    --stone: #C9A87E; --stone-soft: #3B3222;
+    --bronze-soft: #3A351E; --iron-soft: #2C3033;
+    --dot: #E08F6B;
+    --atm: #D9AE6A; --atm-soft: #3F3220;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.5; }
+  .page { max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; text-wrap: balance; margin: 0; }
+  .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+
+  .hero { padding: 2.25rem 2rem 2.5rem; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .hero .eyebrow { margin-bottom: 0.8rem; }
+  .hero h1 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 900; letter-spacing: -0.01em; max-width: 20ch; }
+  .hero p { margin: 0.9rem 0 0; max-width: 58ch; color: var(--ink-soft); font-size: 1.02rem; }
+  .hero .source { margin-top: 1.2rem; font-size: 0.82rem; color: var(--ink-faint); }
+
+  .section-head { margin: 2.5rem 0 1rem; }
+  .section-head h2 { font-size: 1.25rem; font-weight: 700; }
+  .section-head p { margin: 0.35rem 0 0; color: var(--ink-soft); max-width: 60ch; font-size: 0.92rem; }
+
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; box-shadow: var(--shadow); }
+
+  .era-grid { display: grid; grid-template-columns: 3fr 1.1fr 1.1fr 1fr 1.3fr 1.3fr; grid-template-rows: auto auto; gap: 8px; }
+  .umbrella { grid-column: 1 / span 3; grid-row: 1; display: flex; align-items: center; justify-content: center; background: var(--stone-soft); color: var(--stone); border-radius: 10px 10px 4px 4px; padding: 0.35rem 0.5rem; font-family: 'Fraunces', serif; font-weight: 700; font-size: 0.85rem; }
+  .era-seg { grid-row: 2; border-radius: 10px; padding: 0.6rem 0.5rem; text-align: center; font-size: 0.78rem; font-weight: 600; }
+  .era-seg .dates { display: block; margin-top: 0.25rem; font-weight: 400; font-size: 0.72rem; color: var(--ink-soft); }
+  .era-seg.paleolit { grid-column: 1; background: var(--stone-soft); outline: 2px solid var(--stone); outline-offset: -2px; }
+  .era-seg.mezolit { grid-column: 2; background: var(--stone-soft); }
+  .era-seg.neolit { grid-column: 3; background: var(--stone-soft); }
+  .era-seg.eneolit { grid-column: 4; grid-row: 1 / span 2; align-self: end; background: var(--surface-2); }
+  .era-seg.bronze { grid-column: 5; grid-row: 1 / span 2; align-self: end; background: var(--bronze-soft); }
+  .era-seg.iron { grid-column: 6; grid-row: 1 / span 2; align-self: end; background: var(--iron-soft); }
+  .zoom-note { margin: 1rem 0 0; font-size: 0.85rem; color: var(--ink-soft); }
+
+  .periods { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.2rem; }
+  @media (max-width: 700px) { .periods { grid-template-columns: 1fr; gap: 1rem; } }
+  .period h3 { font-size: 0.95rem; color: var(--stone); margin-bottom: 0.5rem; }
+  .tl { list-style: none; margin: 0; padding: 0 0 0 1.3rem; border-left: 3px solid var(--stone-soft); }
+  .tl li { position: relative; margin: 0 0 0.7rem; }
+  .tl li:last-child { margin-bottom: 0; }
+  .tl li::before { content: ""; position: absolute; left: -1.3rem; top: 0.45rem; width: 11px; height: 11px; margin-left: -7px; border-radius: 50%; background: var(--dot); border: 2px solid var(--surface); }
+  .tl .when { font-family: 'Fraunces', serif; font-weight: 700; font-size: 0.95rem; }
+  .tl .what { display: block; font-size: 0.88rem; color: var(--ink-soft); }
+  .tl li.end::before { background: var(--stone); }
+
+  .grid-two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+  @media (max-width: 620px) { .grid-two { grid-template-columns: 1fr; } }
+  .big { font-family: 'Fraunces', serif; font-size: 2.1rem; font-weight: 900; color: var(--stone); line-height: 1.1; }
+  .small { margin: 0.3rem 0 0; font-size: 0.87rem; color: var(--ink-soft); }
+  .links a { color: var(--stone); font-weight: 700; }
+
+  .atm-i { background: var(--atm-soft); border-radius: 4px; padding: 0 0.3rem; }
+
+  .todo { margin-top: 2rem; padding: 1rem 1.3rem; border-radius: 14px; background: var(--surface-2); border: 1px dashed var(--line); font-size: 0.85rem; color: var(--ink-soft); }
+  .todo b { color: var(--ink); }
+  .legend { margin-top: 1.2rem; font-size: 0.78rem; color: var(--ink-faint); }
+
+  @media (max-width: 620px) {
+    .era-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto auto; }
+    .era-seg.paleolit { grid-column: 1; grid-row: 2; }
+    .era-seg.mezolit { grid-column: 2; grid-row: 2; }
+    .era-seg.neolit { grid-column: 3; grid-row: 2; }
+    .era-seg.eneolit, .era-seg.bronze, .era-seg.iron { grid-row: 3; align-self: auto; }
+    .era-seg.eneolit { grid-column: 1; }
+    .era-seg.bronze { grid-column: 2; }
+    .era-seg.iron { grid-column: 3; }
+  }
+
+  /* ===== Лист 2 (§1.2) — новые классы, лист 1 не затрагивают ===== */
+  .sheet2 { border-top: 2px dashed var(--line); }
+  .hero.small-hero { padding: 1.5rem 2rem 1.6rem; }
+  .hero.small-hero h1 { max-width: none; font-size: clamp(1.5rem, 3.8vw, 2.1rem); }
+  .hero.small-hero p { max-width: none; }
+  .sheet2 .section-head p { max-width: none; }
+  .world { display: flex; gap: 1rem; align-items: center; margin-top: 1rem; }
+  .world .big { font-size: 1.6rem; white-space: nowrap; }
+  .world p { margin: 0; font-size: 0.88rem; color: var(--ink-soft); }
+  .world p b { color: var(--ink); }
+  @media (max-width: 620px) { .world { flex-direction: column; align-items: flex-start; gap: 0.3rem; } }
+
+  .reach-bar { position: relative; height: 34px; border-radius: 8px; background: var(--stone-soft); margin: 2.2rem 0 2.6rem; }
+  .reach-fill { position: absolute; right: 0; top: 0; bottom: 0; width: 5%; background: var(--dot); border-radius: 0 8px 8px 0; }
+  .reach-mark { position: absolute; top: -1.7rem; font-size: 0.78rem; color: var(--ink-soft); white-space: nowrap; }
+  .reach-mark.l { left: 0; }
+  .reach-mark.r { right: 5%; }
+  .reach-mark b { color: var(--ink); }
+  .reach-scale { position: absolute; bottom: -1.6rem; font-size: 0.74rem; color: var(--ink-faint); }
+  .reach-scale.l { left: 0; }
+  .reach-scale.r { right: 0; }
+  .reach-note { margin: 0 0 0.8rem; font-size: 0.88rem; color: var(--ink-soft); }
+  .reach-note .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: var(--dot); vertical-align: -1px; }
+  .methods { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .method { background: var(--surface-2); border-radius: 999px; padding: 0.25rem 0.75rem; font-size: 0.82rem; }
+
+  .years { position: relative; height: 150px; margin: 0.5rem 0.8rem 0; }
+  .years .axis { position: absolute; left: 0; right: 0; top: 75px; height: 3px; background: var(--stone-soft); }
+  .years .range { position: absolute; top: 71px; height: 11px; border-radius: 6px; background: var(--dot); opacity: 0.55; }
+  .years .ev { position: absolute; transform: translateX(-50%); width: 150px; text-align: center; font-size: 0.8rem; color: var(--ink-soft); line-height: 1.3; }
+  .years .ev b { display: block; font-family: 'Fraunces', serif; font-size: 0.95rem; color: var(--ink); }
+  .years .ev.up { bottom: 86px; }
+  .years .ev.down { top: 88px; }
+  .years .dot { position: absolute; top: 69px; width: 15px; height: 15px; margin-left: -7.5px; border-radius: 50%; background: var(--dot); border: 3px solid var(--surface); }
+  .years .tick { position: absolute; top: 60px; font-size: 0.68rem; color: var(--ink-faint); transform: translateX(-50%); }
+  @media (max-width: 620px) { .years .ev { width: 96px; font-size: 0.72rem; } }
+
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; box-shadow: none !important; }
+    @page { margin: 8mm; }
+    .page { zoom: 0.8; padding: 0; }
+    .hero { padding: 1.1rem 1.4rem 1.2rem; }
+    .hero .eyebrow { margin-bottom: 0.4rem; }
+    .hero p { margin-top: 0.5rem; }
+    .hero .source { margin-top: 0.5rem; }
+    .section-head { margin: 1.1rem 0 0.6rem; }
+    .card { padding: 1rem 1.2rem; }
+    .tl li { margin-bottom: 0.45rem; }
+    .grid-two { grid-template-columns: 1fr; margin-top: 0.8rem; }
+    .card.links { display: none; }
+    .todo { margin-top: 0.8rem; padding: 0.6rem 1rem; }
+    .legend { margin-top: 0.6rem; }
+    .sheet2 { break-before: page; page-break-before: always; border-top: none; }
+    .page.sheet2 { zoom: 0.77; }
+    .hero.small-hero { padding: 1rem 1.4rem 1.1rem; }
+    .reach-bar { margin: 1.9rem 0 2.2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <p class="eyebrow">История Казахстана 5 · НИШ · Раздел 1</p>
+    <h1>Лента времени: от питекантропа до неолита</h1>
+    <p>Только «когда»: где на шкале эпох находится то, что мы проходим. Лента растёт по мере разбора уроков раздела.</p>
+    <p class="source">По Введению и §1.1, уроки 1–3 — стр. 4–15</p>
+  </header>
+
+  <div class="section-head">
+    <h2>Эпохи по материалу орудий труда</h2>
+    <p>Каменный век — не одна эпоха, а три подряд: палеолит → мезолит → неолит. Дальше — энеолит (переходный период), бронза, железо.</p>
+  </div>
+
+  <div class="card">
+    <div class="era-grid">
+      <div class="umbrella">Каменный век</div>
+      <div class="era-seg paleolit">Палеолит<span class="dates">~1 млн — 12 тыс. до н.э.</span></div>
+      <div class="era-seg mezolit">Мезолит<span class="dates">12–5 тыс. до н.э.</span></div>
+      <div class="era-seg neolit">Неолит<span class="dates">5–3 тыс. до н.э.</span></div>
+      <div class="era-seg eneolit">Энеолит<span class="dates">4–3 тыс. до н.э.</span></div>
+      <div class="era-seg bronze">Бронзовый век<span class="dates">II тыс. — VIII в. до н.э.</span></div>
+      <div class="era-seg iron">Железный век<span class="dates">с VIII в. до н.э.</span></div>
+    </div>
+    <p class="zoom-note">Всё пройденное пока умещается в <b>палеолит</b> — он выделен рамкой. Ниже он показан крупно.</p>
+  </div>
+
+  <div class="section-head">
+    <h2>Палеолит крупным планом</h2>
+    <p>От древних к новым. <span class="atm-i">📕 Деление на ранний, средний и поздний палеолит — из учебника Атамұра.</span></p>
+  </div>
+
+  <div class="card periods">
+    <div class="period">
+      <h3><span class="atm-i">📕 Ранний палеолит</span> · 2,6 млн — 140 тыс. лет назад</h3>
+      <ul class="tl">
+        <li><span class="when">~1 млн лет назад</span><span class="what">первые люди на территории Казахстана — современники питекантропа; поселения в горах Каратау и долине Арыстанды</span></li>
+        <li><span class="when">500–800 тыс. лет назад</span><span class="what">орудия труда, найденные в Каратау</span></li>
+      </ul>
+    </div>
+    <div class="period">
+      <h3><span class="atm-i">📕 Средний палеолит</span> · 140–40 тыс. лет назад</h3>
+      <ul class="tl">
+        <li><span class="when">130–35 тыс. лет назад</span><span class="what">неандерталец</span></li>
+      </ul>
+    </div>
+    <div class="period">
+      <h3><span class="atm-i">📕 Поздний палеолит</span> · 40–12 тыс. лет назад</h3>
+      <ul class="tl">
+        <li><span class="when">~40 тыс. лет назад</span><span class="what">появляются род и родовая община</span></li>
+        <li><span class="when">40–35 тыс. лет назад</span><span class="what">кроманьонец — «человек разумный»</span></li>
+        <li class="end"><span class="when">12 тыс. лет до н.э.</span><span class="what">конец палеолита, дальше — мезолит</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid-two">
+    <div class="card">
+      <h3>Цифра, которую стоит помнить</h3>
+      <p class="big">99%</p>
+      <p class="small">Столько от всей истории человечества занимает каменный век. Самый длительный период внутри него — палеолит.</p>
+    </div>
+    <div class="card links">
+      <h3>Где остальное</h3>
+      <p class="small">Как понятия вытекают одно из другого — <a href="shema_1_1.html">схема §1.1</a>.</p>
+      <p class="small">Где нашли стоянки — <a href="karta.html">карта находок</a>.</p>
+      <p class="small">Определения — на карточках уроков.</p>
+    </div>
+  </div>
+
+  <div class="todo">
+    <b>Дальше на этой ленте:</b> события следующих §§ Раздела 1 — мезолит и неолит, Ботайская культура, зарождение металлургии, бронзовый век.
+  </div>
+
+  <p class="legend">Без пометки — учебник НИШ · <span class="atm-i">📕 с фоном — учебник Атамұра</span></p>
+
+</div>
+
+<div class="page sheet2">
+
+  <header class="hero small-hero">
+    <p class="eyebrow">История Казахстана 5 · НИШ · Раздел 1 · лист 2</p>
+    <h1>Лента времени: когда делали орудия и когда их нашли</h1>
+    <p>Две разные шкалы: орудия делали сотни тысяч лет назад, а археологи нашли их всего несколько десятилетий назад.</p>
+    <p class="source">По §1.2 «Стоянки эпохи камня на территории Казахстана», уроки 1–2 — стр. 16–19 · только учебник НИШ</p>
+  </header>
+
+  <div class="section-head">
+    <h2>Когда делали орудия, найденные в Казахстане</h2>
+    <p>От древних к новым: ранний палеолит → поздний палеолит → конец каменного века.</p>
+  </div>
+
+  <div class="card periods">
+    <div class="period">
+      <h3>Ранний палеолит</h3>
+      <ul class="tl">
+        <li><span class="when">~1 млн лет назад</span><span class="what">орудия у гор Каратау — стоянки Борыказган и Танирказган; из речной гальки, в технике оббивки</span></li>
+      </ul>
+    </div>
+    <div class="period">
+      <h3>Поздний палеолит</h3>
+      <ul class="tl">
+        <li><span class="when">~40 тыс. лет назад</span><span class="what">начало позднего палеолита в Казахстане; памятников мало — суровый климат конца ледникового периода</span></li>
+        <li><span class="when">новые орудия</span><span class="what">резцы, проколки, свёрла, орудия из кости</span></li>
+      </ul>
+    </div>
+    <div class="period">
+      <h3>Мезолит и неолит</h3>
+      <ul class="tl">
+        <li class="end"><span class="when">конец каменного века</span><span class="what">находки А. Астафьева в Мангыстау: пластины, скребки, проколки, ножи, свёрла</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card world">
+    <p class="big">2,7 млн – 800 тыс.</p>
+    <p><b>В это время в мире:</b> в ущелье Олдувай (Восточная Африка) найдены древнейшие орудия человечества — им 2,7 миллиона – 800 тысяч лет. Орудия Каратау похожи на орудия Азии и Африки — это подтверждает единый путь развития человечества.</p>
+  </div>
+
+  <div class="section-head">
+    <h2>Как далеко в прошлое «достаёт» радиоуглеродный метод</h2>
+    <p>Шкала — последний миллион лет, от орудий Каратау до сегодня.</p>
+  </div>
+
+  <div class="card">
+    <div class="reach-bar" role="img" aria-label="Шкала в миллион лет; радиоуглеродный метод покрывает только последние 50 тысяч лет">
+      <span class="reach-mark l"><b>~1 млн лет назад</b> · орудия Каратау</span>
+      <span class="reach-mark r"><b>~40 тыс.</b> · поздний палеолит ↘</span>
+      <div class="reach-fill"></div>
+      <span class="reach-scale l">← древнее</span>
+      <span class="reach-scale r">сегодня</span>
+    </div>
+    <p class="reach-note"><span class="sw"></span> Радиоуглеродный метод определяет возраст артефактов примерно до <b>50 тысяч лет</b> — это только узкая полоска справа.
+      <i>✏️ Поэтому радиоуглеродные даты получены для стоянок позднего палеолита — Майбулак, стоянка им. Ч. Валиханова (Ж. Таймагамбетов).</i></p>
+    <div class="methods">
+      <span class="method">по культурным слоям: чем глубже, тем древнее</span>
+      <span class="method">радиоуглеродный: ~50 тыс. лет</span>
+      <span class="method">палеонтологический: по останкам древних животных</span>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Когда нашли: археологи XX века</h2>
+    <p>Это уже совсем другая шкала — годы, а не тысячи лет.</p>
+  </div>
+
+  <div class="card">
+    <div class="years">
+      <div class="axis"></div>
+      <div class="range" style="left:50%; width:31.7%"></div>
+      <span class="dot" style="left:13.3%"></span>
+      <span class="dot" style="left:43.3%"></span>
+      <span class="dot" style="left:71.7%"></span>
+      <span class="dot" style="left:96.7%"></span>
+      <div class="ev up" style="left:13.3%"><b>1928</b>родился Хасан Алпысбаев</div>
+      <div class="ev down" style="left:43.3%"><b>1946</b>создана Академия наук Казахской ССР — начало исследований</div>
+      <div class="ev up" style="left:66%"><b>50–60-е годы</b>Алпысбаев открывает стоянки у гор Каратау</div>
+      <div class="ev down" style="left:71.7%"><b>1963</b>А. Медоев находит Семизбугы, Хантау, Чингиз</div>
+      <div class="ev up" style="left:96.7%; transform: translateX(-80%)"><b>1978</b>умер Х. Алпысбаев</div>
+    </div>
+  </div>
+
+  <p class="legend">Всё на этом листе — учебник НИШ · <i>✏️ курсивом — мой вывод</i></p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Схема §1.1 — как всё связано</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --surface: #FBF7EE; --surface-2: #EAE0C8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74; --line: #D8CBA9;
+    --people: #B0522E; --people-soft: #F0D7C6;
+    --society: #5F7048; --society-soft: #DDE4CC;
+    --economy: #7C6A2E; --economy-soft: #E9E0BC;
+    --bridge: #3B6E8F; --bridge-soft: #D6E6F0;
+    --atm: #B9863A; --atm-soft: #F5E6CB;
+    --shadow: 0 1px 2px rgba(46,42,34,0.06), 0 8px 24px -12px rgba(46,42,34,0.18);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --surface: #2A251C; --surface-2: #342E22;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+      --people: #E08F6B; --people-soft: #452F24;
+      --society: #A9BB86; --society-soft: #333A28;
+      --economy: #CBB86E; --economy-soft: #3A351E;
+      --bridge: #7FB3D5; --bridge-soft: #243542;
+      --atm: #D9AE6A; --atm-soft: #3F3220;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --surface: #2A251C; --surface-2: #342E22;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+    --people: #E08F6B; --people-soft: #452F24;
+    --society: #A9BB86; --society-soft: #333A28;
+    --economy: #CBB86E; --economy-soft: #3A351E;
+    --bridge: #7FB3D5; --bridge-soft: #243542;
+    --atm: #D9AE6A; --atm-soft: #3F3220;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.45; }
+  .page { max-width: 880px; margin: 0 auto; padding: 2.5rem 1.25rem 3.5rem; }
+  h1, h2 { font-family: 'Fraunces', ui-serif, Georgia, serif; margin: 0; text-wrap: balance; }
+  .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 0.5rem; }
+  h1 { font-size: clamp(1.7rem, 4.2vw, 2.4rem); font-weight: 900; }
+  .lead { margin: 0.5rem 0 1.2rem; color: var(--ink-soft); max-width: 62ch; }
+
+  .context { background: var(--surface-2); border-radius: 12px; padding: 0.6rem 1rem; font-size: 0.9rem; color: var(--ink-soft); }
+  .context b { color: var(--ink); }
+
+  .lane { background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--c); border-radius: 16px; padding: 1rem 1.2rem 1.1rem; box-shadow: var(--shadow); margin-top: 1rem; }
+  .lane[data-c="people"] { --c: var(--people); --c-soft: var(--people-soft); }
+  .lane[data-c="society"] { --c: var(--society); --c-soft: var(--society-soft); }
+  .lane[data-c="economy"] { --c: var(--economy); --c-soft: var(--economy-soft); }
+  .lane h2 { font-size: 1.1rem; color: var(--c); margin-bottom: 0.2rem; }
+  .lane .q { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 0.8rem; }
+
+  .flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0.4rem; row-gap: 0.7rem; }
+  .node { flex: 1 1 130px; min-width: 118px; background: var(--c-soft); border-radius: 10px; padding: 0.55rem 0.65rem; text-align: center; font-weight: 700; font-size: 0.9rem; display: flex; flex-direction: column; justify-content: center; }
+  .node small { display: block; font-weight: 400; font-size: 0.74rem; color: var(--ink-soft); margin-top: 0.15rem; line-height: 1.3; }
+  .node.atm { outline: 2px dashed var(--atm); outline-offset: -2px; }
+  .arrow { align-self: center; color: var(--ink-faint); font-size: 1.1rem; }
+  .op { align-self: center; color: var(--c); font-weight: 700; font-size: 1.1rem; }
+
+  .because { margin: 0.8rem 0 0; font-size: 0.85rem; color: var(--ink-soft); }
+  .because b { color: var(--ink); }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.7rem; }
+  .chip { background: var(--surface-2); border-radius: 999px; padding: 0.25rem 0.7rem; font-size: 0.78rem; }
+  .atm-i { background: var(--atm-soft); border-radius: 4px; padding: 0 0.25rem; }
+
+  .bridge { display: flex; gap: 0.7rem; align-items: flex-start; margin: 0.9rem 0 0 1.6rem; padding: 0.65rem 0.9rem; background: var(--bridge-soft); border-radius: 12px; font-size: 0.87rem; }
+  .bridge .ico { font-family: 'Fraunces', serif; font-weight: 900; color: var(--bridge); font-size: 1.2rem; line-height: 1; margin-top: 0.1rem; }
+  .bridge b { color: var(--bridge); }
+
+  .legend { margin-top: 1.6rem; font-size: 0.78rem; color: var(--ink-faint); }
+  .rule { margin-top: 0.4rem; font-size: 0.78rem; color: var(--ink-soft); }
+
+  @media print {
+    @page { size: A4; margin: 8mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; box-shadow: none !important; }
+    .page { zoom: 0.78; padding: 0; }
+    h1 { font-size: 1.9rem; }
+    .lead { margin: 0.3rem 0 0.6rem; }
+    .context { padding: 0.45rem 0.9rem; }
+    .lane { margin-top: 0.55rem; padding: 0.7rem 1rem 0.75rem; }
+    .lane .q { margin-bottom: 0.5rem; }
+    .because { margin-top: 0.5rem; }
+    .chips { margin-top: 0.45rem; }
+    .bridge { margin-top: 0.55rem; padding: 0.5rem 0.8rem; }
+    .legend { margin-top: 0.8rem; }
+    .lane, .bridge { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="eyebrow">История Казахстана 5 · НИШ · §1.1 Жизнь древнейших людей (уроки 1–3)</p>
+  <h1>Как всё связано</h1>
+  <p class="lead">Схема для ориентира: что из чего вытекает. Определения — на карточках, даты — на ленте времени, места — на карте.</p>
+
+  <p class="context">Всё на этой схеме происходит в <b>палеолите</b> — первой и самой долгой части каменного века.</p>
+
+  <section class="lane" data-c="people">
+    <h2>1. Человек меняется</h2>
+    <p class="q">Как это узнают? Этим занимается <b>антропология</b> — наука о происхождении и развитии человека.</p>
+    <div class="flow">
+      <div class="node atm">📕 Человек умелый<small>уже делал орудия</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Питекантроп<small>~1 млн лет назад · зачатки речи</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Неандерталец<small>130–35 тыс. · обряды погребения</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Кроманьонец<small>«человек разумный» · 40–35 тыс. · искусство, язык</small></div>
+    </div>
+    <p class="because"><i>✏️ С каждой ступенью <b>растёт мозг и умения</b>: от зачатков речи → к заботе об умерших → к искусству.</i>
+      <span class="atm-i">📕 Неандерталец жил одновременно с человеком разумным и не был его прямым предком.</span></p>
+  </section>
+
+  <div class="bridge"><span class="ico">↓</span><div><b>Отсюда вытекает:</b> с появлением «человека разумного» у людей возникает понятие
+    <b>родственника</b> — и вместо случайного стада появляется род. По НИШ это около <b>40 тыс. лет назад</b>, то есть
+    одновременно с кроманьонцем.</div></div>
+
+  <section class="lane" data-c="society">
+    <h2>2. Люди объединяются</h2>
+    <p class="q">Почему вместе? В одиночку не выжить: хищники, болезни, поиск еды.</p>
+    <div class="flow">
+      <div class="node">Стадо<small>20–30 человек · состав меняется</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Род<small>коллектив родственников</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Родовая община<small>~40 тыс. лет назад · первая форма общества</small></div>
+      <div class="arrow">→</div>
+      <div class="node atm">📕 Племя<small>объединение нескольких родов</small></div>
+    </div>
+    <p class="because">Как устроена родовая община:</p>
+    <div class="chips">
+      <span class="chip">все равноправны</span>
+      <span class="chip">орудия и еда — общие</span>
+      <span class="chip">старейшины хранят обычаи</span>
+      <span class="chip">важное решают на собраниях</span>
+      <span class="chip">высокое положение женщин</span>
+      <span class="chip atm-i">📕 браки — с соседним родом: меньше болезней у детей</span>
+    </div>
+  </section>
+
+  <div class="bridge"><span class="ico">↓</span><div><b>Отсюда вытекает:</b> в общине у каждого своё дело —
+    <b>женщины</b> хранят огонь и собирают плоды, <b>мужчины</b> охотятся. Так складывается хозяйство.</div></div>
+
+  <section class="lane" data-c="economy">
+    <h2>3. Добывают еду и делают орудия</h2>
+    <p class="q">Чем живут? Берут у природы готовое.</p>
+    <div class="flow">
+      <div class="node">Собирательство<small>женщины · растения, ягоды, яйца, мёд</small></div>
+      <div class="op">+</div>
+      <div class="node">Охота<small>мужчины · загон зверей в обрывы</small></div>
+      <div class="op">=</div>
+      <div class="node atm">📕 Присваивающее хозяйство<small>брали готовое, не производили</small></div>
+    </div>
+    <div class="flow" style="margin-top:0.7rem">
+      <div class="node">Для этого нужны орудия<small>рубило, чоппер, палка-копалка, кость</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Нужен камень с острым краем<small>годится не всякий</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Лучший — кремень<small>чёрный, прочный</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Горы Каратау<small>им богаты</small></div>
+    </div>
+    <p class="because">А ещё <b>огонь</b>: греет, отпугивает хищников, на нём готовят еду.</p>
+  </section>
+
+  <div class="bridge"><span class="ico">↺</span><div><b>И круг замыкается:</b> Каратау и долина Арыстанды — <b>первые поселения</b> людей в Казахстане,
+    ~1 млн лет назад, то есть время <b>питекантропа</b> из первой линии.
+    <span class="atm-i">📕 Здесь же стоянки Танирказган и Борыказган. Костей древнейших людей в Казахстане не нашли —
+    о них знают именно по орудиям труда.</span></div></div>
+
+  <p class="legend">Без пометки — учебник НИШ · <span class="atm-i">📕 с фоном или пунктирной рамкой — дополнение из учебника Атамұра</span> · <i>✏️ курсивом — мой вывод</i></p>
+  <p class="rule">Если учебники расходятся, ориентир — <b>НИШ</b>: задания дают по нему. <span class="atm-i">📕 Например, в Атамұра род появляется
+    позже, в мезолите, после «первобытной общины» — на проверке так не отвечать.</span></p>
+</div>
+</body>
+</html>

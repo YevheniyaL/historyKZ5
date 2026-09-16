@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Схема §1.2 — как всё связано</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --surface: #FBF7EE; --surface-2: #EAE0C8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74; --line: #D8CBA9;
+    --people: #B0522E; --people-soft: #F0D7C6;
+    --society: #5F7048; --society-soft: #DDE4CC;
+    --economy: #7C6A2E; --economy-soft: #E9E0BC;
+    --bridge: #3B6E8F; --bridge-soft: #D6E6F0;
+    --shadow: 0 1px 2px rgba(46,42,34,0.06), 0 8px 24px -12px rgba(46,42,34,0.18);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --surface: #2A251C; --surface-2: #342E22;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+      --people: #E08F6B; --people-soft: #452F24;
+      --society: #A9BB86; --society-soft: #333A28;
+      --economy: #CBB86E; --economy-soft: #3A351E;
+      --bridge: #7FB3D5; --bridge-soft: #243542;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --surface: #2A251C; --surface-2: #342E22;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+    --people: #E08F6B; --people-soft: #452F24;
+    --society: #A9BB86; --society-soft: #333A28;
+    --economy: #CBB86E; --economy-soft: #3A351E;
+    --bridge: #7FB3D5; --bridge-soft: #243542;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.45; }
+  .page { max-width: 880px; margin: 0 auto; padding: 2.5rem 1.25rem 3.5rem; }
+  h1, h2 { font-family: 'Fraunces', ui-serif, Georgia, serif; margin: 0; text-wrap: balance; }
+  .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 0.5rem; }
+  h1 { font-size: clamp(1.7rem, 4.2vw, 2.4rem); font-weight: 900; }
+  .lead { margin: 0.5rem 0 1.2rem; color: var(--ink-soft); max-width: 62ch; }
+
+  .context { background: var(--surface-2); border-radius: 12px; padding: 0.6rem 1rem; font-size: 0.9rem; color: var(--ink-soft); }
+  .context b { color: var(--ink); }
+
+  .lane { background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--c); border-radius: 16px; padding: 1rem 1.2rem 1.1rem; box-shadow: var(--shadow); margin-top: 1rem; }
+  .lane[data-c="people"] { --c: var(--people); --c-soft: var(--people-soft); }
+  .lane[data-c="society"] { --c: var(--society); --c-soft: var(--society-soft); }
+  .lane[data-c="economy"] { --c: var(--economy); --c-soft: var(--economy-soft); }
+  .lane h2 { font-size: 1.1rem; color: var(--c); margin-bottom: 0.2rem; }
+  .lane .q { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 0.8rem; }
+  .sub { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c); margin: 0.9rem 0 0.4rem; }
+  .sub:first-of-type { margin-top: 0; }
+
+  .flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0.4rem; row-gap: 0.7rem; }
+  .node { flex: 1 1 130px; min-width: 118px; background: var(--c-soft); border-radius: 10px; padding: 0.55rem 0.65rem; text-align: center; font-weight: 700; font-size: 0.9rem; display: flex; flex-direction: column; justify-content: center; }
+  .node small { display: block; font-weight: 400; font-size: 0.74rem; color: var(--ink-soft); margin-top: 0.15rem; line-height: 1.3; }
+  .arrow { align-self: center; color: var(--ink-faint); font-size: 1.1rem; }
+  .op { align-self: center; color: var(--c); font-weight: 700; font-size: 0.85rem; }
+
+  .because { margin: 0.8rem 0 0; font-size: 0.85rem; color: var(--ink-soft); }
+  .because b { color: var(--ink); }
+
+  .bridge { display: flex; gap: 0.7rem; align-items: flex-start; margin: 0.9rem 0 0 1.6rem; padding: 0.65rem 0.9rem; background: var(--bridge-soft); border-radius: 12px; font-size: 0.87rem; }
+  .bridge .ico { font-family: 'Fraunces', serif; font-weight: 900; color: var(--bridge); font-size: 1.2rem; line-height: 1; margin-top: 0.1rem; }
+  .bridge b { color: var(--bridge); }
+
+  .legend { margin-top: 1.6rem; font-size: 0.78rem; color: var(--ink-faint); }
+
+  @media print {
+    @page { size: A4; margin: 8mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; box-shadow: none !important; }
+    .page { zoom: 0.78; padding: 0; }
+    h1 { font-size: 1.9rem; }
+    .lead { margin: 0.3rem 0 0.6rem; }
+    .context { padding: 0.45rem 0.9rem; }
+    .lane { margin-top: 0.55rem; padding: 0.7rem 1rem 0.75rem; }
+    .lane .q { margin-bottom: 0.5rem; }
+    .because { margin-top: 0.5rem; }
+    .bridge { margin-top: 0.55rem; padding: 0.5rem 0.8rem; }
+    .legend { margin-top: 0.8rem; }
+    .lane, .bridge { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="eyebrow">История Казахстана 5 · НИШ · §1.2 Стоянки эпохи камня на территории Казахстана (уроки 1–2)</p>
+  <h1>Как всё связано</h1>
+  <p class="lead">Схема для ориентира: что из чего вытекает. Определения — на карточках, даты — на ленте времени, места — на карте.</p>
+
+  <p class="context">Исследовательский вопрос параграфа: <b>какие находки эпохи камня обнаружили археологи?</b>
+    Чтобы ответить, нужно знать: кто искал → как узнают возраст находки → что нашли.</p>
+
+  <section class="lane" data-c="people">
+    <h2>1. Кто искал</h2>
+    <p class="q">Откуда мы знаем о жизни древних людей? По <b>артефактам</b> на <b>стоянках</b> — их находят археологи.</p>
+    <div class="flow">
+      <div class="node">Академия наук Казахской ССР<small>1946 · начало целенаправленных исследований</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Х. Алпысбаев<small>50–60-е · Каратау: Борыказган, Танирказган</small></div>
+      <div class="arrow">→</div>
+      <div class="node">А. Медоев<small>ранний палеолит; Шакпаката; 1963 — Прибалхашье</small></div>
+    </div>
+    <div class="flow" style="margin-top:0.7rem">
+      <div class="node">Ж. Таймагамбетов<small>радиоуглеродные даты: Майбулак, стоянка им. Ч. Валиханова</small></div>
+      <div class="node">А. Астафьев<small>Мангыстау · мезолит и неолит</small></div>
+    </div>
+  </section>
+
+  <div class="bridge"><span class="ico">↓</span><div><b>Отсюда вытекает:</b> мало найти орудие — нужно понять,
+    <b>сколько ему лет</b>. Только тогда учёный может собрать сведения о жизни древних людей.</div></div>
+
+  <section class="lane" data-c="society">
+    <h2>2. Как узнают возраст находки</h2>
+    <p class="q">Три метода из учебника.</p>
+    <div class="flow">
+      <div class="node">По культурным слоям<small>чем глубже слой, тем находка древнее</small></div>
+      <div class="node">Радиоуглеродный<small>новый метод · для артефактов примерно 50 тыс. лет назад</small></div>
+      <div class="node">Палеонтологический<small>по останкам древних животных</small></div>
+    </div>
+    <p class="because"><i>✏️ Подсказка: радиоуглеродный метод «достаёт» примерно до 50 тыс. лет — поэтому
+      радиоуглеродные даты есть у стоянок <b>позднего</b> палеолита (Майбулак, стоянка им. Ч. Валиханова), а не у орудий Каратау возрастом ~1 млн лет.</i></p>
+  </section>
+
+  <div class="bridge"><span class="ico">↓</span><div><b>Отсюда вытекает:</b> по возрасту находки стоянки
+    делят на <b>ранний</b> и <b>поздний палеолит</b>.</div></div>
+
+  <section class="lane" data-c="economy">
+    <h2>3. Что нашли</h2>
+    <p class="q">Ответ на исследовательский вопрос.</p>
+    <p class="sub">Ранний палеолит · ~1 млн лет назад</p>
+    <div class="flow">
+      <div class="node">Речная галька</div>
+      <div class="arrow">→</div>
+      <div class="node">Техника оббивки<small>гальку били друг о друга</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Острые края<small>орудия, чтобы рубить и резать</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Похожи на орудия Азии и Африки<small>= единый путь развития человечества</small></div>
+    </div>
+    <p class="sub">Поздний палеолит · ~40 тыс. лет назад</p>
+    <div class="flow">
+      <div class="node">Суровый климат<small>конец ледникового периода</small></div>
+      <div class="arrow">→</div>
+      <div class="node">Памятников мало</div>
+      <div class="arrow">→</div>
+      <div class="node">Все у воды или гор<small>Каспий · долины крупных рек · подножия гор на востоке и юге</small></div>
+    </div>
+    <p class="because">Новые орудия позднего палеолита: <b>резцы, проколки, свёрла, орудия из кости</b>.
+      На стоянках Семизбугы, Хантау, Чингиз — <b>нуклеусы</b>, скребла, остроконечники, ножевидные пластины, скребки, отщепы.</p>
+  </section>
+
+  <div class="bridge"><span class="ico">↺</span><div><b>Связь с §1.1:</b> Борыказган и Танирказган — это стоянки
+    <b>у гор Каратау</b>, где были первые поселения людей в Казахстане, ~1 млн лет назад, — время <b>питекантропа</b>.
+    А ~40 тыс. лет назад, в позднем палеолите, живёт <b>кроманьонец</b> и появляется <b>родовая община</b>.</div></div>
+
+  <p class="legend">Без пометки — учебник НИШ · <i>✏️ курсивом — мой вывод</i> · Только по учебнику НИШ</p>
+</div>
+</body>
+</html>
