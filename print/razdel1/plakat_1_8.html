@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>История КЗ · §1.8 · плакат</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🏺</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --paper: #FFFDF8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74; --line: #D8CBA9;
+    --c1: #3B6E8F; --c1-soft: #DCEAF3;   /* палеолит */
+    --c2: #4E7D3A; --c2-soft: #E1ECD7;   /* мезолит-неолит */
+    --c3: #C08A20; --c3-soft: #F8EBCB;   /* энеолит */
+    --c4: #B0522E; --c4-soft: #F6E0D3;   /* бронза */
+    --c5: #7A4E9A; --c5-soft: #ECE2F2;   /* общество */
+    --c6: #6B6456; --c6-soft: #ECE8DE;   /* достижения, вопросы */
+    --hl: #FFE9A8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --paper: #2A251C;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+      --c1: #7FB3D5; --c1-soft: #243542; --c2: #9CC77F; --c2-soft: #2C3A24;
+      --c3: #E3BE6A; --c3-soft: #403316; --c4: #E08F6B; --c4-soft: #452F24;
+      --c5: #B994D6; --c5-soft: #372C40; --c6: #BCB29A; --c6-soft: #342E22;
+      --hl: #5C5020;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --paper: #2A251C;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+    --c1: #7FB3D5; --c1-soft: #243542; --c2: #9CC77F; --c2-soft: #2C3A24;
+    --c3: #E3BE6A; --c3-soft: #403316; --c4: #E08F6B; --c4-soft: #452F24;
+    --c5: #B994D6; --c5-soft: #372C40; --c6: #BCB29A; --c6-soft: #342E22;
+    --hl: #5C5020;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.32; }
+  .wrap { padding-block: 1.5rem 3rem; padding-inline: 1rem; }
+  .sheet { max-width: 800px; margin: 0 auto 2rem; background: var(--paper); border-radius: 14px; padding: 1.4rem 1.5rem; box-shadow: 0 8px 24px -12px rgba(46,42,34,0.25); }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; margin: 0; text-wrap: balance; }
+
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin: 0; }
+  h1 { font-size: 1.5rem; font-weight: 900; line-height: 1.1; margin: 0.15rem 0 0.1rem; }
+  .sheet-tag { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); border-radius: 999px; padding: 0.15rem 0.7rem; white-space: nowrap; }
+  .rq { font-size: 0.9rem; margin: 0.25rem 0 0; }
+  .rq b { background: var(--hl); border-radius: 4px; padding: 0 0.25rem; }
+
+  .idea { margin: 0.35rem 0 0; padding: 0.3rem 0.6rem; background: var(--hl); border-radius: 10px; font-size: 0.87rem; }
+  .idea b { font-family: 'Fraunces', serif; }
+
+  .blk { border-radius: 12px; padding: 0.55rem 0.8rem 0.65rem; margin-top: 0.55rem; background: var(--soft); }
+  .blk h2 { font-size: 1.02rem; color: var(--c); margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.45rem; }
+  .num { display: inline-grid; place-items: center; width: 1.35rem; height: 1.35rem; border-radius: 50%; background: var(--c); color: var(--paper); font-family: 'Karla', sans-serif; font-size: 0.8rem; font-weight: 700; flex: none; }
+  .b1 { --c: var(--c1); --soft: var(--c1-soft); }
+  .b4 { --c: var(--c4); --soft: var(--c4-soft); }
+  .b5 { --c: var(--c5); --soft: var(--c5-soft); }
+  .b6 { --c: var(--c6); --soft: var(--c6-soft); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; }
+  .pair .blk { margin-top: 0.55rem; }
+
+  .lb { margin-left: auto; font-family: 'Karla', sans-serif; font-size: 0.72rem; font-weight: 700;
+        color: var(--c); background: var(--paper); border-radius: 999px; padding: 0 0.45rem; white-space: nowrap; }
+
+  /* лента эпох */
+  .era-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.3rem; margin-top: 0.3rem; }
+  .era { border-radius: 10px; padding: 0.35rem 0.5rem; font-size: 0.76rem; background: var(--paper); border-top: 4px solid var(--e); }
+  .era h3 { font-size: 0.92rem; color: var(--e); margin-bottom: 0.1rem; }
+  .era .dt { display: block; font-weight: 700; color: var(--ink-soft); font-size: 0.72rem; margin-bottom: 0.15rem; }
+  .e1 { --e: var(--c1); } .e2 { --e: var(--c2); } .e3 { --e: #7FA03A; }
+  .e4 { --e: var(--c3); } .e5 { --e: var(--c4); }
+
+  /* стадо-род-племя */
+  .hchain { display: flex; align-items: stretch; gap: 0.3rem; flex-wrap: wrap; }
+  .hchain .box { flex: 1 1 0; min-width: 7rem; background: var(--paper); border-radius: 9px; padding: 0.35rem 0.5rem; font-size: 0.8rem; text-align: center; }
+  .hchain .box b { font-size: 0.9rem; color: var(--c); }
+  .hchain .to { align-self: center; color: var(--c); font-weight: 700; }
+
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.35rem; margin-top: 0.35rem; }
+  .cards.c2 { grid-template-columns: 1fr 1fr; }
+  .card { background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.77rem; }
+  .card b { display: block; font-size: 0.86rem; color: var(--c); }
+
+  .line { font-size: 0.82rem; margin: 0.3rem 0 0; }
+  .more { font-size: 0.76rem; color: var(--ink-soft); margin: 0.3rem 0 0; }
+  .qs { margin: 0; padding-left: 1.1rem; font-size: 0.84rem; }
+  .qs li { margin-bottom: 0.08rem; }
+
+  .legend { font-size: 0.72rem; color: var(--ink-faint); margin: 0.45rem 0 0; }
+
+  @media (max-width: 640px) {
+    .era-row, .cards, .cards.c2, .pair { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media print {
+    @page { size: A4; margin: 8mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-shadow: none !important; }
+    .wrap { padding: 0; }
+    .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; background: #fff; zoom: 0.88; }
+    .blk, .pair .blk { margin-top: 0.4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="sheet">
+  <div class="top">
+    <div>
+      <p class="eyebrow">История Казахстана 5 · НИШ · Раздел 1 · уроки 1–2 · стр. 40–44</p>
+      <h1>§1.8 Путешествие в жизнь древних людей</h1>
+    </div>
+    <span class="sheet-tag">повторение раздела</span>
+  </div>
+  <p class="rq">Это <b>обобщающий параграф</b>: новых тем нет, здесь собран весь раздел 1 — по нему удобно повторять перед проверкой.</p>
+
+  <p class="idea"><b>Главная мысль:</b> от каменного рубила до бронзового топора человек прошёл долгий путь: менялись орудия,
+    за ними — хозяйство (сначала брали у природы, потом стали производить сами), а за хозяйством — само общество. <i>✏️</i></p>
+
+  <div class="blk b1">
+    <h2><span class="num">1</span>Пять эпох по порядку<span class="lb">ур. 1</span></h2>
+    <div class="era-row">
+      <div class="era e1"><h3>Палеолит</h3><span class="dt">~1 млн – 12 тыс. до н.э.</span>примитивные орудия, охота и собирательство; появилась <b>родовая община</b></div>
+      <div class="era e2"><h3>Мезолит</h3><span class="dt">12–5 тыс. до н.э.</span><b>лук и стрелы</b>; стоянки у рек и озёр; в Казахстане изучен мало</div>
+      <div class="era e3"><h3>Неолит</h3><span class="dt">5–3 тыс. до н.э.</span><b>сверление и полировка</b> камня; производящее хозяйство; керамика и <b>ткачество</b></div>
+      <div class="era e4"><h3>Энеолит</h3><span class="dt">4–3 тыс. до н.э.</span>орудия из <b>меди</b>; здесь впервые <b>приручили лошадь</b></div>
+      <div class="era e5"><h3>Бронзовый век</h3><span class="dt">II тыс. – VIII в. до н.э.</span>добыча и производство металла; <b>социальное расслоение</b></div>
+    </div>
+    <p class="more">✏️ Эпоху камня учебник называет <b>самым длинным</b> культурно-историческим периодом в истории человечества.</p>
+  </div>
+
+  <div class="blk b5">
+    <h2><span class="num">2</span>Как люди объединялись<span class="lb">ур. 1</span></h2>
+    <div class="hchain">
+      <div class="box"><b>Стадо</b><br>объединялись для совместной охоты и защиты</div>
+      <span class="to">→</span>
+      <div class="box"><b>Род</b><br>объединение родственных людей; общины матриархальные и патриархальные</div>
+      <span class="to">→</span>
+      <div class="box"><b>Племя</b><br>социально-этническое объединение из различных родов</div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="blk b6">
+      <h2><span class="num">3</span>Главные достижения<span class="lb">ур. 1–2</span></h2>
+      <div class="cards c2" style="margin-top:0">
+        <div class="card"><b>Огонь</b>научились добывать в эпоху камня</div>
+        <div class="card"><b>Производящее хозяйство</b>неолит: своё зерно и свой скот</div>
+        <div class="card"><b>Керамика</b>первые изделия простые, обожжены наполовину</div>
+        <div class="card"><b>Металл</b>медь → бронза: труд стал производительнее</div>
+      </div>
+      <p class="line"><b>Как делали посуду:</b> лепили из глины → наносили <b>геометрические узоры</b> →
+        обжигали в <b>яме с огнём, окружённой камнями</b>.</p>
+    </div>
+    <div class="blk b4">
+      <h2><span class="num">4</span>Что помнить про эпоху бронзы<span class="lb">ур. 2</span></h2>
+      <p class="line" style="margin-top:0">Металл <b>увеличил производительность труда</b> и дал новые виды хозяйства.</p>
+      <p class="line"><b>Андроновская культура</b> — древнейшая в Казахстане; у андроновских племён важную роль
+        играло скотоводство.</p>
+      <p class="line"><b>Бегазы-дандыбаевская культура</b> Центрального Казахстана — поздняя бронза,
+        <b>XII — начало VIII века до н.э.</b></p>
+      <p class="more">⚠️ Эту дату учебник называет только здесь — в самом параграфе про культуру (§1.6) её нет.</p>
+    </div>
+  </div>
+
+  <div class="blk b6">
+    <h2><span class="num">5</span>Три ячейки из учебника<span class="lb">ур. 2</span></h2>
+    <div class="cards">
+      <div class="card"><b>Эпоха камня</b>самый длинный период; орудия из камня; добыли огонь; главное — охота и собирательство</div>
+      <div class="card"><b>Медно-каменный век</b>орудия из меди; поселение Ботай; его жителей называют первыми коневодами</div>
+      <div class="card"><b>Эпоха бронзы</b><i>✏️ третью ячейку заполняешь сам:</i> бронзовые орудия, андроновская и бегазы-дандыбаевская культуры, кочевое скотоводство, богатые и бедные</div>
+    </div>
+    <p class="line"><b>Петроглифы</b> рассказывают о верованиях древних людей. Казахстан — <b>одно из самых богатых мест</b>
+      по количеству и разнообразию наскальных рисунков, а <b>Тамгалы</b> — в списке ЮНЕСКО.</p>
+  </div>
+
+  <div class="blk b6">
+    <h2><span class="num">6</span>Проверь себя по всему разделу<span class="lb">ур. 1–2</span></h2>
+    <ol class="qs">
+      <li>Назови пять эпох по порядку и чем каждая отличается.</li>
+      <li>Зачем древние люди объединялись в коллективы?</li>
+      <li>Чем присваивающее хозяйство отличается от производящего?</li>
+      <li>Почему ботайцев называют первыми коневодами?</li>
+      <li>Как появилось кочевое скотоводство?</li>
+      <li>Откуда взялось имущественное неравенство?</li>
+      <li>Назови по одному памятнику камня, энеолита и бронзы.</li>
+    </ol>
+  </div>
+
+  <p class="legend">Всё — по учебнику НИШ · <i>✏️ — моё пояснение</i></p>
+</section>
+
+</div>
+</body>
+</html>
