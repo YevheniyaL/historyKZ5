@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>История КЗ · §1.5 · плакат</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🏺</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --paper: #FFFDF8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74; --line: #D8CBA9;
+    --c1: #B0522E; --c1-soft: #F6E0D3;   /* бронза */
+    --c2: #8A6A4B; --c2-soft: #EFE4D2;   /* где добывали */
+    --c3: #7A4E9A; --c3-soft: #ECE2F2;   /* что делали */
+    --c4: #3B6E8F; --c4-soft: #DCEAF3;   /* памятники */
+    --c5: #4E7D3A; --c5-soft: #E1ECD7;   /* хозяйство */
+    --c6: #6B6456; --c6-soft: #ECE8DE;   /* слова, общество, вопросы */
+    --hl: #FFE9A8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --paper: #2A251C;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+      --c1: #E08F6B; --c1-soft: #452F24; --c2: #C9A87E; --c2-soft: #3B3222;
+      --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
+      --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
+      --hl: #5C5020;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --paper: #2A251C;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+    --c1: #E08F6B; --c1-soft: #452F24; --c2: #C9A87E; --c2-soft: #3B3222;
+    --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
+    --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
+    --hl: #5C5020;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.33; }
+  .wrap { padding-block: 1.5rem 3rem; padding-inline: 1rem; }
+  .sheet { max-width: 800px; margin: 0 auto 2rem; background: var(--paper); border-radius: 14px; padding: 1.4rem 1.5rem; box-shadow: 0 8px 24px -12px rgba(46,42,34,0.25); }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; margin: 0; text-wrap: balance; }
+
+  /* шапка */
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin: 0; }
+  h1 { font-size: 1.5rem; font-weight: 900; line-height: 1.1; margin: 0.15rem 0 0.1rem; }
+  .sheet-tag { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); border-radius: 999px; padding: 0.15rem 0.7rem; white-space: nowrap; }
+  .rq { font-size: 0.92rem; margin: 0.25rem 0 0; }
+  .rq b { background: var(--hl); border-radius: 4px; padding: 0 0.25rem; }
+
+  .idea { margin: 0.35rem 0 0; padding: 0.3rem 0.6rem; background: var(--hl); border-radius: 10px; font-size: 0.88rem; }
+  .idea b { font-family: 'Fraunces', serif; }
+  .words { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; margin-top: 0.6rem; }
+  .word { background: var(--c6-soft); border-radius: 10px; padding: 0.4rem 0.55rem; font-size: 0.8rem; position: relative; }
+  .word b { display: block; font-size: 0.95rem; }
+
+  /* блоки */
+  .blk { border-radius: 12px; padding: 0.55rem 0.8rem 0.65rem; margin-top: 0.6rem; background: var(--soft); }
+  .blk h2 { font-size: 1.05rem; color: var(--c); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.45rem; }
+  .num { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--c); color: var(--paper); font-family: 'Karla', sans-serif; font-size: 0.82rem; font-weight: 700; flex: none; }
+  .b1 { --c: var(--c1); --soft: var(--c1-soft); }
+  .b2 { --c: var(--c2); --soft: var(--c2-soft); }
+  .b3 { --c: var(--c3); --soft: var(--c3-soft); }
+  .b4 { --c: var(--c4); --soft: var(--c4-soft); }
+  .b5 { --c: var(--c5); --soft: var(--c5-soft); }
+  .b6 { --c: var(--c6); --soft: var(--c6-soft); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .pair .blk { margin-top: 0.6rem; }
+
+  .lb { margin-left: auto; font-family: 'Karla', sans-serif; font-size: 0.72rem; font-weight: 700;
+        color: var(--c); background: var(--paper); border-radius: 999px; padding: 0 0.45rem; white-space: nowrap; }
+  .word .lb { position: absolute; right: 0.4rem; top: 0.3rem; background: none; color: var(--ink-faint); padding: 0; }
+
+  /* формула бронзы */
+  .formula { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; font-size: 0.86rem; }
+  .formula .chip { background: var(--paper); border-radius: 9px; padding: 0.3rem 0.6rem; }
+  .formula .chip b { color: var(--c); }
+  .formula .tail { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .formula .op { font-family: 'Fraunces', serif; font-weight: 900; color: var(--c); font-size: 1.1rem; }
+
+  /* горизонтальная цепочка */
+  .hchain { display: flex; align-items: stretch; gap: 0.3rem; flex-wrap: wrap; }
+  .hchain .box { flex: 1 1 0; min-width: 6.5rem; background: var(--paper); border-radius: 9px; padding: 0.35rem 0.5rem; font-size: 0.82rem; text-align: center; align-self: stretch; }
+  .hchain .box b { font-size: 0.88rem; }
+  .hchain .to { align-self: center; color: var(--c); font-weight: 700; }
+  .when { display: block; font-family: 'Fraunces', serif; font-weight: 900; color: var(--c); }
+
+  /* карточки */
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; margin-top: 0.4rem; }
+  .cards.c2 { grid-template-columns: 1fr 1fr; }
+  .cards.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card { background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.78rem; }
+  .card b { display: block; font-size: 0.87rem; color: var(--c); }
+
+  /* вертикальная цепочка */
+  .chainv { list-style: none; margin: 0.2rem 0 0; padding: 0; }
+  .chainv li { background: var(--paper); border-radius: 8px; padding: 0.22rem 0.5rem; font-size: 0.83rem; text-align: center; }
+  .chainv li.to { background: none; padding: 0; line-height: 0.95; font-size: 0.78rem; color: var(--c); font-weight: 700; }
+
+  .line { font-size: 0.83rem; margin: 0.35rem 0 0; }
+  .more { font-size: 0.77rem; color: var(--ink-soft); margin: 0.35rem 0 0; }
+  .qs { margin: 0; padding-left: 1.15rem; font-size: 0.86rem; }
+  .qs li { margin-bottom: 0.1rem; }
+
+  .legend { font-size: 0.72rem; color: var(--ink-faint); margin: 0.5rem 0 0; }
+
+  @media (max-width: 640px) {
+    .words, .pair, .cards, .cards.c3 { grid-template-columns: 1fr 1fr; }
+    .hchain .to { transform: rotate(90deg); }
+  }
+
+  @media print {
+    @page { size: A4; margin: 8mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-shadow: none !important; }
+    .wrap { padding: 0; }
+    .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; background: #fff; zoom: 0.78; }
+    .blk, .pair .blk { margin-top: 0.45rem; }
+    .words { margin-top: 0.45rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="sheet">
+  <div class="top">
+    <div>
+      <p class="eyebrow">История Казахстана 5 · НИШ · Раздел 1 · уроки 1–2 · стр. 28–31</p>
+      <h1>§1.5 Зарождение металлургии на территории Казахстана</h1>
+    </div>
+    <span class="sheet-tag">учим</span>
+  </div>
+  <p class="rq">Исследовательский вопрос: <b>как использование металла изменило жизнь древних людей?</b></p>
+
+  <p class="idea"><b>Главная мысль:</b> люди научились плавить металл — и изменилось всё сразу: появились крепкие
+    орудия и оружие, украшения, больше скота и хлеба, а в обществе — племена, богатые люди и главная роль мужчины. <i>✏️</i></p>
+
+  <div class="words">
+    <div class="word"><span class="lb">ур. 1</span><b>Эпоха бронзы</b>время орудий из бронзы: II тыс. до н.э. — VIII в. до н.э.</div>
+    <div class="word"><span class="lb">ур. 1</span><b>Рудные месторождения</b>места, где в земле залегает руда — медь, олово, золото</div>
+    <div class="word"><span class="lb">ур. 1</span><b>Ювелирное дело</b>изготовление украшений из золота, меди, бронзы, олова</div>
+    <div class="word"><span class="lb">ур. 2</span><b>Мотыжное земледелие</b>примитивное земледелие: почву рыхлят мотыгой</div>
+    <div class="word"><span class="lb">ур. 2</span><b>Племя</b>объединение живших по соседству родов</div>
+    <div class="word"><span class="lb">ур. 2</span><b>Кочевое скотоводство</b>пастухи кочуют вместе со скотом с пастбища на пастбище</div>
+  </div>
+
+  <div class="blk b1">
+    <h2><span class="num">1</span>Что такое бронза<span class="lb">ур. 1</span></h2>
+    <div class="formula">
+      <span class="chip"><b>Медь</b> — первый металл, который освоили</span>
+      <span class="op">+</span>
+      <span class="chip"><b>Олово</b> — твёрже меди, плавится при большей температуре</span>
+      <span class="tail"><span class="op">=</span>
+      <span class="chip"><b>Бронза</b> — в природе в чистом виде не встречается</span></span>
+    </div>
+    <p class="line"><b>Эпоха бронзы</b> — <b>II тысячелетие до н.э. — VIII век до н.э.</b> Ею заканчивается каменный век
+      и начинается новая эпоха в истории человечества.</p>
+  </div>
+
+  <div class="blk b2">
+    <h2><span class="num">2</span>Где добывали и где плавили<span class="lb">ур. 1</span></h2>
+    <div class="cards">
+      <div class="card"><b>Жезказган</b>древний центр добычи медной руды: добыли ~<b>100 тыс. тонн</b> меди</div>
+      <div class="card"><b>Хребты Нарын и Калба</b>месторождения олова, Центральный Казахстан</div>
+      <div class="card"><b>Канай</b>Восточный Казахстан: печи для выплавки, частицы медного пепла</div>
+      <div class="card"><b>Милыкудык, Малокрасноярка, Петровка-2</b>кузнечные мастерские</div>
+    </div>
+    <p class="line">Археологи раскопали <b>60 поселений</b> эпохи бронзы. <b>Восточный Казахстан</b> — один из центров добычи
+      <b>меди, олова и золота</b>.</p>
+  </div>
+
+  <div class="pair">
+    <div class="blk b3">
+      <h2><span class="num">3</span>Что делали из металла<span class="lb">ур. 1</span></h2>
+      <div class="cards c2" style="margin-top:0">
+        <div class="card"><b>Оружие и орудия</b>топоры, кинжалы, ножи, копья, серпы, косы</div>
+        <div class="card"><b>Украшения</b>серьги, колье из бус, браслет, кольца</div>
+      </div>
+      <p class="line">Серьга из могильника <b>Мыншынкур</b> (Акмолинская обл.) — внутри фигурки <b>двух степных лошадей</b>.
+        Бронзовый браслет — <b>Жангельды-5</b> (Костанайская обл.).</p>
+      <p class="more">Одежду женщин украшали стеклянными бусами и застёжками. Обувь шили из шкуры, одежду вязали из шерсти
+        и шили из шерстяной ткани, пришивали пуговицы. Амулеты — <b>клыки диких животных</b>.</p>
+    </div>
+    <div class="blk b4">
+      <h2><span class="num">4</span>Что осталось от той эпохи<span class="lb">ур. 2</span></h2>
+      <div class="cards c2" style="margin-top:0">
+        <div class="card"><b>Поселения</b>рядом с реками и озёрами</div>
+        <div class="card"><b>Загоны для скота</b></div>
+        <div class="card"><b>Рудники</b>и наскальные рисунки</div>
+        <div class="card"><b>Могильники</b>Центральный Казахстан</div>
+      </div>
+      <p class="line">Могильники Центрального Казахстана — <b>сложные и монументальные</b>, вокруг них строили
+        <b>ограждения из крупных камней</b>.</p>
+      <p class="line">Керамику украшали рисунками в виде <b>ёлочек и линий</b>, выдавленных палочкой.</p>
+    </div>
+  </div>
+
+  <div class="blk b5">
+    <h2><span class="num">5</span>Чем занимались: скот и поле<span class="lb">ур. 2</span></h2>
+    <div class="hchain">
+      <div class="box">пастбища <b>близко от жилища</b> — придомное скотоводство</div>
+      <span class="to">→</span>
+      <div class="box">выгон на <b>ближние и дальние</b> пастбища</div>
+      <span class="to">→</span>
+      <div class="box">скота стало больше — нужны <b>новые пастбища</b></div>
+      <span class="to">→</span>
+      <div class="box">пастухи кочуют вместе со скотом — <b>зарождение кочевого скотоводства</b></div>
+    </div>
+    <p class="line"><b>Мотыжное земледелие:</b> сажали <b>пшеницу, рожь, пшено</b>; мягкую почву у реки рыхлили
+      <b>мотыгой</b>. Орудия земледельца: серпы, тяпки, мотыги, косы, ступы, песты.</p>
+  </div>
+
+  <div class="pair">
+    <div class="blk b6">
+      <h2><span class="num">6</span>Что изменилось в обществе<span class="lb">ур. 2</span></h2>
+      <ul class="chainv">
+        <li>руда, орудия, скот, поле — нужна <b>мужская сила</b></li><li class="to">↓</li>
+        <li><b>роль мужчины</b> в общине растёт, семья живёт в <b>отдельном жилище</b></li><li class="to">↓</li>
+        <li><b>излишки</b> и резервы → появились <b>богатые люди</b></li><li class="to">↓</li>
+        <li>соседние роды объединяются в <b>племена</b></li><li class="to">↓</li>
+        <li>конфликты за пастбища → нужно больше <b>оружия</b></li>
+      </ul>
+    </div>
+    <div class="blk b6">
+      <h2><span class="num">7</span>Ответь устно<span class="lb">ур. 1–2</span></h2>
+      <ol class="qs">
+        <li>Почему эпоха называется бронзовой и из чего делают бронзу?</li>
+        <li>Какие центры добычи руды нашли археологи?</li>
+        <li>Чем изделия из бронзы лучше каменных?</li>
+        <li>Почему земледелие называют мотыжным?</li>
+        <li>Как появилось кочевое скотоводство?</li>
+        <li>Почему роль мужчины стала главной? <i>✏️ Сравни с родовой общиной из §1.1.</i></li>
+      </ol>
+    </div>
+  </div>
+
+  <p class="legend">Всё — по учебнику НИШ · <i>✏️ — моё пояснение</i></p>
+</section>
+
+</div>
+</body>
+</html>
