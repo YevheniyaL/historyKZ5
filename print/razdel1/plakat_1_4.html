@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>История КЗ · §1.4 · плакат</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🏺</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --paper: #FFFDF8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74; --line: #D8CBA9;
+    --c1: #8A6A4B; --c1-soft: #EFE4D2;   /* энеолит и Ботай */
+    --c2: #B0522E; --c2-soft: #F6E0D3;   /* находки */
+    --c3: #3B6E8F; --c3-soft: #DCEAF3;   /* жилища */
+    --c4: #4E7D3A; --c4-soft: #E1ECD7;   /* лошадь */
+    --c5: #7A4E9A; --c5-soft: #ECE2F2;   /* доказательства */
+    --c6: #6B6456; --c6-soft: #ECE8DE;   /* слова, последствия, вопросы */
+    --hl: #FFE9A8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --paper: #2A251C;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+      --c1: #C9A87E; --c1-soft: #3B3222; --c2: #E08F6B; --c2-soft: #452F24;
+      --c3: #7FB3D5; --c3-soft: #243542; --c4: #9CC77F; --c4-soft: #2C3A24;
+      --c5: #B994D6; --c5-soft: #372C40; --c6: #BCB29A; --c6-soft: #342E22;
+      --hl: #5C5020;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --paper: #2A251C;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+    --c1: #C9A87E; --c1-soft: #3B3222; --c2: #E08F6B; --c2-soft: #452F24;
+    --c3: #7FB3D5; --c3-soft: #243542; --c4: #9CC77F; --c4-soft: #2C3A24;
+    --c5: #B994D6; --c5-soft: #372C40; --c6: #BCB29A; --c6-soft: #342E22;
+    --hl: #5C5020;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.33; }
+  .wrap { padding-block: 1.5rem 3rem; padding-inline: 1rem; }
+  .sheet { max-width: 800px; margin: 0 auto 2rem; background: var(--paper); border-radius: 14px; padding: 1.4rem 1.5rem; box-shadow: 0 8px 24px -12px rgba(46,42,34,0.25); }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; margin: 0; text-wrap: balance; }
+
+  /* шапка */
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin: 0; }
+  h1 { font-size: 1.5rem; font-weight: 900; line-height: 1.1; margin: 0.15rem 0 0.1rem; }
+  .sheet-tag { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); border-radius: 999px; padding: 0.15rem 0.7rem; white-space: nowrap; }
+  .rq { font-size: 0.92rem; margin: 0.25rem 0 0; }
+  .rq b { background: var(--hl); border-radius: 4px; padding: 0 0.25rem; }
+
+  .idea { margin: 0.35rem 0 0; padding: 0.3rem 0.6rem; background: var(--hl); border-radius: 10px; font-size: 0.88rem; }
+  .idea b { font-family: 'Fraunces', serif; }
+  .words { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.45rem; margin-top: 0.6rem; }
+  .word { background: var(--c6-soft); border-radius: 10px; padding: 0.4rem 0.55rem; font-size: 0.8rem; position: relative; }
+  .word b { display: block; font-size: 0.95rem; }
+
+  /* блоки */
+  .blk { border-radius: 12px; padding: 0.55rem 0.8rem 0.65rem; margin-top: 0.6rem; background: var(--soft); }
+  .blk h2 { font-size: 1.05rem; color: var(--c); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.45rem; }
+  .num { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--c); color: var(--paper); font-family: 'Karla', sans-serif; font-size: 0.82rem; font-weight: 700; flex: none; }
+  .b1 { --c: var(--c1); --soft: var(--c1-soft); }
+  .b2 { --c: var(--c2); --soft: var(--c2-soft); }
+  .b3 { --c: var(--c3); --soft: var(--c3-soft); }
+  .b4 { --c: var(--c4); --soft: var(--c4-soft); }
+  .b5 { --c: var(--c5); --soft: var(--c5-soft); }
+  .b6 { --c: var(--c6); --soft: var(--c6-soft); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .pair .blk { margin-top: 0.6rem; }
+
+  .lb { margin-left: auto; font-family: 'Karla', sans-serif; font-size: 0.72rem; font-weight: 700;
+        color: var(--c); background: var(--paper); border-radius: 999px; padding: 0 0.45rem; white-space: nowrap; }
+  .word .lb { position: absolute; right: 0.4rem; top: 0.3rem; background: none; color: var(--ink-faint); padding: 0; }
+
+  /* большая дата */
+  .start { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
+  .big-year { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.6rem; color: var(--c1); line-height: 1; }
+  .start p { margin: 0; font-size: 0.9rem; flex: 1 1 300px; }
+
+  /* горизонтальная цепочка */
+  .hchain { display: flex; align-items: stretch; gap: 0.3rem; flex-wrap: wrap; }
+  .hchain .box { flex: 1 1 0; min-width: 7rem; background: var(--paper); border-radius: 9px; padding: 0.35rem 0.5rem; font-size: 0.84rem; text-align: center; align-self: stretch; }
+  .hchain .box b { font-size: 0.9rem; }
+  .hchain .to { align-self: center; color: var(--c); font-weight: 700; }
+  .when { display: block; font-family: 'Fraunces', serif; font-weight: 900; color: var(--c); }
+
+  /* карточки */
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; margin-top: 0.4rem; }
+  .cards.c2 { grid-template-columns: 1fr 1fr; }
+  .cards.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card { background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.78rem; }
+  .card b { display: block; font-size: 0.88rem; color: var(--c); }
+
+  /* вертикальная цепочка */
+  .chainv { list-style: none; margin: 0.2rem 0 0; padding: 0; }
+  .chainv li { background: var(--paper); border-radius: 8px; padding: 0.22rem 0.5rem; font-size: 0.84rem; text-align: center; }
+  .chainv li.to { background: none; padding: 0; line-height: 0.95; font-size: 0.78rem; color: var(--c); font-weight: 700; }
+
+  /* доказательства: находка → вывод */
+  .proof { display: grid; grid-template-columns: 1fr; gap: 0.3rem; margin-top: 0.3rem; }
+  .proof .row { display: grid; grid-template-columns: 1.6fr auto 1.4fr; align-items: center; gap: 0.4rem;
+                background: var(--paper); border-radius: 8px; padding: 0.28rem 0.5rem; font-size: 0.83rem; }
+  .proof .row span.arr { color: var(--c); font-weight: 700; }
+  .proof .row i { font-style: normal; font-weight: 700; color: var(--c); }
+
+  .line { font-size: 0.84rem; margin: 0.35rem 0 0; }
+  .more { font-size: 0.78rem; color: var(--ink-soft); margin: 0.35rem 0 0; }
+  .qs { margin: 0; padding-left: 1.15rem; font-size: 0.88rem; }
+  .qs li { margin-bottom: 0.12rem; }
+
+  .legend { font-size: 0.72rem; color: var(--ink-faint); margin: 0.5rem 0 0; }
+
+  @media (max-width: 640px) {
+    .words, .pair, .cards, .cards.c3 { grid-template-columns: 1fr 1fr; }
+    .proof .row { grid-template-columns: 1fr; }
+    .hchain .to { transform: rotate(90deg); }
+  }
+
+  @media print {
+    @page { size: A4; margin: 8mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-shadow: none !important; }
+    .wrap { padding: 0; }
+    .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; background: #fff; zoom: 0.85; }
+    .blk, .pair .blk { margin-top: 0.45rem; }
+    .words { margin-top: 0.45rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="sheet">
+  <div class="top">
+    <div>
+      <p class="eyebrow">История Казахстана 5 · НИШ · Раздел 1 · уроки 1–2 · стр. 24–27</p>
+      <h1>§1.4 Ботайская культура</h1>
+    </div>
+    <span class="sheet-tag">учим</span>
+  </div>
+  <p class="rq">Исследовательский вопрос: <b>почему ботайцы считаются первыми людьми, приручившими лошадей?</b></p>
+
+  <p class="idea"><b>Главная мысль:</b> на стоянке Ботай нашли столько конских костей и конской упряжи, что стало ясно:
+    здесь, в степях Казахстана, человек впервые приручил лошадь — и получил транспорт, новое хозяйство и новые ремёсла. <i>✏️</i></p>
+
+  <div class="words">
+    <div class="word"><span class="lb">ур. 1</span><b>Энеолит</b>время, когда орудия делали и из камня, и из меди</div>
+    <div class="word"><span class="lb">ур. 1</span><b>Уздечка</b>ремни на голову лошади, чтобы ею управлять</div>
+    <div class="word"><span class="lb">ур. 2</span><b>Удила</b>часть уздечки во рту коня</div>
+    <div class="word"><span class="lb">ур. 1–2</span><b>Ботайская культура</b>культура энеолита, которую выделил В. Зайберт по раскопкам Ботая</div>
+  </div>
+
+  <div class="blk b1">
+    <h2><span class="num">1</span>Что такое Ботай<span class="lb">ур. 1</span></h2>
+    <div class="start">
+      <span class="big-year">1980</span>
+      <p>в <b>Северном Казахстане</b> найдено поселение <b>Ботай</b> — стоянка эпохи <b>энеолита</b>,
+        <b>III–II тысячелетие до н.э.</b> Археолог <b>В.Ф. Зайберт</b> исследовал её <b>20 лет</b>
+        и нашёл около <b>70 тысяч</b> останков лошадей.</p>
+    </div>
+    <p class="more"><i>✏️ Энеолит идёт сразу после неолита (§1.3): камень ещё главный, но появляется медь.</i></p>
+  </div>
+
+  <div class="pair">
+    <div class="blk b3">
+      <h2><span class="num">2</span>Как они жили<span class="lb">ур. 1</span></h2>
+      <ul class="chainv">
+        <li>раскопано <b>158 жилищ</b>: треугольные и четырёхугольные, <b>20–120 м²</b></li>
+        <li>крыша куполом — брёвна и дёрн, в центре <b>отверстие для дыма</b></li>
+        <li>внутри <b>очаг</b>, в боковой стене — ниша для продуктов</li>
+        <li>умерших хоронили <b>прямо в посёлке</b>, в старых жилищах, вдоль стен — <b>десятки конских черепов</b></li>
+      </ul>
+    </div>
+    <div class="blk b2">
+      <h2><span class="num">3</span>Что нашли на стоянке<span class="lb">ур. 1</span></h2>
+      <div class="cards c2" style="margin-top:0">
+        <div class="card"><b>Орудия охоты</b>молотки, копья, стрелы, боласы, кинжалы</div>
+        <div class="card"><b>Для шкур</b>скребла, иголки, проколки, шила</div>
+        <div class="card"><b>Медные орудия</b>ботайцы первыми в Казахстане начали осваивать металл</div>
+        <div class="card"><b>Амулеты и украшения</b>значит, были религиозные верования</div>
+      </div>
+      <p class="line">Костяными крючками изготавливали <b>чий</b>, нить пряли <b>веретеном</b>. Обработка камня и кости — на высоком уровне.</p>
+    </div>
+  </div>
+
+  <div class="blk b5">
+    <h2><span class="num">4</span>Чем доказали, что лошадь приручена<span class="lb">ур. 1–2</span></h2>
+    <div class="proof">
+      <div class="row"><span>застёжки для <b>уздечек</b> и путы</span><span class="arr">→</span><i>лошадью управляли</i></div>
+      <div class="row"><span>следы <b>удил</b> на зубах лошади</span><span class="arr">→</span><i>на коне ездили верхом</i></div>
+      <div class="row"><span>специалисты изучили кости</span><span class="arr">→</span><i>лошади не дикие, а прирученные</i></div>
+      <div class="row"><span>остатки в горшках изучили в лаборатории <b>Великобритании</b></span><span class="arr">→</span><i>в посуде хранили <b>молоко</b></i></div>
+      <div class="row"><span>на обломке горшка — рисунок: <b>два колеса и лошади</b></span><span class="arr">→</span><i>лошадь запрягали</i></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="blk b4">
+      <h2><span class="num">5</span>Где и когда приручили<span class="lb">ур. 2</span></h2>
+      <p class="line">В степях <b>Северного и Центрального Казахстана</b>, в <b>4 тысячелетии до н.э.</b></p>
+      <p class="line">Места удобные: равнина, много <b>водоёмов и травы</b>, реки — значит, охота и рыболовство.</p>
+      <ul class="chainv">
+        <li><b>зимой</b> — постоянные жилища в посёлке</li><li class="to">↓</li>
+        <li><b>весной</b> — пасли лошадей в <b>Улытау</b>, у реки <b>Торгай</b>, жили во временных жилищах</li>
+      </ul>
+      <p class="line">Это и есть <b>календарный цикл коневодства</b>.</p>
+    </div>
+    <div class="blk b6">
+      <h2><span class="num">6</span>Что из этого вышло<span class="lb">ур. 2</span></h2>
+      <ul class="chainv">
+        <li>лошадь — <b>транспорт</b> и еда (молоко, мясо)</li><li class="to">↓</li>
+        <li>новые <b>ремёсла</b>: мастера конского снаряжения — узда, подпруги из кожи и волоса гривы</li><li class="to">↓</li>
+        <li>опыт передавали из поколения в поколение → разошёлся по <b>всей степной Евразии</b></li>
+      </ul>
+      <p class="line">Приручение лошади — <b>одно из величайших достижений в истории человечества</b>.</p>
+    </div>
+  </div>
+
+  <div class="blk b6">
+    <h2><span class="num">7</span>Ответь устно<span class="lb">ур. 1–2</span></h2>
+    <ol class="qs">
+      <li>Что такое энеолит и почему Ботай относят к нему?</li>
+      <li>Какие находки доказывают, что ботайцы приручили лошадей?</li>
+      <li>Как ботайцы строили жилища?</li>
+      <li>Чем занимались ботайцы, судя по находкам?</li>
+      <li>Почему приручение лошади считают важным историческим событием?</li>
+    </ol>
+  </div>
+
+  <p class="legend">Всё — по учебнику НИШ · <i>✏️ — моё пояснение</i></p>
+</section>
+
+</div>
+</body>
+</html>
