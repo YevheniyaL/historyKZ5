@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>История КЗ · раздел 4 · шпаргалки</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🏺</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --paper: #FFFDF8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74;
+    --c: #B0522E; --c-soft: #F6E0D3; --c2: #3B6E8F; --c2-soft: #DCEAF3;
+    --hl: #FFE9A8; --cut: #C9BC9C;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --paper: #2A251C;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F;
+      --c: #E08F6B; --c-soft: #452F24; --c2: #7FB3D5; --c2-soft: #243542;
+      --hl: #5C5020; --cut: #4A4232;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --paper: #2A251C;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F;
+    --c: #E08F6B; --c-soft: #452F24; --c2: #7FB3D5; --c2-soft: #243542;
+    --hl: #5C5020; --cut: #4A4232;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.3; }
+  .wrap { padding-block: 1.5rem 3rem; padding-inline: 1rem; max-width: 820px; margin: 0 auto; }
+  .lead { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 1rem; }
+  .lead b { color: var(--ink); }
+
+  .strip { background: var(--paper); border-radius: 10px; padding: 0.6rem 0.8rem 0.55rem; margin-bottom: 0.8rem; border: 1px solid var(--cut); }
+  .strip.empty { border-style: dashed; color: var(--ink-faint); text-align: center; font-size: 0.85rem; padding: 1.6rem 0.8rem; background: none; }
+
+  .head { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; border-bottom: 2px solid var(--c); padding-bottom: 0.2rem; }
+  .head h2 { font-family: 'Fraunces', ui-serif, Georgia, serif; font-size: 1.02rem; margin: 0; }
+  .head .pages { font-size: 0.72rem; color: var(--ink-faint); margin-left: auto; white-space: nowrap; }
+
+  .idea { margin: 0.25rem 0 0.3rem; padding: 0.22rem 0.5rem; background: var(--hl); border-radius: 7px; font-size: 0.77rem; }
+  .idea b { font-family: 'Fraunces', serif; }
+
+  .cols { display: grid; grid-template-columns: 1fr 1.25fr; gap: 0.6rem; }
+  .cols h3 { font-family: 'Karla', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c); margin: 0 0 0.15rem; }
+  ul { margin: 0; padding: 0; list-style: none; font-size: 0.75rem; line-height: 1.25; }
+  li { margin-bottom: 0.08rem; }
+  li b { font-weight: 700; }
+  .who { color: var(--ink-soft); }
+
+  .chain { margin: 0.3rem 0 0; padding: 0.22rem 0.5rem; background: var(--c2-soft); border-radius: 7px; font-size: 0.75rem; }
+  .chain b { color: var(--c2); }
+  .ask { margin: 0.22rem 0 0; font-size: 0.74rem; color: var(--ink-soft); }
+  .ask b { color: var(--ink); }
+  .mark { font-size: 0.68rem; color: var(--ink-faint); }
+
+  @media (max-width: 640px) { .cols { grid-template-columns: 1fr; } }
+
+  @media print {
+    @page { size: A4; margin: 8mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-shadow: none !important; }
+    .wrap { padding: 0; max-width: none; }
+    .lead { display: none; }
+    .strip { height: 92mm; margin-bottom: 0; border: none; border-bottom: 1.5px dashed var(--cut); border-radius: 0; padding: 4mm 3mm; break-inside: avoid; }
+    .strip.empty { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="lead"><b>Шпаргалки-закладки Раздела 4 «Усуни и кангюи».</b> Четыре полоски — §4.1–§4.4, весь раздел;
+    три полоски на лист A4, всего два листа. Печатать и разрезать по пунктиру — полоска кладётся в учебник
+    на свой параграф. Учить — по плакату параграфа, тут только напоминание.</p>
+
+  <!-- ============ §4.1 ============ -->
+  <section class="strip">
+    <div class="head">
+      <h2>§4.1 Письменные источники об усунях</h2>
+      <span class="pages">уроки 1–2 · стр. 106–109</span>
+    </div>
+    <p class="idea"><b>Главная мысль:</b> об усунях знаем из китайских летописей: гуньмо, наследственная власть,
+      полукочевое хозяйство — и Китай искал с ними родства. <i>✏️</i></p>
+    <div class="cols">
+      <div>
+        <h3>Слова <span style="text-transform:none;font-weight:400">(в скобках — урок)</span></h3>
+        <ul>
+          <li><b>Гуньмо (кунби)</b> — верховный правитель усуней <span class="who">(1)</span></li>
+          <li><b>Бек</b> — предводитель рода, знатный человек <span class="who">(1)</span></li>
+          <li><b>Частная собственность</b> — имущество одного хозяина <span class="who">(2)</span></li>
+          <li><b>Тамга</b> — знак семьи на скоте ✏️ <span class="who">(2)</span></li>
+          <li><b>Чигучен</b> — столица усуней <span class="who">(1)</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Даты и факты</h3>
+        <ul>
+          <li>Усуни — <b>III в. до н.э. – V в. н.э.</b>: Жетысу, Чу, Талас, Иссык-Куль</li>
+          <li><b>107 г. до н.э.</b> — гуньмо женился на царевне <b>Лю Сицзюнь</b> (за <b>1000 лошадей</b>);
+            её «Песня лебедя»</li>
+          <li>Чжан Цянь: <b>120 тыс. семей</b>, 630 тыс. человек, <b>188 тыс. воинов</b></li>
+          <li><b>73 г. до н.э.</b> — три части: правое крыло, левое крыло, центр</li>
+          <li>Войско гуньмо — <b>30-тысячная конница</b>; у богатых <b>4–5 тыс.</b> лошадей</li>
+          <li><b>64–54 гг. до н.э.</b> — вмешательство Хань, государство распалось надвое</li>
+        </ul>
+      </div>
+    </div>
+    <p class="chain"><b>Цепочка:</b> китайские летописи → гуньмо и наследственная власть → беки, народ, рабы →
+      полукочевое скотоводство и тамга → Шёлковый путь и соседи → вмешательство Китая → <b>раскол</b>.</p>
+    <p class="ask"><b>Скажи вслух:</b> кто такой гуньмо? · что говорит «Песня лебедя» о быте? · зачем тамга?</p>
+  </section>
+
+  <!-- ============ §4.2 ============ -->
+  <section class="strip">
+    <div class="head">
+      <h2>§4.2 Развитие городской культуры кангюев</h2>
+      <span class="pages">уроки 1–2 · стр. 110–113</span>
+    </div>
+    <p class="idea"><b>Главная мысль:</b> через земли кангюев прошёл Шёлковый путь — и на торговле выросли
+      города, свои деньги и связи от Индии до Прибалтики. <i>✏️</i></p>
+    <div class="cols">
+      <div>
+        <h3>Слова <span style="text-transform:none;font-weight:400">(в скобках — урок)</span></h3>
+        <ul>
+          <li><b>Посол</b> — представитель страны на переговорах <span class="who">(1)</span></li>
+          <li><b>Шёлковый путь</b> — торговый караванный путь <span class="who">(1)</span></li>
+          <li><b>Арык</b> — канал для полива пашни <span class="who">(2)</span></li>
+          <li><b>Битянь</b> — столица кангюев <span class="who">(2)</span></li>
+          <li><b>Кок-Мардан</b> — крупнейший город отрар-каратауской культуры <span class="who">(2)</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Даты и факты</h3>
+        <ul>
+          <li><b>138 г. до н.э.</b> — У-ди посылает <b>Чжан Цяня</b> на запад; вернулся через <b>13 лет</b>,
+            ещё через <b>10</b> пошёл первый караван с шёлком</li>
+          <li>Кангюи — <b>III–I вв. до н.э.</b>: Сырдарья, Чу, Каратау; соседи — усуни, аланы, Фергана</li>
+          <li>Союз с гуннами: дочь правителя за царя <b>Чжи Чжи</b>; <b>42 г. до н.э.</b> — война с усунями</li>
+          <li><b>1300 монет</b> III–IV вв. н.э.; культуры кауыншинская, отрар-каратауская, джетыасарская</li>
+          <li>Шёлк: нить кокона <b>700–800 м</b>; Китай тысячу лет хранил тайну</li>
+        </ul>
+      </div>
+    </div>
+    <p class="chain"><b>Цепочка:</b> посольство Чжан Цяня → <b>Шёлковый путь</b> через земли кангюев →
+      контроль над трассами → торговля и свои деньги → <b>расцвет городов</b> (Битянь, Кок-Мардан).</p>
+    <p class="ask"><b>Скажи вслух:</b> как начался Шёлковый путь? · зачем союз с гуннами? · что такое арык?</p>
+  </section>
+
+  <!-- ============ §4.3 ============ -->
+  <section class="strip">
+    <div class="head">
+      <h2>§4.3 Общественное устройство кангюев</h2>
+      <span class="pages">уроки 1–2 · стр. 114–117</span>
+    </div>
+    <p class="idea"><b>Главная мысль:</b> у кангюев было государство: пять владений во главе с сыновьями
+      правителя, свод законов во дворце, земледелие на юге и кочевье на севере. <i>✏️</i></p>
+    <div class="cols">
+      <div>
+        <h3>Слова <span style="text-transform:none;font-weight:400">(в скобках — урок)</span></h3>
+        <ul>
+          <li><b>Этнос</b> — группа людей с общим языком и культурой <span class="who">(1)</span></li>
+          <li><b>Малый хан (ван)</b> — правитель одного из пяти владений ✏️ <span class="who">(2)</span></li>
+          <li><b>Раб</b> — человек без прав и свободы <span class="who">(2)</span></li>
+          <li><b>Ли</b> — китайская мера: 1 ли = <b>500 метров</b> <span class="who">(1)</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Даты и факты</h3>
+        <ul>
+          <li><b>Сыма Цянь</b> (145–86 гг. до н.э.), «Ши цзи»: войско кангюев — <b>90 тысяч</b></li>
+          <li>Хроника Хань: <b>120 000</b> семейств, <b>600 000</b> душ, войско <b>120 000</b></li>
+          <li>Три объяснения слова: имя правителя (Махмуд Кашгари) · вода, река · равнина</li>
+          <li><b>Пять</b> владений, правят <b>сыновья</b> правителя; «Свод законов» — во дворце</li>
+          <li>Юг — земледелие (рис, просо, горох), север — полукочевье (лошади, овцы, верблюды, коровы)</li>
+          <li><b>III–V вв. н.э.</b> — ослабление; <b>VI век</b> — вошли в <b>Тюркский каганат</b></li>
+        </ul>
+      </div>
+    </div>
+    <p class="chain"><b>Цепочка:</b> китайские источники → пять владений и малые ханы → свод законов →
+      юг пашет, север кочует → ослабление в III–V вв. → <b>Тюркский каганат</b>.</p>
+    <p class="ask"><b>Скажи вслух:</b> что значит «кангюй»? · сколько было владений и кто ими правил? ·
+      когда кангюи вошли в Тюркский каганат?</p>
+  </section>
+
+  <!-- ============ §4.4 ============ -->
+  <section class="strip">
+    <div class="head">
+      <h2>§4.4 Материальная и духовная культура усуней и кангюев</h2>
+      <span class="pages">уроки 1–2 · стр. 118–121</span>
+    </div>
+    <p class="idea"><b>Главная мысль:</b> усуни и кангюи плавили металл, делали тончайшее золото и посуду,
+      пели и танцевали так, что о них писали китайские поэты, — и знали письмо. <i>✏️</i></p>
+    <div class="cols">
+      <div>
+        <h3>Слова <span style="text-transform:none;font-weight:400">(в скобках — урок)</span></h3>
+        <ul>
+          <li><b>Диадема</b> — женское головное украшение-корона <span class="who">(1)</span></li>
+          <li><b>Застёжка</b> — металлическая пряжка для одежды ✏️ <span class="who">(1)</span></li>
+          <li><b>Духовная культура</b> — музыка, танцы, верования, письмо ✏️ <span class="who">(2)</span></li>
+          <li><b>Шаш-Илак</b> — центры обработки металла <span class="who">(1)</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Даты и факты</h3>
+        <ul>
+          <li>Металл: железо, золото, серебро; из камней — <b>сердолик и бирюза</b></li>
+          <li><b>Каргалинское ущелье</b> близ Алматы: 2 кольца, <b>10 статуэток</b> горного козла, серьги с
+            мышью, застёжки — всё золотое; <b>Каргалинская диадема</b></li>
+          <li>Усуни: гончарный круг, отпечатки ткани внутри посуды, ткачество, изделия из кости и кожи</li>
+          <li>Кангюи: изящная посуда с образами <b>овец</b>, обработка шерсти, <b>кошмы</b></li>
+          <li>Музыка: барабаны, <b>пятиструнные</b> инструменты, танец вдвоём; поэт <b>Бай Жуи</b>,
+            «Девушка-танцовщица»</li>
+          <li>Письмо: <b>Абель Ремюза</b> (20-е годы XIX века) — надписи на Иртыше; у кангюев «законы и указы»</li>
+        </ul>
+      </div>
+    </div>
+    <p class="chain"><b>Цепочка:</b> руда Шаш-Илака → золото и диадемы → посуда, ткачество, шерсть →
+      музыка и танцы, о которых пишут китайские поэты → <b>письменность</b>.</p>
+    <p class="ask"><b>Скажи вслух:</b> что нашли в Каргалинском ущелье? · почему на посуде кангюев овцы? ·
+      откуда известно про их письмо?</p>
+  </section>
+
+</div>
+</body>
+
+</html>

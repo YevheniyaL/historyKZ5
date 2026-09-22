@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>История КЗ · §4.3 · плакат</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🏺</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --paper: #FFFDF8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74; --line: #D8CBA9;
+    --c1: #B0522E; --c1-soft: #F6E0D3;   /* кто такие саки и источники */
+    --c2: #8A6A4B; --c2-soft: #EFE4D2;   /* греческие авторы */
+    --c3: #7A4E9A; --c3-soft: #ECE2F2;   /* Геродот о саках */
+    --c4: #3B6E8F; --c4-soft: #DCEAF3;   /* Страбон */
+    --c5: #4E7D3A; --c5-soft: #E1ECD7;   /* персидские источники */
+    --c6: #6B6456; --c6-soft: #ECE8DE;   /* слова, вопросы */
+    --hl: #FFE9A8;
+    --thread: #3B6E8F; --thread-soft: #DCEAF3;   /* нить раздела: связь с соседями */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --paper: #2A251C;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+      --c1: #E08F6B; --c1-soft: #452F24; --c2: #C9A87E; --c2-soft: #3B3222;
+      --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
+      --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
+      --hl: #5C5020;
+      --thread: #7FB3D5; --thread-soft: #243542;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --paper: #2A251C;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+    --c1: #E08F6B; --c1-soft: #452F24; --c2: #C9A87E; --c2-soft: #3B3222;
+    --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
+    --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
+    --hl: #5C5020;
+    --thread: #7FB3D5; --thread-soft: #243542;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.33; }
+  .wrap { padding-block: 1.5rem 3rem; padding-inline: 1rem; }
+  .sheet { max-width: 800px; margin: 0 auto 2rem; background: var(--paper); border-radius: 14px; padding: 1.4rem 1.5rem; box-shadow: 0 8px 24px -12px rgba(46,42,34,0.25); }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; margin: 0; text-wrap: balance; }
+
+  /* шапка */
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin: 0; }
+  h1 { font-size: 1.5rem; font-weight: 900; line-height: 1.1; margin: 0.15rem 0 0.1rem; }
+  .sheet-tag { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); border-radius: 999px; padding: 0.15rem 0.7rem; white-space: nowrap; }
+  .rq { font-size: 0.92rem; margin: 0.25rem 0 0; }
+  .rq b { background: var(--hl); border-radius: 4px; padding: 0 0.25rem; }
+
+  .idea { margin: 0.35rem 0 0; padding: 0.3rem 0.6rem; background: var(--hl); border-radius: 10px; font-size: 0.88rem; }
+  .idea b { font-family: 'Fraunces', serif; }
+  .words { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; margin-top: 0.6rem; }
+  .word { background: var(--c6-soft); border-radius: 10px; padding: 0.4rem 0.55rem; font-size: 0.8rem; position: relative; }
+  .word b { display: block; font-size: 0.95rem; }
+
+  /* блоки */
+  .blk { border-radius: 12px; padding: 0.55rem 0.8rem 0.65rem; margin-top: 0.6rem; background: var(--soft); }
+  .blk h2 { font-size: 1.05rem; color: var(--c); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.45rem; }
+  .num { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--c); color: var(--paper); font-family: 'Karla', sans-serif; font-size: 0.82rem; font-weight: 700; flex: none; }
+  .b1 { --c: var(--c1); --soft: var(--c1-soft); }
+  .b2 { --c: var(--c2); --soft: var(--c2-soft); }
+  .b3 { --c: var(--c3); --soft: var(--c3-soft); }
+  .b4 { --c: var(--c4); --soft: var(--c4-soft); }
+  .b5 { --c: var(--c5); --soft: var(--c5-soft); }
+  .b6 { --c: var(--c6); --soft: var(--c6-soft); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .pair .blk { margin-top: 0.6rem; }
+
+  .lb { margin-left: auto; font-family: 'Karla', sans-serif; font-size: 0.72rem; font-weight: 700;
+        color: var(--c); background: var(--paper); border-radius: 999px; padding: 0 0.45rem; white-space: nowrap; }
+  .word .lb { position: absolute; right: 0.4rem; top: 0.3rem; background: none; color: var(--ink-faint); padding: 0; }
+
+  /* карточки */
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; margin-top: 0.4rem; }
+  .cards.c2 { grid-template-columns: 1fr 1fr; }
+  .cards.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card { background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.78rem; }
+  .card b { display: block; font-size: 0.87rem; color: var(--c); }
+
+  .line { font-size: 0.83rem; margin: 0.35rem 0 0; }
+  .more { font-size: 0.77rem; color: var(--ink-soft); margin: 0.35rem 0 0; }
+  .quote { font-size: 0.8rem; margin: 0.3rem 0 0; padding-left: 0.6rem; border-left: 3px solid var(--c); font-style: italic; }
+  .quote b { font-style: normal; color: var(--c); }
+  .qs { margin: 0; padding-left: 1.15rem; font-size: 0.86rem; }
+  .qs li { margin-bottom: 0.1rem; }
+
+  /* нить раздела: откуда пришли и что из этого вышло */
+  .thread { display: flex; gap: 0.45rem; align-items: baseline; background: var(--thread-soft);
+    border-left: 4px solid var(--thread); border-radius: 8px; padding: 0.35rem 0.7rem;
+    font-size: 0.79rem; line-height: 1.32; color: var(--ink-soft); }
+  .thread .ico { color: var(--thread); font-weight: 700; flex: none; }
+  .thread b { color: var(--thread); }
+  .thread.prev { margin: 0.4rem 0 0; }
+  .thread.next { margin: 0.5rem 0 0; }
+
+  /* цепочки и таблицы */
+  .hchain { display: flex; align-items: stretch; gap: 0.3rem; flex-wrap: wrap; }
+  .hchain .box { flex: 1 1 0; min-width: 6.5rem; background: var(--paper); border-radius: 9px; padding: 0.35rem 0.5rem; font-size: 0.82rem; text-align: center; align-self: stretch; }
+  .hchain .box b { font-size: 0.88rem; }
+  .hchain .to { align-self: center; color: var(--c); font-weight: 700; }
+  .step { display: block; font-family: 'Fraunces', serif; font-weight: 900; color: var(--c); }
+  .chainv { list-style: none; margin: 0.2rem 0 0; padding: 0; }
+  .chainv li { background: var(--paper); border-radius: 8px; padding: 0.22rem 0.5rem; font-size: 0.83rem; text-align: center; }
+  .chainv li.to { background: none; padding: 0; line-height: 0.95; font-size: 0.78rem; color: var(--c); font-weight: 700; }
+  table.cmp { width: 100%; border-collapse: collapse; font-size: 0.78rem; margin-top: 0.35rem; background: var(--paper); border-radius: 8px; overflow: hidden; }
+  table.cmp th, table.cmp td { padding: 0.25rem 0.45rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.cmp th { font-family: 'Karla', sans-serif; font-weight: 700; color: var(--c); }
+  table.cmp tr:last-child td { border-bottom: none; }
+
+  .legend { font-size: 0.72rem; color: var(--ink-faint); margin: 0.5rem 0 0; }
+
+  @media (max-width: 640px) {
+    .words, .pair, .cards, .cards.c3 { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media print {
+    @page { size: A4; margin: 8mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-shadow: none !important; }
+    .wrap { padding: 0; }
+    .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; background: #fff; zoom: 0.86; }
+    .blk, .pair .blk { margin-top: 0.45rem; }
+    .words { margin-top: 0.45rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="sheet">
+  <div class="top">
+    <div>
+      <p class="eyebrow">История Казахстана 5 · НИШ · Раздел 4 · уроки 1–2 · стр. 114–117</p>
+      <h1>§4.3 Общественное устройство кангюев</h1>
+    </div>
+    <span class="sheet-tag">учим</span>
+  </div>
+  <p class="rq">Исследовательский вопрос: <b>как описывал Сыма Цянь общество кангюев?</b></p>
+
+  <p class="idea"><b>Главная мысль:</b> у кангюев было настоящее государство — пять владений во главе с
+    сыновьями правителя, свод законов во дворце, земледелие на юге и кочевое скотоводство на севере. <i>✏️</i></p>
+
+  <p class="thread prev"><span class="ico">←</span><span><b>Перед этим (§4.2):</b> торговля на Шёлковом пути
+    подняла города кангюев, столицу Битянь и собственные деньги. <i>✏️</i></span></p>
+
+  <div class="words">
+    <div class="word"><span class="lb">ур. 1</span><b>Этнос</b>группа людей с общим языком и культурой</div>
+    <div class="word"><span class="lb">ур. 1</span><b>Хроника</b>запись событий по годам <i>✏️</i></div>
+    <div class="word"><span class="lb">ур. 2</span><b>Малый хан (ван)</b>младший князь, правитель одного из пяти владений <i>✏️</i></div>
+    <div class="word"><span class="lb">ур. 2</span><b>Раб</b>человек, зависимый от других, без прав и свободы</div>
+    <div class="word"><span class="lb">ур. 1</span><b>Ли</b>китайская мера длины: 1 ли = 500 метров</div>
+    <div class="word"><span class="lb">ур. 1</span><b>Сыма Цянь</b>145–86 гг. до н.э., китайский историк, труд «Ши цзи»</div>
+  </div>
+
+  <div class="blk b1">
+    <h2><span class="num">1</span>Что означает слово «кангюй»<span class="lb">ур. 1</span></h2>
+    <div class="cards c3">
+      <div class="card"><b>Махмуд Кашгари</b>средневековый тюркский учёный: «Канглы» (Канха) — имя правителя</div>
+      <div class="card"><b>Индоевропейский</b>«кангюй» — вода, река, течение реки</div>
+      <div class="card"><b>Тюркский</b>«кан», «кен» — равнина, пространство</div>
+    </div>
+    <p class="more">Казахское предание: у <b>Огуз-хана</b> не хватило повозок для добычи; человек смастерил
+      повозку, которая при движении издавала звук <b>«канг»</b>, — так стали называть и мастера.
+      Племя кангюев тесно связано с формированием <b>казахского этноса</b>.</p>
+  </div>
+
+  <div class="blk b2">
+    <h2><span class="num">2</span>Что писали китайские источники<span class="lb">ур. 1</span></h2>
+    <div class="cards c2">
+      <div class="card"><b>Сыма Цянь, «Ши цзи»</b>кангюи живут примерно в 2 тыс. ли на северо-запад от Ферганы (Давана); уклад похож на Большой Юэчжи; войско — 90 тысяч человек</div>
+      <div class="card"><b>Хроника династии Хань</b>правитель живёт в стране Лоюени, в городе Битянь; 120 000 семейств, 600 000 душ, строевое войско — 120 000 человек</div>
+    </div>
+    <p class="more">Сыма Цянь жил в <b>145–86 гг. до н.э.</b>; в его труде наряду с историей Китая есть сведения
+      о соседних странах. <b>Юэчжи</b> — восточноиранские племена, жившие в I тысячелетии до н.э. в
+      Центральной Азии.</p>
+  </div>
+
+  <div class="blk b3">
+    <h2><span class="num">3</span>Каким кангюев видели соседи<span class="lb">ур. 1</span></h2>
+    <p class="quote"><b>Источник А:</b> «Чжи Чжи для достижения своей цели не брал во внимание и кангюйского
+      правителя. Он убил дочь кангюйского правителя, знатных людей, несколько сотен простого народа и побросал
+      их в реку <b>Дулай (Талас)</b>».</p>
+    <p class="quote"><b>Источник В (ханьский наместник — императору):</b> «Кангюй <b>горд, дерзок</b> и никак не
+      соглашается поклониться перед нашими посланцами. Чиновников… сажает ниже усуньских послов».</p>
+  </div>
+
+  <div class="pair">
+    <div class="blk b4">
+      <h2><span class="num">4</span>Как управлялось государство<span class="lb">ур. 2</span></h2>
+      <p class="line">Государство делилось на <b>пять административных центров</b>. Китайские источники: «У кангюев
+        есть <b>пять младших князей-ванов</b>. На эти должности назначаются <b>сыновья правителя</b>, которые
+        подчиняются напрямую главному князю».</p>
+      <p class="line">Об управлении по законам: <b>«Свод законов» хранится во дворце правителя</b>; чтобы
+        ознакомиться с ним, знати нужно пойти туда.</p>
+    </div>
+    <div class="blk b5">
+      <h2><span class="num">5</span>Чем занимались<span class="lb">ур. 2</span></h2>
+      <p class="line"><b>На юге</b> основой хозяйства было <b>земледелие</b>: выращивали <b>рис, просо, горох</b>,
+        зерновые и плодово-ягодные культуры. <b>На севере</b> вели <b>полукочевой</b> образ жизни, разводили
+        лошадей, овец, верблюдов, коров: «Они постоянно кочуют, не обосновываются в одном и том же месте».</p>
+      <p class="line">Военнопленных обращали в <b>рабов</b>, но <b>рабство не получило широкого
+        распространения</b>: труд рабов использовали в домашнем хозяйстве, иногда в ремесле и земледелии.</p>
+    </div>
+  </div>
+
+  <div class="blk b6">
+    <h2><span class="num">6</span>Чем всё кончилось · ответь устно<span class="lb">ур. 1–2</span></h2>
+    <p class="line">В <b>III–V вв. н.э.</b> государство кангюев начинает <b>ослабевать</b>: города и поселения
+      на юге распадаются на самостоятельные владения. В <b>VI веке</b> племена кангюев входят в состав
+      <b>Тюркского каганата</b>.</p>
+    <ol class="qs">
+      <li>Три объяснения слова «кангюй» — назови их.</li>
+      <li>Кто такой Сыма Цянь и когда он жил?</li>
+      <li>Сколько у кангюев было семей, людей и воинов по хронике Хань?</li>
+      <li>На сколько владений делилось государство и кто ими правил?</li>
+      <li>Чем занимались на юге страны, а чем на севере?</li>
+      <li>Когда кангюи вошли в Тюркский каганат?</li>
+    </ol>
+  </div>
+
+  <p class="thread next"><span class="ico">↓</span><span><b>Отсюда вытекает:</b> два соседних народа — усуни и
+    кангюи — оставили после себя золото, посуду, музыку и письмо. <b>→ §4.4</b> <i>✏️</i></span></p>
+  <p class="legend">Всё — по учебнику НИШ · <i>✏️ — моё пояснение</i></p>
+</section>
+</div>
+</body>
+
+</html>
