@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>История КЗ · §2.1 · плакат</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🏺</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --paper: #FFFDF8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74; --line: #D8CBA9;
+    --c1: #B0522E; --c1-soft: #F6E0D3;   /* когда */
+    --c2: #8A6A4B; --c2-soft: #EFE4D2;   /* как плавили */
+    --c3: #7A4E9A; --c3-soft: #ECE2F2;   /* общество */
+    --c4: #3B6E8F; --c4-soft: #DCEAF3;   /* что изменилось */
+    --c5: #4E7D3A; --c5-soft: #E1ECD7;   /* цветные металлы */
+    --c6: #6B6456; --c6-soft: #ECE8DE;   /* слова, вопросы */
+    --hl: #FFE9A8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --paper: #2A251C;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+      --c1: #E08F6B; --c1-soft: #452F24; --c2: #C9A87E; --c2-soft: #3B3222;
+      --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
+      --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
+      --hl: #5C5020;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --paper: #2A251C;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+    --c1: #E08F6B; --c1-soft: #452F24; --c2: #C9A87E; --c2-soft: #3B3222;
+    --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
+    --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
+    --hl: #5C5020;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.33; }
+  .wrap { padding-block: 1.5rem 3rem; padding-inline: 1rem; }
+  .sheet { max-width: 800px; margin: 0 auto 2rem; background: var(--paper); border-radius: 14px; padding: 1.4rem 1.5rem; box-shadow: 0 8px 24px -12px rgba(46,42,34,0.25); }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; margin: 0; text-wrap: balance; }
+
+  /* шапка */
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin: 0; }
+  h1 { font-size: 1.5rem; font-weight: 900; line-height: 1.1; margin: 0.15rem 0 0.1rem; }
+  .sheet-tag { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); border-radius: 999px; padding: 0.15rem 0.7rem; white-space: nowrap; }
+  .rq { font-size: 0.92rem; margin: 0.25rem 0 0; }
+  .rq b { background: var(--hl); border-radius: 4px; padding: 0 0.25rem; }
+  .razdel-note { font-size: 0.78rem; color: var(--ink-soft); margin: 0.25rem 0 0; }
+
+  .idea { margin: 0.35rem 0 0; padding: 0.3rem 0.6rem; background: var(--hl); border-radius: 10px; font-size: 0.88rem; }
+  .idea b { font-family: 'Fraunces', serif; }
+  .words { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; margin-top: 0.6rem; }
+  .word { background: var(--c6-soft); border-radius: 10px; padding: 0.4rem 0.55rem; font-size: 0.8rem; position: relative; }
+  .word b { display: block; font-size: 0.95rem; }
+
+  /* блоки */
+  .blk { border-radius: 12px; padding: 0.55rem 0.8rem 0.65rem; margin-top: 0.6rem; background: var(--soft); }
+  .blk h2 { font-size: 1.05rem; color: var(--c); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.45rem; }
+  .num { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--c); color: var(--paper); font-family: 'Karla', sans-serif; font-size: 0.82rem; font-weight: 700; flex: none; }
+  .b1 { --c: var(--c1); --soft: var(--c1-soft); }
+  .b2 { --c: var(--c2); --soft: var(--c2-soft); }
+  .b3 { --c: var(--c3); --soft: var(--c3-soft); }
+  .b4 { --c: var(--c4); --soft: var(--c4-soft); }
+  .b5 { --c: var(--c5); --soft: var(--c5-soft); }
+  .b6 { --c: var(--c6); --soft: var(--c6-soft); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .pair .blk { margin-top: 0.6rem; }
+
+  .lb { margin-left: auto; font-family: 'Karla', sans-serif; font-size: 0.72rem; font-weight: 700;
+        color: var(--c); background: var(--paper); border-radius: 999px; padding: 0 0.45rem; white-space: nowrap; }
+  .word .lb { position: absolute; right: 0.4rem; top: 0.3rem; background: none; color: var(--ink-faint); padding: 0; }
+
+  /* две половины века */
+  .halves { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+  .half { background: var(--paper); border-radius: 9px; padding: 0.35rem 0.6rem; font-size: 0.82rem; }
+  .half b { display: block; color: var(--c); font-size: 0.9rem; }
+  .when { font-family: 'Fraunces', serif; font-weight: 900; }
+
+  /* горизонтальная цепочка */
+  .hchain { display: flex; align-items: stretch; gap: 0.3rem; flex-wrap: wrap; }
+  .hchain .box { flex: 1 1 0; min-width: 6.5rem; background: var(--paper); border-radius: 9px; padding: 0.35rem 0.5rem; font-size: 0.82rem; text-align: center; align-self: stretch; }
+  .hchain .box b { font-size: 0.88rem; }
+  .hchain .to { align-self: center; color: var(--c); font-weight: 700; }
+
+  /* карточки */
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; margin-top: 0.4rem; }
+  .cards.c2 { grid-template-columns: 1fr 1fr; }
+  .cards.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card { background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.78rem; }
+  .card b { display: block; font-size: 0.87rem; color: var(--c); }
+
+  /* вертикальная цепочка */
+  .chainv { list-style: none; margin: 0.2rem 0 0; padding: 0; }
+  .chainv li { background: var(--paper); border-radius: 8px; padding: 0.22rem 0.5rem; font-size: 0.83rem; text-align: center; }
+  .chainv li.to { background: none; padding: 0; line-height: 0.95; font-size: 0.78rem; color: var(--c); font-weight: 700; }
+
+  .line { font-size: 0.83rem; margin: 0.35rem 0 0; }
+  .more { font-size: 0.77rem; color: var(--ink-soft); margin: 0.35rem 0 0; }
+  .qs { margin: 0; padding-left: 1.15rem; font-size: 0.86rem; }
+  .qs li { margin-bottom: 0.1rem; }
+
+  .legend { font-size: 0.72rem; color: var(--ink-faint); margin: 0.5rem 0 0; }
+
+  @media (max-width: 640px) {
+    .words, .pair, .cards, .cards.c3, .halves { grid-template-columns: 1fr 1fr; }
+    .hchain .to { transform: rotate(90deg); }
+  }
+
+  @media print {
+    @page { size: A4; margin: 8mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-shadow: none !important; }
+    .wrap { padding: 0; }
+    .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; background: #fff; zoom: 0.84; }
+    .blk, .pair .blk { margin-top: 0.45rem; }
+    .words { margin-top: 0.45rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="sheet">
+  <div class="top">
+    <div>
+      <p class="eyebrow">История Казахстана 5 · НИШ · Раздел 2 · уроки 1–2 · стр. 48–51</p>
+      <h1>§2.1 Освоение железа на территории Казахстана</h1>
+    </div>
+    <span class="sheet-tag">учим</span>
+  </div>
+  <p class="rq">Исследовательский вопрос: <b>каким образом производство железа изменило жизнь людей?</b></p>
+  <p class="razdel-note">Раздел 2 «Жизнь древних кочевников»: весь раздел — про ранний железный век, про то,
+    как сложился кочевой образ жизни и как из племён выросли племенные союзы. <i>✏️</i></p>
+
+  <p class="idea"><b>Главная мысль:</b> железо люди научились делать сами — и всё пошло следом: легче стало пахать,
+    появились упряжь, колёсный транспорт и оружие, выросла торговля, а племена стали объединяться в союзы,
+    из которых родились первые государства. <i>✏️</i></p>
+
+  <div class="words">
+    <div class="word"><span class="lb">ур. 1</span><b>Железный век</b>время, когда человек начал производить железо и использовать его в хозяйстве</div>
+    <div class="word"><span class="lb">ур. 1</span><b>Плавильная печь</b>печь для плавки металла с продуваемыми воздухом отверстиями</div>
+    <div class="word"><span class="lb">ур. 1</span><b>Племенной союз</b>объединение нескольких племён</div>
+    <div class="word"><span class="lb">ур. 2</span><b>Конская упряжь</b>предметы для запрягания, оседлания и управления лошадьми</div>
+    <div class="word"><span class="lb">ур. 2</span><b>Запаивание</b>сварка кромок расплавленного металла в единое целое</div>
+    <div class="word"><span class="lb">ур. 2</span><b>Полихромный стиль</b>украшения с витой проволокой и вставками из цветных камней</div>
+  </div>
+
+  <div class="blk b1">
+    <h2><span class="num">1</span>Когда это было<span class="lb">ур. 1</span></h2>
+    <p class="line">В <b>начале I тысячелетия до н.э.</b> на территории Казахстана человек начинает использовать
+      предметы быта и орудия труда <b>из железа</b>. Железный век делится на две части:</p>
+    <div class="halves">
+      <div class="half"><b>Ранний железный век</b><span class="when">VIII – III вв. до н.э.</span></div>
+      <div class="half"><b>Поздний железный век</b><span class="when">III в. до н.э. – V в. н.э.</span></div>
+    </div>
+    <p class="more">Это интересно: в <b>III тысячелетии до н.э.</b> в Месопотамии знали <b>метеоритное железо</b> —
+      его называли «огонь, спустившийся с небес», из его сплава делали оружие и украшения. · Железо есть и в человеке:
+      кровь красная именно из-за железа, оно отвечает за усвоение кислорода.</p>
+  </div>
+
+  <div class="blk b2">
+    <h2><span class="num">2</span>Как выплавляли железо<span class="lb">ур. 1</span></h2>
+    <p class="line">Железо — очень прочный и крепкий металл, но <b>в чистом виде в природе встречается редко</b>.
+      Люди заметили: из брошенной в огонь железной руды начинает выплавляться металл. Так появилась
+      <b>плавильная печь</b>.</p>
+    <div class="hchain">
+      <div class="box">в печь укладывают <b>дрова</b></div>
+      <span class="to">→</span>
+      <div class="box">сверху слой <b>измельчённой руды</b></div>
+      <span class="to">→</span>
+      <div class="box">поверх руды <b>снова дрова</b></div>
+      <span class="to">→</span>
+      <div class="box">поджигают <b>снизу</b>, раздувают воздух <b>мехами</b></div>
+      <span class="to">→</span>
+      <div class="box">раскалённый металл отбивают <b>молотом на наковальне</b></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="blk b4">
+      <h2><span class="num">3</span>Что изменили железные орудия<span class="lb">ур. 2</span></h2>
+      <div class="cards c2" style="margin-top:0">
+        <div class="card"><b>Поле</b>лучше обрабатывается земля, шире посевные площади и система полива</div>
+        <div class="card"><b>Упряжь и транспорт</b>конская упряжь и колёсный транспорт — а с ними торговля</div>
+        <div class="card"><b>Оружие</b>защищают свои земли от врагов, совершают набеги на соседей</div>
+        <div class="card"><b>Украшения</b>развивается изготовление ювелирных изделий</div>
+      </div>
+      <p class="line">Появились <b>новые виды хозяйства</b> и <b>товарно-денежные отношения</b>.</p>
+    </div>
+    <div class="blk b3">
+      <h2><span class="num">4</span>Из родов — государства<span class="lb">ур. 1</span></h2>
+      <ul class="chainv">
+        <li>развиваются <b>родовые отношения</b></li><li class="to">↓</li>
+        <li>складываются <b>племена</b></li><li class="to">↓</li>
+        <li>племена объединяются в <b>племенные союзы</b></li><li class="to">↓</li>
+        <li>первые <b>государственные объединения</b> на территории Казахстана</li>
+      </ul>
+      <p class="more">✏️ Сравни с §1.5: там роды только-только собрались в племена — теперь из племён вырастают союзы.</p>
+    </div>
+  </div>
+
+  <div class="blk b5">
+    <h2><span class="num">5</span>Цветные металлы и полихромный стиль<span class="lb">ур. 2</span></h2>
+    <div class="cards c3" style="margin-top:0">
+      <div class="card"><b>Новая технология</b>мастера научились придавать изделиям разнообразные формы</div>
+      <div class="card"><b>Дробить и запаивать золото</b>медные украшения с инкрустацией золотом</div>
+      <div class="card"><b>Железо вместо бронзы</b>бронзовые изделия под листовым золотом сменились железными</div>
+    </div>
+    <p class="line"><b>Полихромный стиль</b> — украшения из цветных металлов с <b>витой проволокой</b> и
+      <b>вставками из цветных камней</b> (золотые застёжки, перстни).</p>
+  </div>
+
+  <div class="blk b6">
+    <h2><span class="num">6</span>Ответь устно<span class="lb">ур. 1–2</span></h2>
+    <ol class="qs">
+      <li>Почему период с VIII века до н.э. называют железным веком?</li>
+      <li>На какие две части делится железный век и какие у них даты?</li>
+      <li>Расскажи по порядку, как из руды получали железо в плавильной печи.</li>
+      <li>Как железные орудия изменили земледелие, транспорт и торговлю?</li>
+      <li>Как из родов получились племенные союзы и к чему это привело?</li>
+      <li>Что такое полихромный стиль и как его узнать на украшении?</li>
+    </ol>
+  </div>
+
+  <p class="legend">Всё — по учебнику НИШ · <i>✏️ — моё пояснение</i></p>
+</section>
+
+</div>
+</body>
+</html>
