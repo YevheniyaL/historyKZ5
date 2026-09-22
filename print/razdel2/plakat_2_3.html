@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>История КЗ · §2.3 · плакат</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🏺</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --paper: #FFFDF8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74; --line: #D8CBA9;
+    --c1: #B0522E; --c1-soft: #F6E0D3;   /* как менялось жилище */
+    --c2: #8A6A4B; --c2-soft: #EFE4D2;   /* как появилась юрта */
+    --c3: #7A4E9A; --c3-soft: #ECE2F2;   /* из чего состоит */
+    --c4: #3B6E8F; --c4-soft: #DCEAF3;   /* канаты */
+    --c5: #4E7D3A; --c5-soft: #E1ECD7;   /* убранство */
+    --c6: #6B6456; --c6-soft: #ECE8DE;   /* слова, вопросы */
+    --hl: #FFE9A8;
+    --thread: #3B6E8F; --thread-soft: #DCEAF3;   /* нить раздела: связь с соседями */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --paper: #2A251C;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+      --c1: #E08F6B; --c1-soft: #452F24; --c2: #C9A87E; --c2-soft: #3B3222;
+      --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
+      --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
+      --hl: #5C5020;
+      --thread: #7FB3D5; --thread-soft: #243542;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --paper: #2A251C;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+    --c1: #E08F6B; --c1-soft: #452F24; --c2: #C9A87E; --c2-soft: #3B3222;
+    --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
+    --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
+    --hl: #5C5020;
+    --thread: #7FB3D5; --thread-soft: #243542;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.33; }
+  .wrap { padding-block: 1.5rem 3rem; padding-inline: 1rem; }
+  .sheet { max-width: 800px; margin: 0 auto 2rem; background: var(--paper); border-radius: 14px; padding: 1.4rem 1.5rem; box-shadow: 0 8px 24px -12px rgba(46,42,34,0.25); }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; margin: 0; text-wrap: balance; }
+
+  /* шапка */
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin: 0; }
+  h1 { font-size: 1.5rem; font-weight: 900; line-height: 1.1; margin: 0.15rem 0 0.1rem; }
+  .sheet-tag { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); border-radius: 999px; padding: 0.15rem 0.7rem; white-space: nowrap; }
+  .rq { font-size: 0.92rem; margin: 0.25rem 0 0; }
+  .rq b { background: var(--hl); border-radius: 4px; padding: 0 0.25rem; }
+
+  .idea { margin: 0.35rem 0 0; padding: 0.3rem 0.6rem; background: var(--hl); border-radius: 10px; font-size: 0.88rem; }
+  .idea b { font-family: 'Fraunces', serif; }
+  .words { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; margin-top: 0.6rem; }
+  .word { background: var(--c6-soft); border-radius: 10px; padding: 0.4rem 0.55rem; font-size: 0.8rem; position: relative; }
+  .word b { display: block; font-size: 0.95rem; }
+
+  /* блоки */
+  .blk { border-radius: 12px; padding: 0.55rem 0.8rem 0.65rem; margin-top: 0.6rem; background: var(--soft); }
+  .blk h2 { font-size: 1.05rem; color: var(--c); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.45rem; }
+  .num { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--c); color: var(--paper); font-family: 'Karla', sans-serif; font-size: 0.82rem; font-weight: 700; flex: none; }
+  .b1 { --c: var(--c1); --soft: var(--c1-soft); }
+  .b2 { --c: var(--c2); --soft: var(--c2-soft); }
+  .b3 { --c: var(--c3); --soft: var(--c3-soft); }
+  .b4 { --c: var(--c4); --soft: var(--c4-soft); }
+  .b5 { --c: var(--c5); --soft: var(--c5-soft); }
+  .b6 { --c: var(--c6); --soft: var(--c6-soft); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .pair .blk { margin-top: 0.6rem; }
+
+  .lb { margin-left: auto; font-family: 'Karla', sans-serif; font-size: 0.72rem; font-weight: 700;
+        color: var(--c); background: var(--paper); border-radius: 999px; padding: 0 0.45rem; white-space: nowrap; }
+  .word .lb { position: absolute; right: 0.4rem; top: 0.3rem; background: none; color: var(--ink-faint); padding: 0; }
+
+  /* горизонтальная цепочка */
+  .hchain { display: flex; align-items: stretch; gap: 0.3rem; flex-wrap: wrap; }
+  .hchain .box { flex: 1 1 0; min-width: 6.5rem; background: var(--paper); border-radius: 9px; padding: 0.35rem 0.5rem; font-size: 0.82rem; text-align: center; align-self: stretch; }
+  .hchain .box b { font-size: 0.88rem; }
+  .hchain .to { align-self: center; color: var(--c); font-weight: 700; }
+  .step { display: block; font-family: 'Fraunces', serif; font-weight: 900; color: var(--c); }
+
+  /* карточки */
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; margin-top: 0.4rem; }
+  .cards.c2 { grid-template-columns: 1fr 1fr; }
+  .cards.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card { background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.78rem; }
+  .card b { display: block; font-size: 0.87rem; color: var(--c); }
+
+  /* юрты по канатам */
+  .kanats { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.35rem; }
+  .kanat { background: var(--paper); border-radius: 7px; padding: 0.2rem 0.45rem; font-size: 0.78rem; }
+  .kanat i { font-style: normal; font-weight: 700; color: var(--c); }
+
+  .line { font-size: 0.83rem; margin: 0.35rem 0 0; }
+  .more { font-size: 0.77rem; color: var(--ink-soft); margin: 0.35rem 0 0; }
+  .quote { font-size: 0.78rem; color: var(--ink-soft); margin: 0.3rem 0 0; padding-left: 0.6rem; border-left: 2px solid var(--c); }
+  .quote b { color: var(--c); }
+  .qs { margin: 0; padding-left: 1.15rem; font-size: 0.86rem; }
+  .qs li { margin-bottom: 0.1rem; }
+
+  /* нить раздела: откуда пришли и что из этого вышло */
+  .thread { display: flex; gap: 0.45rem; align-items: baseline; background: var(--thread-soft);
+    border-left: 4px solid var(--thread); border-radius: 8px; padding: 0.35rem 0.7rem;
+    font-size: 0.79rem; line-height: 1.32; color: var(--ink-soft); }
+  .thread .ico { color: var(--thread); font-weight: 700; flex: none; }
+  .thread b { color: var(--thread); }
+  .thread.prev { margin: 0.4rem 0 0; }
+  .thread.next { margin: 0.5rem 0 0; }
+
+  .legend { font-size: 0.72rem; color: var(--ink-faint); margin: 0.5rem 0 0; }
+
+  @media (max-width: 640px) {
+    .words, .pair, .cards, .cards.c3 { grid-template-columns: 1fr 1fr; }
+    .hchain .to { transform: rotate(90deg); }
+  }
+
+  @media print {
+    @page { size: A4; margin: 8mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-shadow: none !important; }
+    .wrap { padding: 0; }
+    .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; background: #fff; zoom: 0.76; }
+    .blk, .pair .blk { margin-top: 0.45rem; }
+    .words { margin-top: 0.45rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="sheet">
+  <div class="top">
+    <div>
+      <p class="eyebrow">История Казахстана 5 · НИШ · Раздел 2 · уроки 1–3 · стр. 56–61</p>
+      <h1>§2.3 Материальная культура древних кочевников</h1>
+    </div>
+    <span class="sheet-tag">учим</span>
+  </div>
+  <p class="rq">Исследовательский вопрос: <b>каковы особенности жилища кочевников?</b></p>
+
+  <p class="idea"><b>Главная мысль:</b> жилище кочевника шло от землянки к юрте — переносному дому,
+    который можно собрать и разобрать, увезти на новое пастбище, а внутри он тёплый, украшенный
+    и устроен по строгому порядку. <i>✏️</i></p>
+
+  <p class="thread prev"><span class="ico">←</span><span><b>Перед этим (§2.2):</b> климат стал суше,
+    скот повели за травой по четырём сезонным пастбищам — жизнь пошла в дороге. <i>✏️</i></span></p>
+
+  <div class="words">
+    <div class="word"><span class="lb">ур. 1</span><b>Юрта</b>переносное каркасное жилище с войлочным покрытием</div>
+    <div class="word"><span class="lb">ур. 1</span><b>Кереге</b>решётчатые складные стенки юрты</div>
+    <div class="word"><span class="lb">ур. 1</span><b>Уык</b>жерди, которые подпирают шанырак</div>
+    <div class="word"><span class="lb">ур. 1–2</span><b>Шанырак</b>деревянный обод, венчающий купол юрты</div>
+    <div class="word"><span class="lb">ур. 2</span><b>Канат</b>одна часть кереге, «крыло»; по числу канатов юрту и называют</div>
+    <div class="word"><span class="lb">ур. 3</span><b>Прикладное искусство</b>изготовление художественных изделий для быта</div>
+  </div>
+
+  <div class="blk b1">
+    <h2><span class="num">1</span>Как менялось жилище<span class="lb">ур. 1</span></h2>
+    <div class="hchain">
+      <div class="box"><span class="step">Землянка</span>одно из первых жилищ степи: юг, восток и север Казахстана</div>
+      <span class="to">→</span>
+      <div class="box"><span class="step">Полуземлянка</span>эпоха бронзы: круглая и полусферическая крыша</div>
+      <span class="to">→</span>
+      <div class="box"><span class="step">Наземный дом</span>позднеандроновская эпоха, Центральный и Северный Казахстан; по форме напоминал юрту</div>
+      <span class="to">→</span>
+      <div class="box"><span class="step">Юрта</span>основное жилище кочевников</div>
+    </div>
+    <p class="more">Развитие полукочевого и оседлого скотоводства привело к постоянным жилищам: на юге строили
+      из сырцового кирпича, на севере и востоке — из брёвен. Кочевники умели строить и крепости, а ещё
+      пользовались подвижными жилищами на колёсах.</p>
+  </div>
+
+  <div class="blk b2">
+    <h2><span class="num">2</span>Как появилась юрта<span class="lb">ур. 1</span></h2>
+    <div class="hchain">
+      <div class="box"><span class="step">Кос</span>жерди связаны вверху, закреплены в земле, сверху трава — укрытие от дождя, бурана и ветра</div>
+      <span class="to">→</span>
+      <div class="box"><span class="step">Курке</span>похоже на шалаш: верхние ветки уже не связывают, сверху отверстие для дыма и света</div>
+      <span class="to">→</span>
+      <div class="box"><span class="step">Юрта</span>появился шанырак — обод купола; кереге, уыки, мандайша, сыкырлауык, табалдырык</div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="blk b3">
+      <h2><span class="num">3</span>Из чего состоит юрта<span class="lb">ур. 2</span></h2>
+      <div class="cards c3" style="margin-top:0">
+        <div class="card"><b>Деревянный остов</b>кереге, уыки, шанырак, сыкырлауык</div>
+        <div class="card"><b>Войлочное покрытие</b>кошма поверх остова</div>
+        <div class="card"><b>Верёвки и арканы</b>подвязывают юрту</div>
+      </div>
+      <p class="line"><b>Внутри четыре части:</b> тор, правая и левая стороны, порог и очаг. Левую и правую
+        сторону считают от тора. Очаг — священное место: там разводили огонь и готовили еду.</p>
+      <p class="more">Ставят так: сначала кереге, потом шанырак — его крепят к кереге уыками. Шанырак — семейная
+        реликвия, символ родной земли и родного дома, его звали «кара шанырак» — почитаемый; поднимать его могли
+        только мужчины и хозяева юрты. После шанырака самое почитаемое — вход: порог и мандайша, к нему
+        крепился сыкырлауык.</p>
+    </div>
+    <div class="blk b4">
+      <h2><span class="num">4</span>Юрты по числу канатов<span class="lb">ур. 2</span></h2>
+      <p class="line">Юрта распространилась у степных кочевников <b>около III тысяч лет назад</b>: приспособлена
+        к сезонным перекочёвкам, зимой тепло, летом прохладно. Чем больше канатов, тем больше юрта.</p>
+      <div class="kanats">
+        <span class="kanat"><i>3</i> караша уй</span>
+        <span class="kanat"><i>4</i> коныр уй</span>
+        <span class="kanat"><i>5</i> боз уй</span>
+        <span class="kanat"><i>6</i> ак уй</span>
+        <span class="kanat"><i>8</i> ак ала уй</span>
+        <span class="kanat"><i>20</i> ак орда</span>
+        <span class="kanat"><i>24</i> алтын узик</span>
+        <span class="kanat"><i>30</i> алтын орда</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk b5">
+    <h2><span class="num">5</span>Убранство юрты: прикладное искусство<span class="lb">ур. 3</span></h2>
+    <div class="cards c3" style="margin-top:0">
+      <div class="card"><b>Мебель</b>тосекагаш — кровать, кебеже — для продуктов, сандык — сундук, жукаяк — подставка для обуви, адалбакан — шест-вешалка</div>
+      <div class="card"><b>Полы</b>сырмак и текемет — войлочные ковры, алаша — безворсовый ковёр</div>
+      <div class="card"><b>У богатых</b>верх кереге в серебре, уыки из костей и рогов, шанырак в позолоте с полудрагоценным камнем, белоснежный войлок</div>
+    </div>
+    <p class="line"><b>Где что в юрте:</b> босага у входа — для хозяйственных дел; слева от входа женская
+      половина — припасы и посуда; справа мужское — сёдла, упряжь, оружие. Всё убранство покрыто
+      национальными орнаментами.</p>
+  </div>
+
+  <div class="pair">
+    <div class="blk b6">
+      <h2><span class="num">6</span>Юрта в мировой культуре<span class="lb">ур. 3</span></h2>
+      <p class="line">У гуннов, тюрков и монголов были <b>юрты на телегах</b> — о них писали зарубежные
+        путешественники и отечественные исследователи.</p>
+      <p class="quote"><b>Гильом де Рубрук:</b> дом ставят на телегу, стены — плетёные прутья, сходятся кверху
+        колесом; в такую телегу впрягают 22 быка.</p>
+      <p class="quote"><b>С. Руденко:</b> казахская юрта — самое совершенное передвижное жилище, никто из
+        кочевых народов не придумал лучше.</p>
+    </div>
+    <div class="blk b6">
+      <h2><span class="num">7</span>Ответь устно<span class="lb">ур. 1–3</span></h2>
+      <ol class="qs">
+        <li>Расставь жилища по порядку: землянка, полуземлянка, наземный дом, юрта.</li>
+        <li>Чем кос отличается от курке и от юрты?</li>
+        <li>Из каких трёх частей состоит юрта? Назови части остова.</li>
+        <li>Что такое шанырак и почему его называют «кара шанырак»?</li>
+        <li>Как называется юрта из пяти канатов? А из шести?</li>
+        <li>Что и где лежит в юрте: босага, женская и мужская половина, тор, очаг.</li>
+      </ol>
+    </div>
+  </div>
+
+  <p class="thread next"><span class="ico">↓</span><span><b>Отсюда вытекает:</b> у кочевников был не только
+    свой дом и свои вещи, но и свои представления о мире — дальше смотрим, во что они верили.
+    <b>→ §2.4</b> <i>✏️</i></span></p>
+  <p class="legend">Всё — по учебнику НИШ · <i>✏️ — моё пояснение</i></p>
+</section>
+
+</div>
+</body>
+</html>
