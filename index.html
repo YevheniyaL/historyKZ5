@@ -31,24 +31,18 @@
   body { background: var(--paper); color: var(--ink); font-family: 'PT Sans', Arial, sans-serif; line-height: 1.5; }
   h1, .hand { font-family: 'Caveat', 'Comic Sans MS', cursive; font-weight: 700; text-wrap: balance; }
   .wrap { max-width: 680px; margin: 0 auto; padding: 28px 20px 60px; }
-  h1 { font-size: 38px; margin: 0 0 4px; }
-  .subtitle { font-size: 15px; color: var(--ink-soft); margin: 0 0 4px; }
-  .note { font-size: 13px; color: var(--ink-faint); margin: 0 0 18px; }
-  h2 { font-family: 'Caveat', cursive; font-size: 26px; color: var(--margin); margin: 28px 0 6px; }
-  .razdel-sub { font-size: 13px; color: var(--ink-faint); margin: -2px 0 12px; }
+  h1 { font-size: 38px; margin: 0 0 18px; }
+  h2 { font-family: 'Caveat', cursive; font-size: 26px; color: var(--margin); margin: 28px 0 10px; }
   .razdel-poster { font-size: 13.5px; margin: 0 0 12px; }
   .razdel-poster a { color: var(--margin); }
-  .list { display: flex; flex-direction: column; gap: 10px; }
-  .para-head { margin: 14px 0 0; }
-  .para-head .para-title { font-family: 'Caveat', cursive; font-size: 21px; font-weight: 700; color: var(--ink); margin: 0 0 2px; }
-  .para-head .razdel-poster { margin: 0 0 4px; }
+  .list { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
   .soon { padding: 12px 16px; color: var(--ink-faint); font-size: 14px; border: 1px dashed var(--rule); border-radius: 8px; }
   .item-row {
     background: var(--paper-raised); border: 1px solid var(--rule); border-radius: 8px;
     padding: 12px 16px; box-shadow: 1px 2px 0 var(--shadow);
   }
   .item-row .main { display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--ink); }
-  .item-row .main:hover .title { color: var(--margin); }
+  .item-row a.main:hover .title { color: var(--margin); }
   .item-row .num { font-family: 'Caveat', cursive; font-size: 22px; font-weight: 700; color: var(--margin); min-width: 24px; }
   .item-row .title { font-size: 15px; }
   .item-row .pages { font-size: 12px; color: var(--ink-faint); margin-left: auto; white-space: nowrap; }
@@ -61,90 +55,64 @@
 <body>
 <div class="wrap">
   <h1>История Казахстана 5 класс — НИШ</h1>
-  <p class="subtitle">Тренажёр по терминам — С.Р. Ахметова и др., «История Казахстана», АОО «Назарбаев Интеллектуальные школы», 2017 (проект), 172 стр.</p>
-  <p class="note">Все листы — только по учебнику НИШ, без дополнений из Атамұра. Учебник Атамұра (Б.Е. Кумекова) лежит отдельно: <a href="../historyKZ_site/index.html">historyKZ_site</a> — не путать книги друг с другом. Пока готовы Введение, §1.1 (уроки 1–3), §1.2 (уроки 1–2), §1.3 (уроки 1–2), §1.4 (уроки 1–2), §1.5 (уроки 1–2), §1.6 (уроки 1–2), §1.7 (уроки 1–2) и §1.8 (уроки 1–2); раздел 1 закончен, остальные разделы (Саки, Усуни и кангюи, Гунны, Сарматы) не начаты.</p>
 
   <h2>Введение и Раздел 1. Жизнь древних людей на территории Казахстана</h2>
-  <p class="razdel-sub">Введение + §1.1 (уроки 1–3) + §1.2 (уроки 1–2) + §1.3 (уроки 1–2) + §1.4 (уроки 1–2) + §1.5 (уроки 1–2) + §1.6 (уроки 1–2) + §1.7 (уроки 1–2) + §1.8 (уроки 1–2), стр. 4–44</p>
-  <p class="razdel-poster">Лента времени раздела (растёт по мере разбора; лист 1 — §1.1, лист 2 — §1.2): <a href="print/razdel1/plakat.html">«От питекантропа до неолита»</a></p>
-  <p class="razdel-poster">Шпаргалки-закладки: один лист на весь раздел, режется на полоски-закладки (по одной на параграф; готовы Введение и §1.1–§1.8): <a href="print/razdel1/shpory_razdel1.html">«Вспомни за 5 минут»</a></p>
-  <p class="razdel-poster">Карта находок раздела (растёт по мере разбора): <a href="print/razdel1/karta.html">«Где нашли следы древних людей»</a></p>
+  <p class="razdel-poster">Шпаргалки-закладки: один лист на весь раздел, режется на полоски-закладки (по одной на параграф): <a href="print/razdel1/shpory_razdel1.html" target="_blank" rel="noopener">«Вспомни за 5 минут»</a></p>
+  <p class="razdel-poster">Карта находок раздела: <a href="print/razdel1/karta.html" target="_blank" rel="noopener">«Где нашли следы древних людей»</a></p>
   <div class="list">
-    <div class="para-head">
-      <p class="para-title">Введение · вводный урок · стр. 4–9</p>
-      <p class="razdel-poster">Плакат-схема Введения для учёбы (1 лист): <a href="print/razdel1/plakat_vvedenie.html">«Что изучает история»</a></p>
-      <p class="razdel-poster">Шпаргалка-закладка Введения (полоска в общем листе раздела): <a href="print/razdel1/shpory_razdel1.html">«Вспомни за 5 минут»</a></p>
-      <p class="razdel-poster">Выжимка Введения для печати (1 лист): <a href="print/razdel1/vyzhimka_vvedenie.html">«Выжимка Введения»</a></p>
-    </div>
     <div class="item-row">
-      <a class="main" href="razdel1/paragraf1.html"><span class="num">1</span><span class="title">Введение. Что изучает история</span><span class="pages">стр. 4–9</span></a>
+      <a class="main" href="razdel1/paragraf1.html" target="_blank" rel="noopener"><span class="num">1</span><span class="title">Введение. Что изучает история</span><span class="pages">стр. 4–9</span></a>
       <div class="extras">
-        <a href="print/razdel1/shpory_razdel1.html">шпаргалка-закладка (полоска в общем листе раздела)</a>
+        <a href="print/razdel1/plakat_vvedenie.html" target="_blank" rel="noopener">плакат для учёбы «Что изучает история»</a>
       </div>
     </div>
-    <div class="para-head">
-      <p class="para-title">§1.1 Жизнь древнейших людей · уроки 1–3 · стр. 10–15</p>
-      <p class="razdel-poster">Плакат-схема §1.1 для учёбы (1 лист): <a href="print/razdel1/plakat_1_1.html">«Жизнь древнейших людей»</a></p>
-      <p class="razdel-poster">Шпаргалка-закладка §1.1 (полоска в общем листе раздела): <a href="print/razdel1/shpory_razdel1.html">«Вспомни за 5 минут»</a></p>
-      <p class="razdel-poster">Выжимки §1.1 одним файлом для печати (1 лист): <a href="print/razdel1/vyzhimka_1_1.html">«Выжимки §1.1»</a></p>
+    <div class="item-row">
+      <a class="main" href="razdel1/paragraf2.html" target="_blank" rel="noopener"><span class="num">2</span><span class="title">§1.1 Жизнь древнейших людей · уроки 1–3</span><span class="pages">стр. 10–15</span></a>
+      <div class="extras">
+        <a href="print/razdel1/plakat_1_1.html" target="_blank" rel="noopener">плакат для учёбы «Жизнь древнейших людей»</a>
+      </div>
     </div>
     <div class="item-row">
-      <a class="main" href="razdel1/paragraf2.html"><span class="num">2</span><span class="title">§1.1 Жизнь древнейших людей (урок 1)</span><span class="pages">стр. 10–11</span></a>
+      <a class="main" href="razdel1/paragraf5.html" target="_blank" rel="noopener"><span class="num">3</span><span class="title">§1.2 Стоянки эпохи камня на территории Казахстана · уроки 1–2</span><span class="pages">стр. 16–19</span></a>
+      <div class="extras">
+        <a href="print/razdel1/plakat_1_2.html" target="_blank" rel="noopener">плакат для учёбы «Стоянки эпохи камня»</a>
+      </div>
     </div>
     <div class="item-row">
-      <a class="main" href="razdel1/paragraf3.html"><span class="num">3</span><span class="title">§1.1 Стадо и родовая община (урок 2)</span><span class="pages">стр. 12–13</span></a>
+      <div class="main"><span class="num">4</span><span class="title">§1.3 Изменения в хозяйстве и совершенствование орудий труда · уроки 1–2</span><span class="pages">стр. 20–23</span></div>
+      <div class="extras">
+        <a href="print/razdel1/plakat_1_3.html" target="_blank" rel="noopener">плакат для учёбы «Мезолит и неолит»</a>
+      </div>
     </div>
     <div class="item-row">
-      <a class="main" href="razdel1/paragraf4.html"><span class="num">4</span><span class="title">§1.1 Занятия и орудия труда (урок 3)</span><span class="pages">стр. 14–15</span></a>
-    </div>
-    <div class="para-head">
-      <p class="para-title">§1.2 Стоянки эпохи камня на территории Казахстана · уроки 1–2 · стр. 16–19</p>
-      <p class="razdel-poster">Плакат-схема §1.2 для учёбы (1 лист): <a href="print/razdel1/plakat_1_2.html">«Стоянки эпохи камня»</a></p>
-      <p class="razdel-poster">Лист с пропусками для самопроверки §1.2 (1 лист): <a href="print/razdel1/plakat_1_2_propuski.html">«Стоянки эпохи камня — проверь себя»</a></p>
-      <p class="razdel-poster">Шпаргалка-закладка §1.2 (полоска в общем листе раздела): <a href="print/razdel1/shpory_razdel1.html">«Вспомни за 5 минут»</a></p>
-      <p class="razdel-poster">Выжимки §1.2 одним файлом для печати (1 лист): <a href="print/razdel1/vyzhimka_1_2.html">«Выжимки §1.2»</a></p>
+      <div class="main"><span class="num">5</span><span class="title">§1.4 Ботайская культура · уроки 1–2</span><span class="pages">стр. 24–27</span></div>
+      <div class="extras">
+        <a href="print/razdel1/plakat_1_4.html" target="_blank" rel="noopener">плакат для учёбы «Ботайская культура»</a>
+      </div>
     </div>
     <div class="item-row">
-      <a class="main" href="razdel1/paragraf5.html"><span class="num">5</span><span class="title">§1.2 Стоянки эпохи камня: археологи и возраст находок (урок 1)</span><span class="pages">стр. 16–17</span></a>
+      <div class="main"><span class="num">6</span><span class="title">§1.5 Зарождение металлургии на территории Казахстана · уроки 1–2</span><span class="pages">стр. 28–31</span></div>
+      <div class="extras">
+        <a href="print/razdel1/plakat_1_5.html" target="_blank" rel="noopener">плакат для учёбы «Зарождение металлургии»</a>
+      </div>
     </div>
     <div class="item-row">
-      <a class="main" href="razdel1/paragraf6.html"><span class="num">6</span><span class="title">§1.2 Стоянки эпохи камня: стоянки и орудия труда (урок 2)</span><span class="pages">стр. 18–19</span></a>
+      <div class="main"><span class="num">7</span><span class="title">§1.6 Андроновская и бегазы-дандыбаевская культуры · уроки 1–2</span><span class="pages">стр. 32–35</span></div>
+      <div class="extras">
+        <a href="print/razdel1/plakat_1_6.html" target="_blank" rel="noopener">плакат для учёбы «Две культуры эпохи бронзы»</a>
+      </div>
     </div>
-    <div class="para-head">
-      <p class="para-title">§1.3 Изменения в хозяйстве и совершенствование орудий труда · уроки 1–2 · стр. 20–23</p>
-      <p class="razdel-poster">Плакат-схема §1.3 для учёбы (1 лист): <a href="print/razdel1/plakat_1_3.html">«Мезолит и неолит»</a></p>
-      <p class="razdel-poster">Шпаргалка-закладка §1.3 (полоска в общем листе раздела, лист 2): <a href="print/razdel1/shpory_razdel1.html">«Вспомни за 5 минут»</a></p>
-      <p class="razdel-poster">Выжимки §1.3 одним файлом для печати (1 лист): <a href="print/razdel1/vyzhimka_1_3.html">«Выжимки §1.3»</a></p>
+    <div class="item-row">
+      <div class="main"><span class="num">8</span><span class="title">§1.7 Древние наскальные рисунки Казахстана · уроки 1–2</span><span class="pages">стр. 36–39</span></div>
+      <div class="extras">
+        <a href="print/razdel1/plakat_1_7.html" target="_blank" rel="noopener">плакат для учёбы «Петроглифы и верования»</a>
+      </div>
     </div>
-    <div class="para-head">
-      <p class="para-title">§1.4 Ботайская культура · уроки 1–2 · стр. 24–27</p>
-      <p class="razdel-poster">Плакат-схема §1.4 для учёбы (1 лист): <a href="print/razdel1/plakat_1_4.html">«Ботайская культура»</a></p>
-      <p class="razdel-poster">Шпаргалка-закладка §1.4 (полоска в общем листе раздела, лист 2): <a href="print/razdel1/shpory_razdel1.html">«Вспомни за 5 минут»</a></p>
-      <p class="razdel-poster">Выжимки §1.4 одним файлом для печати (1 лист): <a href="print/razdel1/vyzhimka_1_4.html">«Выжимки §1.4»</a></p>
-    </div>
-    <div class="para-head">
-      <p class="para-title">§1.5 Зарождение металлургии на территории Казахстана · уроки 1–2 · стр. 28–31</p>
-      <p class="razdel-poster">Плакат-схема §1.5 для учёбы (1 лист): <a href="print/razdel1/plakat_1_5.html">«Зарождение металлургии»</a></p>
-      <p class="razdel-poster">Шпаргалка-закладка §1.5 (полоска в общем листе раздела, лист 2): <a href="print/razdel1/shpory_razdel1.html">«Вспомни за 5 минут»</a></p>
-      <p class="razdel-poster">Выжимки §1.5 одним файлом для печати (1 лист): <a href="print/razdel1/vyzhimka_1_5.html">«Выжимки §1.5»</a></p>
-    </div>
-    <div class="para-head">
-      <p class="para-title">§1.6 Андроновская и бегазы-дандыбаевская культуры · уроки 1–2 · стр. 32–35</p>
-      <p class="razdel-poster">Плакат-схема §1.6 для учёбы (1 лист): <a href="print/razdel1/plakat_1_6.html">«Две культуры эпохи бронзы»</a></p>
-      <p class="razdel-poster">Шпаргалка-закладка §1.6 (полоска в общем листе раздела, лист 3): <a href="print/razdel1/shpory_razdel1.html">«Вспомни за 5 минут»</a></p>
-      <p class="razdel-poster">Выжимки §1.6 одним файлом для печати (1 лист): <a href="print/razdel1/vyzhimka_1_6.html">«Выжимки §1.6»</a></p>
-    </div>
-    <div class="para-head">
-      <p class="para-title">§1.7 Древние наскальные рисунки Казахстана · уроки 1–2 · стр. 36–39</p>
-      <p class="razdel-poster">Плакат-схема §1.7 для учёбы (1 лист): <a href="print/razdel1/plakat_1_7.html">«Петроглифы и верования»</a></p>
-      <p class="razdel-poster">Шпаргалка-закладка §1.7 (полоска в общем листе раздела, лист 3): <a href="print/razdel1/shpory_razdel1.html">«Вспомни за 5 минут»</a></p>
-      <p class="razdel-poster">Выжимки §1.7 одним файлом для печати (1 лист): <a href="print/razdel1/vyzhimka_1_7.html">«Выжимки §1.7»</a></p>
-    </div>
-    <div class="para-head">
-      <p class="para-title">§1.8 Путешествие в жизнь древних людей · повторение раздела · уроки 1–2 · стр. 40–44</p>
-      <p class="razdel-poster">Плакат-повторение всего раздела 1 (1 лист): <a href="print/razdel1/plakat_1_8.html">«Путешествие в жизнь древних людей»</a></p>
-      <p class="razdel-poster">Шпаргалка-закладка §1.8 (полоска в общем листе раздела, лист 3): <a href="print/razdel1/shpory_razdel1.html">«Вспомни за 5 минут»</a></p>
-      <p class="razdel-poster">Выжимки §1.8 одним файлом для печати (1 лист): <a href="print/razdel1/vyzhimka_1_8.html">«Выжимки §1.8»</a></p>
+    <div class="item-row">
+      <div class="main"><span class="num">9</span><span class="title">§1.8 Путешествие в жизнь древних людей · повторение раздела · уроки 1–2</span><span class="pages">стр. 40–44</span></div>
+      <div class="extras">
+        <a href="print/razdel1/plakat_1_8.html" target="_blank" rel="noopener">плакат-повторение раздела «Путешествие в жизнь древних людей»</a>
+      </div>
     </div>
     <div class="soon">Раздел 1 закончен (стр. 4–44). Раздел 2 и дальше — не начаты, ждут отдельного запроса.</div>
   </div>
