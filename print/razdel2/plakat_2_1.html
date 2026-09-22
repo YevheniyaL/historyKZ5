@@ -18,6 +18,7 @@
     --c5: #4E7D3A; --c5-soft: #E1ECD7;   /* цветные металлы */
     --c6: #6B6456; --c6-soft: #ECE8DE;   /* слова, вопросы */
     --hl: #FFE9A8;
+    --thread: #3B6E8F; --thread-soft: #DCEAF3;   /* нить раздела: связь с соседями */
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -27,6 +28,7 @@
       --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
       --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
       --hl: #5C5020;
+      --thread: #7FB3D5; --thread-soft: #243542;
     }
   }
   :root[data-theme="dark"] {
@@ -36,6 +38,7 @@
     --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
     --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
     --hl: #5C5020;
+    --thread: #7FB3D5; --thread-soft: #243542;
   }
 
   * { box-sizing: border-box; }
@@ -105,6 +108,15 @@
   .qs { margin: 0; padding-left: 1.15rem; font-size: 0.86rem; }
   .qs li { margin-bottom: 0.1rem; }
 
+  /* нить раздела: откуда пришли и что из этого вышло */
+  .thread { display: flex; gap: 0.45rem; align-items: baseline; background: var(--thread-soft);
+    border-left: 4px solid var(--thread); border-radius: 8px; padding: 0.35rem 0.7rem;
+    font-size: 0.79rem; line-height: 1.32; color: var(--ink-soft); }
+  .thread .ico { color: var(--thread); font-weight: 700; flex: none; }
+  .thread b { color: var(--thread); }
+  .thread.prev { margin: 0.4rem 0 0; }
+  .thread.next { margin: 0.5rem 0 0; }
+
   .legend { font-size: 0.72rem; color: var(--ink-faint); margin: 0.5rem 0 0; }
 
   @media (max-width: 640px) {
@@ -117,7 +129,7 @@
     body { background: #fff !important; }
     * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-shadow: none !important; }
     .wrap { padding: 0; }
-    .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; background: #fff; zoom: 0.84; }
+    .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; background: #fff; zoom: 0.78; }
     .blk, .pair .blk { margin-top: 0.45rem; }
     .words { margin-top: 0.45rem; }
   }
@@ -141,6 +153,10 @@
   <p class="idea"><b>Главная мысль:</b> железо люди научились делать сами — и всё пошло следом: легче стало пахать,
     появились упряжь, колёсный транспорт и оружие, выросла торговля, а племена стали объединяться в союзы,
     из которых родились первые государства. <i>✏️</i></p>
+
+  <p class="thread prev"><span class="ico">←</span><span><b>Перед этим (§1.8, конец раздела 1):</b>
+    последняя эпоха раздела — бронзовый век: медь с оловом дали бронзу, орудий стало больше,
+    появились богатые и бедные, начало складываться кочевое скотоводство. <i>✏️</i></span></p>
 
   <div class="words">
     <div class="word"><span class="lb">ур. 1</span><b>Железный век</b>время, когда человек начал производить железо и использовать его в хозяйстве</div>
@@ -228,6 +244,9 @@
     </ol>
   </div>
 
+  <p class="thread next"><span class="ico">↓</span><span><b>Отсюда вытекает:</b> железные орудия
+    сделали хозяйство сильнее, появились упряжь и колёсный транспорт — а дальше смотрим, как у этих
+    племён сложился кочевой образ жизни. <b>→ §2.2</b> <i>✏️</i></span></p>
   <p class="legend">Всё — по учебнику НИШ · <i>✏️ — моё пояснение</i></p>
 </section>
 
