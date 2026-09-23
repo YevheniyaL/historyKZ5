@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>История КЗ · §7.1 · плакат</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🏺</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --paper: #FFFDF8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74; --line: #D8CBA9;
+    --c1: #B0522E; --c1-soft: #F6E0D3;   /* кто такие саки и источники */
+    --c2: #8A6A4B; --c2-soft: #EFE4D2;   /* греческие авторы */
+    --c3: #7A4E9A; --c3-soft: #ECE2F2;   /* Геродот о саках */
+    --c4: #3B6E8F; --c4-soft: #DCEAF3;   /* Страбон */
+    --c5: #4E7D3A; --c5-soft: #E1ECD7;   /* персидские источники */
+    --c6: #6B6456; --c6-soft: #ECE8DE;   /* слова, вопросы */
+    --hl: #FFE9A8;
+    --thread: #3B6E8F; --thread-soft: #DCEAF3;   /* нить раздела: связь с соседями */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --paper: #2A251C;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+      --c1: #E08F6B; --c1-soft: #452F24; --c2: #C9A87E; --c2-soft: #3B3222;
+      --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
+      --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
+      --hl: #5C5020;
+      --thread: #7FB3D5; --thread-soft: #243542;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --paper: #2A251C;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #443C2C;
+    --c1: #E08F6B; --c1-soft: #452F24; --c2: #C9A87E; --c2-soft: #3B3222;
+    --c3: #B994D6; --c3-soft: #372C40; --c4: #7FB3D5; --c4-soft: #243542;
+    --c5: #9CC77F; --c5-soft: #2C3A24; --c6: #BCB29A; --c6-soft: #342E22;
+    --hl: #5C5020;
+    --thread: #7FB3D5; --thread-soft: #243542;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.33; }
+  .wrap { padding-block: 1.5rem 3rem; padding-inline: 1rem; }
+  .sheet { max-width: 800px; margin: 0 auto 2rem; background: var(--paper); border-radius: 14px; padding: 1.4rem 1.5rem; box-shadow: 0 8px 24px -12px rgba(46,42,34,0.25); }
+  h1, h2, h3 { font-family: 'Fraunces', ui-serif, Georgia, serif; margin: 0; text-wrap: balance; }
+
+  /* шапка */
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin: 0; }
+  h1 { font-size: 1.5rem; font-weight: 900; line-height: 1.1; margin: 0.15rem 0 0.1rem; }
+  .sheet-tag { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); border-radius: 999px; padding: 0.15rem 0.7rem; white-space: nowrap; }
+  .rq { font-size: 0.92rem; margin: 0.25rem 0 0; }
+  .rq b { background: var(--hl); border-radius: 4px; padding: 0 0.25rem; }
+
+  .idea { margin: 0.35rem 0 0; padding: 0.3rem 0.6rem; background: var(--hl); border-radius: 10px; font-size: 0.88rem; }
+  .idea b { font-family: 'Fraunces', serif; }
+  .words { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; margin-top: 0.6rem; }
+  .word { background: var(--c6-soft); border-radius: 10px; padding: 0.4rem 0.55rem; font-size: 0.8rem; position: relative; }
+  .word b { display: block; font-size: 0.95rem; }
+
+  /* блоки */
+  .blk { border-radius: 12px; padding: 0.55rem 0.8rem 0.65rem; margin-top: 0.6rem; background: var(--soft); }
+  .blk h2 { font-size: 1.05rem; color: var(--c); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.45rem; }
+  .num { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--c); color: var(--paper); font-family: 'Karla', sans-serif; font-size: 0.82rem; font-weight: 700; flex: none; }
+  .b1 { --c: var(--c1); --soft: var(--c1-soft); }
+  .b2 { --c: var(--c2); --soft: var(--c2-soft); }
+  .b3 { --c: var(--c3); --soft: var(--c3-soft); }
+  .b4 { --c: var(--c4); --soft: var(--c4-soft); }
+  .b5 { --c: var(--c5); --soft: var(--c5-soft); }
+  .b6 { --c: var(--c6); --soft: var(--c6-soft); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .pair .blk { margin-top: 0.6rem; }
+
+  .lb { margin-left: auto; font-family: 'Karla', sans-serif; font-size: 0.72rem; font-weight: 700;
+        color: var(--c); background: var(--paper); border-radius: 999px; padding: 0 0.45rem; white-space: nowrap; }
+  .word .lb { position: absolute; right: 0.4rem; top: 0.3rem; background: none; color: var(--ink-faint); padding: 0; }
+
+  /* карточки */
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; margin-top: 0.4rem; }
+  .cards.c2 { grid-template-columns: 1fr 1fr; }
+  .cards.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card { background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.78rem; }
+  .card b { display: block; font-size: 0.87rem; color: var(--c); }
+
+  .line { font-size: 0.83rem; margin: 0.35rem 0 0; }
+  .more { font-size: 0.77rem; color: var(--ink-soft); margin: 0.35rem 0 0; }
+  .quote { font-size: 0.8rem; margin: 0.3rem 0 0; padding-left: 0.6rem; border-left: 3px solid var(--c); font-style: italic; }
+  .quote b { font-style: normal; color: var(--c); }
+  .qs { margin: 0; padding-left: 1.15rem; font-size: 0.86rem; }
+  .qs li { margin-bottom: 0.1rem; }
+
+  /* нить раздела: откуда пришли и что из этого вышло */
+  .thread { display: flex; gap: 0.45rem; align-items: baseline; background: var(--thread-soft);
+    border-left: 4px solid var(--thread); border-radius: 8px; padding: 0.35rem 0.7rem;
+    font-size: 0.79rem; line-height: 1.32; color: var(--ink-soft); }
+  .thread .ico { color: var(--thread); font-weight: 700; flex: none; }
+  .thread b { color: var(--thread); }
+  .thread.prev { margin: 0.4rem 0 0; }
+  .thread.next { margin: 0.5rem 0 0; }
+
+  /* цепочки и таблицы */
+  .hchain { display: flex; align-items: stretch; gap: 0.3rem; flex-wrap: wrap; }
+  .hchain .box { flex: 1 1 0; min-width: 6.5rem; background: var(--paper); border-radius: 9px; padding: 0.35rem 0.5rem; font-size: 0.82rem; text-align: center; align-self: stretch; }
+  .hchain .box b { font-size: 0.88rem; }
+  .hchain .to { align-self: center; color: var(--c); font-weight: 700; }
+  .step { display: block; font-family: 'Fraunces', serif; font-weight: 900; color: var(--c); }
+  .chainv { list-style: none; margin: 0.2rem 0 0; padding: 0; }
+  .chainv li { background: var(--paper); border-radius: 8px; padding: 0.22rem 0.5rem; font-size: 0.83rem; text-align: center; }
+  .chainv li.to { background: none; padding: 0; line-height: 0.95; font-size: 0.78rem; color: var(--c); font-weight: 700; }
+  table.cmp { width: 100%; border-collapse: collapse; font-size: 0.78rem; margin-top: 0.35rem; background: var(--paper); border-radius: 8px; overflow: hidden; }
+  table.cmp th, table.cmp td { padding: 0.25rem 0.45rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.cmp th { font-family: 'Karla', sans-serif; font-weight: 700; color: var(--c); }
+  table.cmp tr:last-child td { border-bottom: none; }
+
+  .legend { font-size: 0.72rem; color: var(--ink-faint); margin: 0.5rem 0 0; }
+
+  @media (max-width: 640px) {
+    .words, .pair, .cards, .cards.c3 { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media print {
+    @page { size: A4; margin: 8mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-shadow: none !important; }
+    .wrap { padding: 0; }
+    .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; background: #fff; zoom: 0.74; }
+    .blk, .pair .blk { margin-top: 0.34rem; }
+    .words { margin-top: 0.34rem; }
+    .thread.prev { margin-top: 0.3rem; }
+    .thread.next { margin-top: 0.3rem; }
+    .legend { margin-top: 0.25rem; }
+    .cards { margin-top: 0.3rem; }
+    .line, .more { margin-top: 0.28rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="sheet">
+  <div class="top">
+    <div>
+      <p class="eyebrow">История Казахстана 5 · НИШ · Раздел 7 · уроки 1–2 · стр. 158–161</p>
+      <h1>§7.1 Антропологический облик людей древнего Казахстана</h1>
+    </div>
+    <span class="sheet-tag">учим</span>
+  </div>
+  <p class="rq">Исследовательский вопрос: <b>как менялся антропологический облик древних жителей Казахстана?</b></p>
+
+  <p class="idea"><b>Главная мысль:</b> облик жителей Казахстана менялся медленно: от европеоидного
+    андроновского типа — через смешение у саков, усуней и сарматов — к тураноидному типу после прихода
+    гуннов. <i>✏️</i></p>
+
+  <p class="thread prev"><span class="ico">←</span><span><b>Перед этим (раздел 6):</b> сарматы — последний из
+    пяти народов железного века. Теперь учебник оглядывается на всех сразу. <i>✏️</i></span></p>
+
+  <div class="words">
+    <div class="word"><span class="lb">ур. 1</span><b>Антропология</b>наука о происхождении и эволюционном развитии человека</div>
+    <div class="word"><span class="lb">ур. 1</span><b>Антропологический тип</b>признаки физического строения, характеризующие группы людей на определённой территории</div>
+    <div class="word"><span class="lb">ур. 1</span><b>Андроновский тип</b>тип, определённый по черепам из Северного, Центрального и Восточного Казахстана, эпоха ранней бронзы</div>
+    <div class="word"><span class="lb">ур. 2</span><b>Генетическая связь</b>качество, особенность, сходство, передающиеся из поколения в поколение</div>
+    <div class="word"><span class="lb">ур. 2</span><b>Ассимиляция</b>расовое смешение при тесной связи одной расы с другой</div>
+    <div class="word"><span class="lb">ур. 2</span><b>Тураноидная раса</b>южно-сибирский тип, сложившийся из европеоидных и монголоидных признаков</div>
+  </div>
+
+  <div class="blk b1">
+    <h2><span class="num">1</span>Как различают расы<span class="lb">ур. 1</span></h2>
+    <p class="line"><b>Антропологический тип, или раса</b> — исторически сложившаяся группа людей, объединённая
+      наследственными признаками и общностью происхождения. Антропологию людей определяют по <b>форме головы
+      и лица, телосложению, цвету кожи, волос и глаз</b>.</p>
+    <div class="cards c3">
+      <div class="card"><b>Европеоидная</b>волосы прямые или волнистые, мягкие; глаза широкого разреза; нос
+        сильно выступающий с высоким переносьем; губы тонкие; сильный рост волос на лице и теле</div>
+      <div class="card"><b>Монголоидная</b>узкие тёмные глаза, смуглая кожа, жёсткие волосы, широкое плоское
+        лицо, густые брови, толстые губы</div>
+      <div class="card"><b>Негроидная (экваториальная)</b>тёмная кожа, кудрявые волосы, слегка выступающая
+        челюсть, приплюснутый нос, пухлые губы</div>
+    </div>
+  </div>
+
+  <div class="blk b2">
+    <h2><span class="num">2</span>Андроновский тип — эпоха бронзы<span class="lb">ур. 1</span></h2>
+    <p class="line">Особенности жителей бронзового века определены по черепам из могильников <b>Алексеевка,
+      Ойжайлау, Зевакино</b>. Андроновских памятников много на территории <b>Северного, Центрального и
+      Восточного Казахстана</b>.</p>
+    <div class="cards c3">
+      <div class="card"><b>В.П. Алексеев</b>признаки андроновского типа: <b>большой череп, курносый нос,
+        круглое лицо</b></div>
+      <div class="card"><b>Ойжайлау</b>черепа овальной формы с крупной лобной костью</div>
+      <div class="card"><b>Зевакино</b>черепа продолговатые, овальные; глубокие глазницы, сильно выступающий
+        нос с высоким переносьем</div>
+    </div>
+    <p class="more">Люди бронзового века по всей территории Казахстана принадлежали к <b>древнеказахстанской
+      европеоидной расе</b>. По мнению некоторых учёных, антропологический тип современных казахов сохранил
+      до <b>30 %</b> признаков племён бронзового века.</p>
+  </div>
+
+  <div class="blk b3">
+    <h2><span class="num">3</span>Саки: европеоиды, но уже с примесью<span class="lb">ур. 2</span></h2>
+    <p class="line">У саков тип был <b>схож с андроновским</b>: небольшой череп, широкое лицо, плоский лоб,
+      глубокие глазницы, немного выступающие надбровные кости — в целом <b>европеоидный</b> тип. Во второй
+      половине <b>I тысячелетия до н.э.</b> в Казахстане начался процесс <b>ассимиляции</b>: у сакских племён
+      стали появляться <b>монголоидные признаки</b>, но примесь была ещё незначительной.</p>
+  </div>
+
+  <div class="blk b4">
+    <h2><span class="num">4</span>Усуни и сарматы<span class="lb">ур. 2</span></h2>
+    <div class="cards c2">
+      <div class="card"><b>Усуни</b>средний череп, плоский лоб, широкие скулы и переносица, слегка выступающее
+        надбровье, нос средних размеров</div>
+      <div class="card"><b>Сарматы</b><b>генетическая связь</b> с племенами Поволжья (срубная культура); по
+        типу черепа иногда сходство с усунями — большой череп, выпуклый нос, высокие глазницы</div>
+    </div>
+    <p class="line">У усуней и сарматов признаки монголоидной расы были проявлены <b>сильнее, чем у саков</b>;
+      особенно чётко это видно по облику <b>сарматских женщин</b>. Племена Западного Казахстана имели тесные
+      связи с другими регионами — поэтому у сарматов во внешнем облике достаточно много элементов
+      монголоидности.</p>
+  </div>
+
+  <div class="blk b5">
+    <h2><span class="num">5</span>Почему усилились монголоидные признаки<span class="lb">ур. 2</span></h2>
+    <ul class="chainv">
+      <li>Длительное <b>этническое сближение</b> с племенами Центральной Азии</li><li class="to">↓</li>
+      <li>Значительное усиление — <b>после переселения гуннов</b> из Алтая на территорию Казахстана</li><li class="to">↓</li>
+      <li>Смешение племён с европеоидными и монголоидными признаками</li><li class="to">↓</li>
+      <li>Сложился местный тип <b>тураноидной (южно-сибирской) расы</b></li>
+    </ul>
+  </div>
+
+  <div class="blk b6">
+    <h2><span class="num">6</span>Ответь устно<span class="lb">ур. 1–2</span></h2>
+    <ol class="qs">
+      <li>Что такое антропологический тип и по каким признакам его определяют?</li>
+      <li>Чем различаются европеоидная и монголоидная расы?</li>
+      <li>Что такое андроновский тип? Какие могильники его показали?</li>
+      <li>Какими были антропологические особенности саков и что в них менялось?</li>
+      <li>Почему у усуней и сарматов монголоидные признаки проявлены сильнее, чем у саков?</li>
+      <li>После какого события монголоидные признаки усилились и какая раса сложилась?</li>
+    </ol>
+  </div>
+
+  <p class="thread next"><span class="ico">↓</span><span><b>Отсюда вытекает:</b> мы знаем, как менялись люди —
+    осталось вспомнить, как менялись их занятия, орудия и связи с миром. <b>→ §7.2</b> <i>✏️</i></span></p>
+  <p class="legend">Всё — по учебнику НИШ · <i>✏️ — моё пояснение</i></p>
+</section>
+</div>
+</body>
+
+</html>
