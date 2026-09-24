@@ -93,26 +93,48 @@
     .page2 { break-before: page; }
   }
   .t5 { --c: #7A4E9A; --soft: #ECE2F2; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .t5 { --c: #B994D6; --soft: #372C40; } }
+  .t6 { --c: #8A6A4B; --soft: #EFE4D2; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .t5 { --c: #B994D6; --soft: #372C40; } :root:not([data-theme="light"]) .t6 { --c: #C9A87E; --soft: #3B3222; } }
   :root[data-theme="dark"] .t5 { --c: #B994D6; --soft: #372C40; }
-  .chain { display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: stretch; margin-bottom: 0.4rem; }
+  :root[data-theme="dark"] .t6 { --c: #C9A87E; --soft: #3B3222; }
+
+  .sub { font-family: 'Fraunces', serif; font-size: 0.92rem; color: var(--c); margin: 0.45rem 0 0.25rem; display: flex; align-items: center; gap: 0.4rem; }
+  .sub .lb { margin-left: 0; }
+  .chain { display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: stretch; }
   .chain .box { flex: 1 1 0; min-width: 8rem; background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.82rem; text-align: center; }
-  .chain .box b { display: block; color: var(--c); }
+  .chain .box > b.h { display: block; color: var(--c); font-size: 0.9rem; }
+  .chain .box .when { display: block; font-family: 'Fraunces', serif; font-weight: 900; color: var(--c); font-size: 0.95rem; }
   .chain .to { align-self: center; color: var(--c); font-weight: 700; }
   .task ul { margin: 0; padding-left: 1.1rem; font-size: 0.86rem; }
   .task li { margin-bottom: 0.1rem; }
-  table.ep { width: 100%; border-collapse: collapse; background: var(--paper); font-size: 0.84rem; }
-  table.ep td { border: 1px solid var(--line); padding: 0.25rem 0.45rem; vertical-align: top; }
-  table.ep td:first-child { width: 8.5rem; font-weight: 700; color: var(--c); }
+  .line { font-size: 0.86rem; margin: 0.3rem 0 0; }
   .src { color: var(--ink-faint); font-size: 0.76rem; white-space: nowrap; }
+
+  .explain { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; margin-top: 0.35rem; }
+  .explain.two { grid-template-columns: 1fr 1fr; }
+  .ex { background: var(--paper); border-radius: 8px; padding: 0.35rem 0.5rem; font-size: 0.8rem; }
+  .ex > b.h { display: block; font-size: 0.92rem; color: var(--c); }
+  .ex svg { display: block; width: 100%; height: 62px; margin: 0.15rem 0; }
+  .ex svg .st { fill: none; stroke: var(--c); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  .ex svg .fl { fill: var(--soft); stroke: var(--c); stroke-width: 2; stroke-linejoin: round; }
+  .ex svg .wood { fill: var(--c6-soft); stroke: var(--ink-soft); stroke-width: 1.5; }
+  .ex svg text { font-family: 'Karla', sans-serif; font-size: 11px; fill: var(--ink-soft); }
+  .ex .easy { display: block; color: var(--ink-soft); margin-top: 0.15rem; }
+
+  .rev { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-top: 0.35rem; }
+  .rev > div { background: var(--paper); border-radius: 8px; padding: 0.35rem 0.5rem; font-size: 0.82rem; }
+  .rev > div > b.h { display: block; color: var(--c); font-size: 0.9rem; }
+  .big { background: var(--paper); border-radius: 8px; padding: 0.35rem 0.55rem; font-size: 0.86rem; text-align: center; }
+  .big b { color: var(--c); }
+
   .cards4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; }
-  .cards4 div { background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.8rem; }
-  .cards4 > div > b { display: block; font-size: 0.95rem; color: var(--c); }
+  .cards4 > div { background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.8rem; }
+  .cards4 > div > b.h { display: block; font-size: 0.95rem; color: var(--c); }
   .cards4 i { display: block; color: var(--ink-soft); font-size: 0.76rem; margin-top: 0.15rem; }
   .warn { font-size: 0.78rem; color: var(--ink-soft); margin: 0.3rem 0 0; }
   .key { font-size: 0.72rem; color: var(--ink-faint); margin: 0.4rem 0 0; }
-  @media (max-width: 640px) { .cards4 { grid-template-columns: 1fr 1fr; } }
-  @media print { .sheet { zoom: 0.84; } .task { margin-top: 0.45rem; padding-block: 0.45rem 0.5rem; } }
+  @media (max-width: 640px) { .cards4, .explain, .rev { grid-template-columns: 1fr 1fr; } .chain .to { transform: rotate(90deg); } }
+  @media print { .sheet { zoom: 0.80; } .task { margin-top: 0.5rem; padding-block: 0.5rem 0.55rem; } }
 </style>
 </head>
 <body>
@@ -121,69 +143,149 @@
 <section class="sheet">
   <div class="top">
     <div>
-      <p class="eyebrow">История Казахстана 5 · НИШ · Раздел 1 · §1.1–§1.3 и §1.7 ур. 2</p>
-      <h1>Повторяем к СОР: мезолит · орудия труда · верования</h1>
+      <p class="eyebrow">История Казахстана 5 · НИШ · Введение · §1.1–§1.3 · §1.7 ур. 2 · лист 1 из 2</p>
+      <h1>Повторяем к СОР: каменный век по порядку</h1>
     </div>
     <span class="sheet-tag">к СОР</span>
   </div>
-  <p class="rq" style="font-size:0.88rem;margin:0.25rem 0 0">Три темы из списка учителя к СОР. Прочитай вслух, закрой лист — и ответь на самопроверку внизу.</p>
+  <p class="rq" style="font-size:0.88rem;margin:0.25rem 0 0">Эпохи идут по времени: сначала палеолит, потом мезолит, потом неолит. В каждой — люди, занятия, орудия. Верования — в конце.</p>
 
-  <div class="task t1">
-    <h2><span class="num">1</span>Что изменилось в мезолите <span class="lb">§1.3 ур. 1 · стр. 20–21</span></h2>
+  <div class="task t4">
+    <h2><span class="num">1</span>Каменный век — три эпохи <span class="lb">Введение · стр. 7</span></h2>
     <div class="chain">
-      <div class="box"><b>Ледниковый период</b>с 100 тыс. лет назад: одежда из шкур, жилища из костей мамонта</div>
+      <div class="box"><b class="h">Палеолит</b><span class="when">~1 млн лет назад – 12 тыс. до н.э.</span>«палео» — древний, «лит» — камень: <b>древнекаменный век</b>, самый долгий</div>
       <span class="to">→</span>
-      <div class="box"><b>12 тыс. лет назад</b>ледник растаял, палеолит кончился — начался <b>мезолит</b></div>
+      <div class="box"><b class="h">Мезолит</b><span class="when">12–5 тыс. до н.э.</span>«мезо» — средний: <b>средний каменный век</b></div>
       <span class="to">→</span>
-      <div class="box"><b>Природа как сейчас</b>реки и озёра; мамонты исчезли, много мелких зверей</div>
-      <span class="to">→</span>
-      <div class="box"><b>Новые занятия</b>охота на зайцев, лис, сурков, волков, птиц; ловля рыбы</div>
+      <div class="box"><b class="h">Неолит</b><span class="when">5–3 тыс. до н.э.</span>«нео» — новый: <b>новый каменный век</b>, самый поздний</div>
     </div>
-    <ul>
-      <li><b>Мезолит</b> — средний каменный век, между палеолитом и неолитом, ~12–5 тыс. до н.э. 📖</li>
-      <li><b>Изобрели:</b> микролиты, <b>лук и стрелы</b>, бумеранг; для рыбы — сети, костяные гарпуны, копья с длинной рукоятью; <b>лодку</b>. 📖</li>
-      <li>Больше всего памятников мезолита — Северный Прикаспий и Северо-Восточный Казахстан. 📖</li>
-    </ul>
+    <p class="line">Каменный век — около 99% всей истории человечества. 📖 <span class="src">стр. 14</span></p>
   </div>
 
+  <div class="task t1">
+    <h2><span class="num">2</span>Палеолит <span class="lb">§1.1 ур. 1–3 · §1.2 · стр. 10–19</span></h2>
+
+    <p class="sub">Как менялся человек <span class="lb">§1.1 ур. 1 · стр. 10–11</span></p>
+    <div class="chain">
+      <div class="box"><b class="h">Питекантроп</b><span class="when">~1 млн лет назад</span>почти современные руки и ноги, но массивная челюсть, покатый лоб, выступающий затылок; <b>зачатки речи</b></div>
+      <span class="to">→</span>
+      <div class="box"><b class="h">Неандерталец</b><span class="when">130–35 тыс. лет назад</span>мозг больше; <b>обряды погребения</b>, <b>вера в загробную жизнь</b></div>
+      <span class="to">→</span>
+      <div class="box"><b class="h">Кроманьонец</b> (человек разумный)<span class="when">40–35 тыс. лет назад</span>современный облик; <b>искусство, ритуалы</b>, языки; приручил собаку, заселил весь Казахстан</div>
+    </div>
+
+    <p class="sub">Как люди жили вместе <span class="lb">§1.1 ур. 2 · стр. 12–13</span></p>
+    <div class="chain">
+      <div class="box"><b class="h">Стадо</b>первое объединение, 20–30 человек; состав непостоянный, кочевали в поисках пищи</div>
+      <span class="to">→</span>
+      <div class="box"><b class="h">Род</b>коллектив <b>родственников</b> — появился вместе с человеком разумным</div>
+      <span class="to">→</span>
+      <div class="box"><b class="h">Родовая община</b>~40 тыс. лет назад; все равны, орудия общие, еда поровну; старейшины хранят обычаи</div>
+    </div>
+    <p class="line"><b>Занятия:</b> мужчины — <b>охота</b> (загоняли зверей криками и огнём в обрывы), женщины — <b>собирательство</b> (ягоды, орехи, яйца, мёд), хранили огонь, шили одежду. Огонь согревал, отпугивал хищников, на нём готовили. 📖 <span class="src">стр. 13–14</span></p>
+
+    <p class="sub">Орудия палеолита <span class="lb">§1.1 ур. 3 · §1.2 ур. 2 · стр. 14, 18–19</span></p>
+    <p class="line" style="margin-top:0">Заострённые камни, <b>рубило</b>, <b>чоппер</b>, <b>палка-копалка</b>, заострённые кости. Материал — чёрный <b>кремень</b> гор Каратау и <b>речная галька</b>. Годился не всякий камень, а только тот, что при раскалывании давал острый край. В позднем палеолите — резцы, проколки, свёрла, орудия из кости. 📖</p>
+    <div class="explain two">
+      <div class="ex"><b class="h">Техника оббивки</b>
+        <svg viewBox="0 0 260 62" aria-hidden="true">
+          <ellipse class="fl" cx="30" cy="34" rx="22" ry="15"/>
+          <ellipse class="fl" cx="92" cy="34" rx="22" ry="15"/>
+          <path class="st" d="M55 18 l6 -6 M58 26 l9 -3 M56 10 l2 -6"/>
+          <text x="44" y="60">удар!</text>
+          <path class="st" d="M128 34 h26 m-7 -6 l7 6 l-7 6"/>
+          <path class="fl" d="M170 22 q20 -10 44 -2 l8 6 l-6 5 l7 5 l-6 5 l6 4 q-25 12 -50 2 q-12 -12 -3 -25z"/>
+          <text x="176" y="60">острый край</text>
+        </svg>
+        гальку <b>оббивали друг о друга</b> — откалывались кусочки, и получались орудия с острыми краями, рубящие и режущие 📖 <span class="src">стр. 18</span>
+        <span class="easy">✏️ Проще: бьёшь камнем о камень, пока край не станет острым.</span></div>
+      <div class="ex"><b class="h">Нуклеус</b>
+        <svg viewBox="0 0 260 62" aria-hidden="true">
+          <path class="fl" d="M40 10 l30 4 l12 22 l-10 20 l-34 2 l-12 -22z"/>
+          <path class="st" d="M92 22 h24 m-6 -5 l6 5 l-6 5 M92 44 h24 m-6 -5 l6 5 l-6 5"/>
+          <path class="fl" d="M126 16 l44 -4 l4 8 l-46 4z"/>
+          <path class="fl" d="M126 40 l44 -4 l4 8 l-46 4z"/>
+          <text x="184" y="22">пластина</text>
+          <text x="184" y="46">отщеп</text>
+          <text x="30" y="10">нуклеус</text>
+        </svg>
+        <b>кусок камня, от которого откалывали</b> отщепы или пластины для изготовления каменных орудий 📖 <span class="src">стр. 18, глоссарий</span>
+        <span class="easy">✏️ Проще: нуклеус — не само орудие, а «заготовка». Орудия — это пластины, которые от него откололи.</span></div>
+    </div>
+  </div>
+
+
+  <div class="task t6">
+    <h2><span class="num">3</span>Мезолит <span class="lb">§1.3 ур. 1 · стр. 20–21</span></h2>
+    <div class="chain">
+      <div class="box"><b class="h">Ледниковый период</b>с 100 тыс. лет назад: одежда из шкур, жилища из костей мамонта</div>
+      <span class="to">→</span>
+      <div class="box"><b class="h">Ледник растаял</b>палеолит кончился — начался мезолит</div>
+      <span class="to">→</span>
+      <div class="box"><b class="h">Природа как сейчас</b>реки и озёра; мамонты исчезли, много средних и мелких зверей</div>
+      <span class="to">→</span>
+      <div class="box"><b class="h">Новые занятия</b>охота на зайцев, лис, сурков, волков, птиц; <b>ловля рыбы</b></div>
+    </div>
+    <p class="line"><b>Орудия мезолита:</b> <b>микролиты</b>, <b>лук и стрелы</b>, бумеранг; для рыбы — сети, костяные гарпуны, копья с длинной рукоятью; изобрели <b>лодку</b>. Больше всего памятников — Северный Прикаспий и Северо-Восточный Казахстан. 📖</p>
+    <div class="explain two">
+      <div class="ex"><b class="h">Микролиты</b>
+        <svg viewBox="0 0 260 62" aria-hidden="true">
+          <path class="fl" d="M10 44 l10 -16 l10 16z"/><path class="fl" d="M38 44 l6 -16 h12 l6 16z"/><path class="fl" d="M70 44 a14 14 0 0 1 24 -12 l-10 12z"/>
+          <text x="4" y="60">треугольник, трапеция…</text>
+          <path class="st" d="M108 34 h18 m-6 -5 l6 5 l-6 5"/>
+          <rect class="wood" x="136" y="30" width="116" height="12" rx="5"/>
+          <path class="fl" d="M146 30 l7 -12 l7 12z"/><path class="fl" d="M164 30 l7 -12 l7 12z"/><path class="fl" d="M182 30 l7 -12 l7 12z"/><path class="fl" d="M200 30 l7 -12 l7 12z"/>
+          <text x="150" y="60">рукоять + вкладыши</text>
+        </svg>
+        <b>небольшие каменные орудия правильных геометрических форм</b> — треугольники, трапеции, сегменты; служили <b>вкладышами</b> для ножей, серпов, наконечников копий 📖 <span class="src">стр. 21</span>
+        <span class="easy">✏️ Проще: крошечные острые камешки вставляли рядком в рукоять — получался нож или серп.</span></div>
+      <div class="ex"><b class="h">Нуклеус ≠ микролит</b>
+        <span class="easy" style="margin-top:0.3rem">✏️ <b>Нуклеус</b> — большой камень-заготовка, от него откалывают (палеолит).<br>
+        <b>Микролит</b> — маленькое готовое орудие-вкладыш, его вставляют в рукоять (мезолит).<br><br>
+        <b>Почему появились лук и микролиты?</b> Крупных зверей не стало, а мелких и быстрых копьём не догонишь — нужно оружие, которое бьёт издалека. ✏️</span></div>
+    </div>
+  </div>
+
+</section>
+
+<section class="sheet page2">
+  <p class="eyebrow">Повторяем к СОР · каменный век по порядку · лист 2 из 2</p>
+
   <div class="task t3">
-    <h2><span class="num">2</span>Орудия труда: от палеолита к неолиту <span class="lb">§1.1 ур. 3 · §1.2 ур. 2 · §1.3</span></h2>
-    <table class="ep">
-      <tr><td>Древний палеолит</td><td>заострённые камни, <b>рубило</b>, <b>чоппер</b>, <b>палка-копалка</b>, заострённые кости. Из чёрного <b>кремня</b> (Каратау) и <b>речной гальки</b>. <b>Техника оббивки</b>: камни били друг о друга — получался острый край <span class="src">стр. 14, 18</span></td></tr>
-      <tr><td>Палеолит (находки Медоева)</td><td><b>нуклеус</b> — кусок камня, от которого откалывали отщепы и пластины; скребла, скребки, остроконечники, ножевидные пластины <span class="src">стр. 18–19</span></td></tr>
-      <tr><td>Поздний палеолит</td><td>резцы, проколки, свёрла, орудия из кости <span class="src">стр. 19</span></td></tr>
-      <tr><td>Мезолит</td><td><b>микролиты</b> — маленькие каменные треугольники и трапеции, вкладыши для ножей, серпов, наконечников; лук и стрелы, бумеранг, гарпуны, сети <span class="src">стр. 21</span></td></tr>
-      <tr><td>Неолит</td><td>орудия для земледелия: каменный топор, <b>мотыга</b>, <b>серп</b>, <b>зернотёрка</b>, пест <span class="src">стр. 22</span></td></tr>
-    </table>
-    <p class="warn"><b>Вывод ✏️:</b> орудия становились всё мельче, точнее и разнообразнее — от одного рубила «на всё» к особому орудию для каждого дела.</p>
+    <h2><span class="num">4</span>Неолитическая революция <span class="lb">§1.3 ур. 2 · стр. 22–23</span></h2>
+    <p class="big"><b>присваивающее хозяйство</b> — брали готовое у природы ✏️ &nbsp;→&nbsp; <b>производящее хозяйство</b> — живут за счёт выращенных растений и домашних животных 📖</p>
+    <div class="rev">
+      <div><b class="h">от охоты → к скотоводству</b>приручили животных ради мяса и молока; держали в <b>загонах из тростниковых изгородей</b>. На стоянке Саксаул (Южный Казахстан) 80% костей — овцы и коровы. Охота стала второстепенной. 📖</div>
+      <div><b class="h">от собирательства → к земледелию</b>мягкая влажная почва и тёплый климат — начали сеять у жилища <b>пшеницу, просо, ячмень</b>. Орудия: каменный топор, <b>мотыга</b> (ручная обработка почвы), <b>серп</b>, <b>зернотёрка</b>, <b>пест</b> (толочь зерно в ступе). 📖</div>
+    </div>
+    <div class="rev">
+      <div><b class="h">Керамика</b>изделия из <b>обожжённой глины</b>. Форму наполняли песком, обмазывали глиной, сушили, вынимали и обжигали на костре. Неолит — «<b>эпоха глиняных горшков</b>»; до этого продукты хранили в плетёных корзинах. В Казахстане ~600 стоянок неолита. 📖</div>
+      <div><b class="h">Что из этого вышло</b>излишки продуктов → богатые и бедные → <b>имущественное неравенство</b> → основа частной собственности и семьи. 📖</div>
+    </div>
   </div>
 
   <div class="task t5">
-    <h2><span class="num">3</span>Древние верования <span class="lb">§1.7 ур. 2 · стр. 38</span></h2>
+    <h2><span class="num">5</span>Древние верования <span class="lb">§1.7 ур. 2 · стр. 38</span></h2>
     <div class="cards4">
-      <div><b>Анимизм</b>вера в душу и духов; вся природа живая, одушевлённая 📖<i>подсказка: <b>а</b>нима — душа есть у всего</i></div>
-      <div><b>Тотемизм</b>вера, что род людей произошёл от определённого животного, родство с ним 📖<i>подсказка: <b>т</b>отем — животное-предок</i></div>
-      <div><b>Фетишизм</b>поклонение предметам (камни, амулеты), которым приписывают волшебную силу ⚠<i>подсказка: <b>ф</b>игурка, камешек</i></div>
-      <div><b>Магия</b>обряды, которыми хотели повлиять на людей, животных, растения (например, на удачную охоту) ⚠<i>подсказка: <b>м</b>ожно обрядом повлиять</i></div>
+      <div><b class="h">Анимизм</b>вера в душу и духов; вся природа живая, одушевлённая 📖<i>подсказка: <b>а</b>нима — душа есть у всего</i></div>
+      <div><b class="h">Тотемизм</b>вера, что род людей произошёл от определённого животного, родство с ним 📖<i>подсказка: <b>т</b>отем — животное-предок</i></div>
+      <div><b class="h">Фетишизм</b>поклонение предметам (камни, амулеты), которым приписывают волшебную силу ⚠<i>подсказка: <b>ф</b>игурка, камешек</i></div>
+      <div><b class="h">Магия</b>обряды, которыми хотели повлиять на людей, животных, растения (например, на удачную охоту) ⚠<i>подсказка: <b>м</b>ожно обрядом повлиять</i></div>
     </div>
-    <ul style="margin-top:0.35rem">
-      <li>Верили в <b>загробную жизнь</b>: умершего клали в позе спящего на боку — «вечный сон». 📖</li>
-      <li>Посыпали <b>красной охрой</b> — это кровь для жизни в загробном мире и огонь для очищения. 📖</li>
-      <li>Носили <b>амулеты</b> — обереги от злых духов; приносили жертвы, поклонялись огню. 📖</li>
-    </ul>
+    <p class="line">Верили в <b>загробную жизнь</b> (уже неандертальцы): умершего клали в позе спящего на боку — «вечный сон»; посыпали <b>красной охрой</b> — кровь для жизни в загробном мире и огонь для очищения. Носили <b>амулеты</b> от злых духов, приносили жертвы, поклонялись огню. 📖</p>
     <p class="warn">⚠ Слов «фетишизм» и «магия» в учебнике нет — определения взяты из официального сборника СОР (smk.edu.kz). Они есть в списке учителя к СОР, поэтому учим.</p>
   </div>
 
   <div class="task t4">
-    <h2><span class="num">4</span>Самопроверка: закрой лист выше и соедини <span class="lb">всё</span></h2>
+    <h2><span class="num">6</span>Самопроверка: закрой листы и ответь <span class="lb">всё</span></h2>
     <table class="grid match">
       <tr><td class="t">1. Анимизм</td><td class="l">А</td><td>Поклонение предметам, которым приписывают волшебную силу</td></tr>
       <tr><td class="t">2. Тотемизм</td><td class="l">Б</td><td>Обряды, чтобы повлиять на людей, животных, растения</td></tr>
       <tr><td class="t">3. Фетишизм</td><td class="l">В</td><td>Вера в душу и духов, в то, что вся природа живая</td></tr>
       <tr><td class="t">4. Магия</td><td class="l">Г</td><td>Вера в родство рода людей с животным-предком</td></tr>
     </table>
-    <p style="margin-top:0.4rem"><b>Скажи вслух:</b> 1) Почему в мезолите придумали лук и стрелы? 2) Назови по два орудия палеолита, мезолита и неолита. 3) Чем нуклеус отличается от микролита?</p>
-    <p class="key">Ответы: 1 — В · 2 — Г · 3 — А · 4 — Б. &nbsp; 📖 — учебник НИШ · ✏️ — мой вывод · ⚠ — нет в учебнике, из сборника СОР.</p>
+    <p style="margin-top:0.4rem"><b>Скажи вслух:</b> 1) Назови три эпохи каменного века по порядку. 2) Чем питекантроп, неандерталец и кроманьонец отличаются? 3) Что такое техника оббивки? 4) Почему в мезолите придумали лук и стрелы? 5) Что изменила неолитическая революция?</p>
+    <p class="key">Ответы: 1 — В · 2 — Г · 3 — А · 4 — Б. &nbsp; 📖 — учебник НИШ · ✏️ — моё пояснение · ⚠ — нет в учебнике, из сборника СОР.</p>
   </div>
 </section>
 
