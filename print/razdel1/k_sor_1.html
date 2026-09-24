@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>История КЗ · раздел 1 · повторение к СОР</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🏺</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --paper: #FFFDF8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74; --line: #C9BB98;
+    --c1: #3B6E8F; --c1-soft: #DCEAF3;
+    --c3: #4E7D3A; --c3-soft: #E1ECD7;
+    --c4: #B0522E; --c4-soft: #F6E0D3;
+    --c6: #6B6456; --c6-soft: #ECE8DE;
+    --hl: #FFE9A8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --paper: #2A251C;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #5A503C;
+      --c1: #7FB3D5; --c1-soft: #243542; --c3: #9CC77F; --c3-soft: #2C3A24;
+      --c4: #E08F6B; --c4-soft: #452F24; --c6: #BCB29A; --c6-soft: #342E22;
+      --hl: #5C5020;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --paper: #2A251C;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #5A503C;
+    --c1: #7FB3D5; --c1-soft: #243542; --c3: #9CC77F; --c3-soft: #2C3A24;
+    --c4: #E08F6B; --c4-soft: #452F24; --c6: #BCB29A; --c6-soft: #342E22;
+    --hl: #5C5020;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.38; }
+  .wrap { padding-block: 1.5rem 3rem; padding-inline: 1rem; }
+  .sheet { max-width: 800px; margin: 0 auto 2rem; background: var(--paper); border-radius: 14px; padding: 1.4rem 1.5rem; box-shadow: 0 8px 24px -12px rgba(46,42,34,0.25); }
+  h1, h2 { font-family: 'Fraunces', ui-serif, Georgia, serif; margin: 0; text-wrap: balance; }
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin: 0; }
+  h1 { font-size: 1.45rem; font-weight: 900; line-height: 1.1; margin: 0.15rem 0 0.1rem; }
+  .sheet-tag { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); border-radius: 999px; padding: 0.15rem 0.7rem; white-space: nowrap; }
+
+  .name { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.9rem; margin: 0.5rem 0 0; }
+  .name span { flex: 1 1 12rem; border-bottom: 1px solid var(--line); padding-bottom: 0.1rem; }
+
+  table.spec { width: 100%; border-collapse: collapse; margin-top: 0.6rem; font-size: 0.8rem; }
+  table.spec td { border: 1px solid var(--line); padding: 0.25rem 0.45rem; vertical-align: top; }
+  table.spec td:first-child { width: 9.5rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); }
+
+  .task { border-radius: 12px; padding: 0.6rem 0.8rem 0.7rem; margin-top: 0.7rem; background: var(--soft); break-inside: avoid; }
+  .task h2 { font-size: 1.02rem; color: var(--c); margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.45rem; }
+  .num { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--c); color: var(--paper); font-family: 'Karla', sans-serif; font-size: 0.82rem; font-weight: 700; flex: none; }
+  .lb { margin-left: auto; font-family: 'Karla', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--c); background: var(--paper); border-radius: 999px; padding: 0 0.45rem; white-space: nowrap; }
+  .pts { font-family: 'Karla', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
+  .t1 { --c: var(--c1); --soft: var(--c1-soft); }
+  .t2 { --c: var(--c3); --soft: var(--c3-soft); }
+  .t3 { --c: var(--c4); --soft: var(--c4-soft); }
+  .t4 { --c: var(--c6); --soft: var(--c6-soft); }
+  .task p { margin: 0 0 0.3rem; font-size: 0.9rem; }
+  .hint { font-size: 0.8rem; color: var(--ink-soft); }
+
+  .lines { background: var(--paper); border-radius: 8px; padding: 0.1rem 0.6rem 0.4rem; }
+  .lines div { height: 1.75rem; border-bottom: 1px solid var(--line); }
+
+  table.grid { width: 100%; border-collapse: collapse; background: var(--paper); font-size: 0.86rem; }
+  table.grid th, table.grid td { border: 1px solid var(--line); padding: 0.3rem 0.45rem; vertical-align: top; text-align: left; }
+  table.grid th { background: var(--soft); color: var(--c); font-family: 'Fraunces', serif; }
+  table.grid td.q { width: 9rem; font-weight: 700; }
+  table.grid td.w { height: 3.1rem; }
+  table.match td.t { width: 9.5rem; font-weight: 700; }
+  table.match.wide td.t { width: 15rem; }
+  table.match td.l { width: 2rem; font-weight: 700; text-align: center; }
+  .answers { display: flex; gap: 1.2rem; flex-wrap: wrap; margin: 0.45rem 0 0; font-size: 0.9rem; font-weight: 700; }
+  .answers span { min-width: 4.5rem; border-bottom: 1px solid var(--line); }
+
+  .legend { font-size: 0.72rem; color: var(--ink-faint); margin: 0.6rem 0 0; }
+
+  @media (max-width: 640px) {
+    table.spec td:first-child { width: 6.5rem; }
+    table.grid td.q { width: 6rem; }
+  }
+
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-shadow: none !important; }
+    .wrap { padding: 0; }
+    .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; background: #fff; zoom: 0.92; }
+    .page2 { break-before: page; }
+  }
+  .t5 { --c: #7A4E9A; --soft: #ECE2F2; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .t5 { --c: #B994D6; --soft: #372C40; } }
+  :root[data-theme="dark"] .t5 { --c: #B994D6; --soft: #372C40; }
+  .chain { display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: stretch; margin-bottom: 0.4rem; }
+  .chain .box { flex: 1 1 0; min-width: 8rem; background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.82rem; text-align: center; }
+  .chain .box b { display: block; color: var(--c); }
+  .chain .to { align-self: center; color: var(--c); font-weight: 700; }
+  .task ul { margin: 0; padding-left: 1.1rem; font-size: 0.86rem; }
+  .task li { margin-bottom: 0.1rem; }
+  table.ep { width: 100%; border-collapse: collapse; background: var(--paper); font-size: 0.84rem; }
+  table.ep td { border: 1px solid var(--line); padding: 0.25rem 0.45rem; vertical-align: top; }
+  table.ep td:first-child { width: 8.5rem; font-weight: 700; color: var(--c); }
+  .src { color: var(--ink-faint); font-size: 0.76rem; white-space: nowrap; }
+  .cards4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; }
+  .cards4 div { background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.8rem; }
+  .cards4 > div > b { display: block; font-size: 0.95rem; color: var(--c); }
+  .cards4 i { display: block; color: var(--ink-soft); font-size: 0.76rem; margin-top: 0.15rem; }
+  .warn { font-size: 0.78rem; color: var(--ink-soft); margin: 0.3rem 0 0; }
+  .key { font-size: 0.72rem; color: var(--ink-faint); margin: 0.4rem 0 0; }
+  @media (max-width: 640px) { .cards4 { grid-template-columns: 1fr 1fr; } }
+  @media print { .sheet { zoom: 0.84; } .task { margin-top: 0.45rem; padding-block: 0.45rem 0.5rem; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="sheet">
+  <div class="top">
+    <div>
+      <p class="eyebrow">История Казахстана 5 · НИШ · Раздел 1 · §1.1–§1.3 и §1.7 ур. 2</p>
+      <h1>Повторяем к СОР: мезолит · орудия труда · верования</h1>
+    </div>
+    <span class="sheet-tag">к СОР</span>
+  </div>
+  <p class="rq" style="font-size:0.88rem;margin:0.25rem 0 0">Три темы из списка учителя к СОР. Прочитай вслух, закрой лист — и ответь на самопроверку внизу.</p>
+
+  <div class="task t1">
+    <h2><span class="num">1</span>Что изменилось в мезолите <span class="lb">§1.3 ур. 1 · стр. 20–21</span></h2>
+    <div class="chain">
+      <div class="box"><b>Ледниковый период</b>с 100 тыс. лет назад: одежда из шкур, жилища из костей мамонта</div>
+      <span class="to">→</span>
+      <div class="box"><b>12 тыс. лет назад</b>ледник растаял, палеолит кончился — начался <b>мезолит</b></div>
+      <span class="to">→</span>
+      <div class="box"><b>Природа как сейчас</b>реки и озёра; мамонты исчезли, много мелких зверей</div>
+      <span class="to">→</span>
+      <div class="box"><b>Новые занятия</b>охота на зайцев, лис, сурков, волков, птиц; ловля рыбы</div>
+    </div>
+    <ul>
+      <li><b>Мезолит</b> — средний каменный век, между палеолитом и неолитом, ~12–5 тыс. до н.э. 📖</li>
+      <li><b>Изобрели:</b> микролиты, <b>лук и стрелы</b>, бумеранг; для рыбы — сети, костяные гарпуны, копья с длинной рукоятью; <b>лодку</b>. 📖</li>
+      <li>Больше всего памятников мезолита — Северный Прикаспий и Северо-Восточный Казахстан. 📖</li>
+    </ul>
+  </div>
+
+  <div class="task t3">
+    <h2><span class="num">2</span>Орудия труда: от палеолита к неолиту <span class="lb">§1.1 ур. 3 · §1.2 ур. 2 · §1.3</span></h2>
+    <table class="ep">
+      <tr><td>Древний палеолит</td><td>заострённые камни, <b>рубило</b>, <b>чоппер</b>, <b>палка-копалка</b>, заострённые кости. Из чёрного <b>кремня</b> (Каратау) и <b>речной гальки</b>. <b>Техника оббивки</b>: камни били друг о друга — получался острый край <span class="src">стр. 14, 18</span></td></tr>
+      <tr><td>Палеолит (находки Медоева)</td><td><b>нуклеус</b> — кусок камня, от которого откалывали отщепы и пластины; скребла, скребки, остроконечники, ножевидные пластины <span class="src">стр. 18–19</span></td></tr>
+      <tr><td>Поздний палеолит</td><td>резцы, проколки, свёрла, орудия из кости <span class="src">стр. 19</span></td></tr>
+      <tr><td>Мезолит</td><td><b>микролиты</b> — маленькие каменные треугольники и трапеции, вкладыши для ножей, серпов, наконечников; лук и стрелы, бумеранг, гарпуны, сети <span class="src">стр. 21</span></td></tr>
+      <tr><td>Неолит</td><td>орудия для земледелия: каменный топор, <b>мотыга</b>, <b>серп</b>, <b>зернотёрка</b>, пест <span class="src">стр. 22</span></td></tr>
+    </table>
+    <p class="warn"><b>Вывод ✏️:</b> орудия становились всё мельче, точнее и разнообразнее — от одного рубила «на всё» к особому орудию для каждого дела.</p>
+  </div>
+
+  <div class="task t5">
+    <h2><span class="num">3</span>Древние верования <span class="lb">§1.7 ур. 2 · стр. 38</span></h2>
+    <div class="cards4">
+      <div><b>Анимизм</b>вера в душу и духов; вся природа живая, одушевлённая 📖<i>подсказка: <b>а</b>нима — душа есть у всего</i></div>
+      <div><b>Тотемизм</b>вера, что род людей произошёл от определённого животного, родство с ним 📖<i>подсказка: <b>т</b>отем — животное-предок</i></div>
+      <div><b>Фетишизм</b>поклонение предметам (камни, амулеты), которым приписывают волшебную силу ⚠<i>подсказка: <b>ф</b>игурка, камешек</i></div>
+      <div><b>Магия</b>обряды, которыми хотели повлиять на людей, животных, растения (например, на удачную охоту) ⚠<i>подсказка: <b>м</b>ожно обрядом повлиять</i></div>
+    </div>
+    <ul style="margin-top:0.35rem">
+      <li>Верили в <b>загробную жизнь</b>: умершего клали в позе спящего на боку — «вечный сон». 📖</li>
+      <li>Посыпали <b>красной охрой</b> — это кровь для жизни в загробном мире и огонь для очищения. 📖</li>
+      <li>Носили <b>амулеты</b> — обереги от злых духов; приносили жертвы, поклонялись огню. 📖</li>
+    </ul>
+    <p class="warn">⚠ Слов «фетишизм» и «магия» в учебнике нет — определения взяты из официального сборника СОР (smk.edu.kz). Они есть в списке учителя к СОР, поэтому учим.</p>
+  </div>
+
+  <div class="task t4">
+    <h2><span class="num">4</span>Самопроверка: закрой лист выше и соедини <span class="lb">всё</span></h2>
+    <table class="grid match">
+      <tr><td class="t">1. Анимизм</td><td class="l">А</td><td>Поклонение предметам, которым приписывают волшебную силу</td></tr>
+      <tr><td class="t">2. Тотемизм</td><td class="l">Б</td><td>Обряды, чтобы повлиять на людей, животных, растения</td></tr>
+      <tr><td class="t">3. Фетишизм</td><td class="l">В</td><td>Вера в душу и духов, в то, что вся природа живая</td></tr>
+      <tr><td class="t">4. Магия</td><td class="l">Г</td><td>Вера в родство рода людей с животным-предком</td></tr>
+    </table>
+    <p style="margin-top:0.4rem"><b>Скажи вслух:</b> 1) Почему в мезолите придумали лук и стрелы? 2) Назови по два орудия палеолита, мезолита и неолита. 3) Чем нуклеус отличается от микролита?</p>
+    <p class="key">Ответы: 1 — В · 2 — Г · 3 — А · 4 — Б. &nbsp; 📖 — учебник НИШ · ✏️ — мой вывод · ⚠ — нет в учебнике, из сборника СОР.</p>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
