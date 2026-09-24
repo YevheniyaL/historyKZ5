@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>История КЗ · §1.1–§1.3 · ответы к тренировочному СОР</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🏺</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --paper: #FFFDF8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74; --line: #C9BB98;
+    --c1: #3B6E8F; --c1-soft: #DCEAF3;
+    --c3: #4E7D3A; --c3-soft: #E1ECD7;
+    --c4: #B0522E; --c4-soft: #F6E0D3;
+    --c6: #6B6456; --c6-soft: #ECE8DE;
+    --hl: #FFE9A8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --paper: #2A251C;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #5A503C;
+      --c1: #7FB3D5; --c1-soft: #243542; --c3: #9CC77F; --c3-soft: #2C3A24;
+      --c4: #E08F6B; --c4-soft: #452F24; --c6: #BCB29A; --c6-soft: #342E22;
+      --hl: #5C5020;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --paper: #2A251C;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #5A503C;
+    --c1: #7FB3D5; --c1-soft: #243542; --c3: #9CC77F; --c3-soft: #2C3A24;
+    --c4: #E08F6B; --c4-soft: #452F24; --c6: #BCB29A; --c6-soft: #342E22;
+    --hl: #5C5020;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.38; }
+  .wrap { padding-block: 1.5rem 3rem; padding-inline: 1rem; }
+  .sheet { max-width: 800px; margin: 0 auto 2rem; background: var(--paper); border-radius: 14px; padding: 1.4rem 1.5rem; box-shadow: 0 8px 24px -12px rgba(46,42,34,0.25); }
+  h1, h2 { font-family: 'Fraunces', ui-serif, Georgia, serif; margin: 0; text-wrap: balance; }
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin: 0; }
+  h1 { font-size: 1.45rem; font-weight: 900; line-height: 1.1; margin: 0.15rem 0 0.1rem; }
+  .sheet-tag { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); border-radius: 999px; padding: 0.15rem 0.7rem; white-space: nowrap; }
+
+  .name { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.9rem; margin: 0.5rem 0 0; }
+  .name span { flex: 1 1 12rem; border-bottom: 1px solid var(--line); padding-bottom: 0.1rem; }
+
+  table.spec { width: 100%; border-collapse: collapse; margin-top: 0.6rem; font-size: 0.8rem; }
+  table.spec td { border: 1px solid var(--line); padding: 0.25rem 0.45rem; vertical-align: top; }
+  table.spec td:first-child { width: 9.5rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); }
+
+  .task { border-radius: 12px; padding: 0.6rem 0.8rem 0.7rem; margin-top: 0.7rem; background: var(--soft); break-inside: avoid; }
+  .task h2 { font-size: 1.02rem; color: var(--c); margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.45rem; }
+  .num { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--c); color: var(--paper); font-family: 'Karla', sans-serif; font-size: 0.82rem; font-weight: 700; flex: none; }
+  .lb { margin-left: auto; font-family: 'Karla', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--c); background: var(--paper); border-radius: 999px; padding: 0 0.45rem; white-space: nowrap; }
+  .pts { font-family: 'Karla', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
+  .t1 { --c: var(--c1); --soft: var(--c1-soft); }
+  .t2 { --c: var(--c3); --soft: var(--c3-soft); }
+  .t3 { --c: var(--c4); --soft: var(--c4-soft); }
+  .t4 { --c: var(--c6); --soft: var(--c6-soft); }
+  .task p { margin: 0 0 0.3rem; font-size: 0.9rem; }
+  .hint { font-size: 0.8rem; color: var(--ink-soft); }
+
+  .lines { background: var(--paper); border-radius: 8px; padding: 0.1rem 0.6rem 0.4rem; }
+  .lines div { height: 1.75rem; border-bottom: 1px solid var(--line); }
+
+  table.grid { width: 100%; border-collapse: collapse; background: var(--paper); font-size: 0.86rem; }
+  table.grid th, table.grid td { border: 1px solid var(--line); padding: 0.3rem 0.45rem; vertical-align: top; text-align: left; }
+  table.grid th { background: var(--soft); color: var(--c); font-family: 'Fraunces', serif; }
+  table.grid td.q { width: 9rem; font-weight: 700; }
+  table.grid td.w { height: 3.1rem; }
+  table.match td.t { width: 9.5rem; font-weight: 700; }
+  table.match td.l { width: 2rem; font-weight: 700; text-align: center; }
+  .answers { display: flex; gap: 1.2rem; flex-wrap: wrap; margin: 0.45rem 0 0; font-size: 0.9rem; font-weight: 700; }
+  .answers span { min-width: 4.5rem; border-bottom: 1px solid var(--line); }
+
+  .legend { font-size: 0.72rem; color: var(--ink-faint); margin: 0.6rem 0 0; }
+
+  @media (max-width: 640px) {
+    table.spec td:first-child { width: 6.5rem; }
+    table.grid td.q { width: 6rem; }
+  }
+
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-shadow: none !important; }
+    .wrap { padding: 0; }
+    .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; background: #fff; zoom: 0.92; }
+    .page2 { break-before: page; }
+  }
+</style>
+<style>
+  table.desc { width: 100%; border-collapse: collapse; background: var(--paper); font-size: 0.82rem; }
+  table.desc th, table.desc td { border: 1px solid var(--line); padding: 0.22rem 0.45rem; vertical-align: top; text-align: left; }
+  table.desc th { background: var(--soft); color: var(--c); font-family: 'Fraunces', serif; }
+  table.desc td.b { width: 2.6rem; text-align: center; font-weight: 700; }
+  table.desc td.s { width: 3.6rem; text-align: center; color: var(--ink-faint); }
+  .model { background: var(--paper); border-radius: 8px; padding: 0.35rem 0.6rem; font-size: 0.84rem; margin-top: 0.4rem; }
+  .model b { color: var(--c); }
+  .tip { font-size: 0.82rem; margin: 0.35rem 0 0; }
+  .total { font-size: 0.92rem; font-weight: 700; margin: 0.6rem 0 0; }
+  .total span { display: inline-block; min-width: 3rem; border-bottom: 1px solid var(--line); }
+  @media print { .sheet { zoom: 0.86; } .task { margin-top: 0.5rem; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="sheet">
+  <div class="top">
+    <div>
+      <p class="eyebrow">История Казахстана 5 · НИШ · Раздел 1 · §1.1–§1.3 · для родителя</p>
+      <h1>Тренировочный СОР · вариант 1 — ответы и баллы</h1>
+    </div>
+    <span class="sheet-tag">ответы</span>
+  </div>
+  <p class="hint" style="margin:0.35rem 0 0">Баллы ставятся, как у учителя: <b>1 балл за каждый пункт</b> (дескриптор). Близкий по смыслу ответ своими словами засчитывается. Ребёнку этот лист не давать до проверки.</p>
+
+  <div class="task t1">
+    <h2><span class="num">1</span>Рассказ о жизни первобытных людей <span class="pts">6 баллов</span><span class="lb">§1.1 ур. 1–3</span></h2>
+    <table class="desc">
+      <tr><th>В рассказе есть…</th><th>Стр.</th><th>Балл</th></tr>
+      <tr><td><b>Стадо</b> — первое объединение людей, 20–30 человек, состав непостоянный, кочевали в поисках пищи</td><td class="s">12</td><td class="b">1</td></tr>
+      <tr><td><b>Род (родовая община)</b> — коллектив родственников вместо стада; все равны, орудия общие, еду делят поровну</td><td class="s">13</td><td class="b">1</td></tr>
+      <tr><td><b>Старейшины</b> хранят обычаи, важное решают на общих собраниях</td><td class="s">13</td><td class="b">1</td></tr>
+      <tr><td><b>Мужчины — охота</b> (загоняли зверей криками, шумом и огнём в обрывы и ущелья)</td><td class="s">14</td><td class="b">1</td></tr>
+      <tr><td><b>Женщины — собирательство</b> (растения, ягоды, орехи, яйца, мёд), хранили огонь, шили одежду</td><td class="s">13–14</td><td class="b">1</td></tr>
+      <tr><td><b>Орудия</b> — хотя бы два: рубило, чоппер, палка-копалка, заострённые камни и кости. <b>Или огонь</b>: согревал, отпугивал хищников, на нём готовили</td><td class="s">14</td><td class="b">1</td></tr>
+    </table>
+    <div class="model"><b>Пример рассказа ✏️:</b> Сначала люди жили стадом по 20–30 человек и кочевали в поисках еды. Потом стадо превратилось в род — коллектив родственников. В роду все были равны, орудия были общими, а еду делили поровну. Главными были старейшины, важное решали на общих собраниях. Мужчины охотились: загоняли зверей криками и огнём в ущелья. Женщины собирали ягоды, орехи и мёд, хранили огонь и шили одежду. Орудиями были рубило, чоппер и палка-копалка. Огонь согревал, отпугивал хищников, на нём готовили еду.</div>
+    <p class="tip">💡 <b>Как набрать все баллы:</b> пройтись по плану «кто — как жили вместе — кто чем занят — чем работали — огонь». Каждый пункт плана — одно-два предложения с «умным словом» (стадо, род, старейшины, собирательство, рубило).</p>
+  </div>
+
+  <div class="task t2">
+    <h2><span class="num">2</span>Термины и определения <span class="pts">4 балла</span><span class="lb">§1.1–§1.3</span></h2>
+    <p><b>1 — В</b> (род, стр. 13) · <b>2 — Д</b> (нуклеус, стр. 18) · <b>3 — Г</b> (микролиты, стр. 21) · <b>4 — А</b> (керамика, стр. 23). Лишнее — <b>Б</b> (мотыга, стр. 22). По 1 баллу за пару. 📖</p>
+  </div>
+
+  <div class="task t3">
+    <h2><span class="num">3</span>Сравнение стоянок <span class="pts">5 баллов</span><span class="lb">§1.2 ур. 1–2</span></h2>
+    <table class="desc">
+      <tr><th></th><th>Бориказган</th><th>Семизбугы</th><th>Балл</th></tr>
+      <tr><td><b>Где</b></td><td>Южный Казахстан, горы Каратау</td><td>Северное Прибалхашье</td><td class="b">1</td></tr>
+      <tr><td><b>Кто и когда</b></td><td>Хасан Алпысбаев, 50–60-е годы XX века</td><td>А. Медоев, 1963 год</td><td class="b">1</td></tr>
+      <tr><td><b>Находки</b> (Бориказган)</td><td colspan="2">орудия из речной гальки, техника оббивки: гальку били друг о друга, получались острые края — рубящие и режущие орудия; ранний палеолит, около 1 млн лет назад</td><td class="b">1</td></tr>
+      <tr><td><b>Находки</b> (Семизбугы)</td><td colspan="2">нуклеусы, скребла, остроконечники, ножевидные пластины, скребки, отщепы, кости животных</td><td class="b">1</td></tr>
+      <tr><td><b>Вывод</b></td><td colspan="2">Сходство: обе — стоянки палеолита (древнекаменного века), там нашли каменные орудия. Различие: разные места, разные археологи; в Бориказгане орудия из гальки. ✏️ → древние люди жили в разных частях Казахстана.</td><td class="b">1</td></tr>
+    </table>
+    <p class="tip">💡 <b>Шаблон вывода:</b> «Обе стоянки… (чем похожи). Но… (чем отличаются). Значит,… (что это доказывает)». Вывод — это не пересказ таблицы, а то, что из сравнения следует.</p>
+  </div>
+
+  <div class="task t4">
+    <h2><span class="num">4</span>Дополнительно — без баллов <span class="lb">§1.3 ур. 1–2</span></h2>
+    <p><b>1 — Б</b> (ледник 100 тыс. лет назад → одежда из шкур, жилища из костей мамонта, стр. 20) · <b>2 — В</b> (мезолит, после 12 тыс. лет назад → лук и стрелы, микролиты, лодка — охота на мелких зверей и рыбу, стр. 20–21) · <b>3 — А</b> (неолит → земледелие и скотоводство, производящее хозяйство, стр. 22). 📖</p>
+    <p class="tip">Хорошее объяснение: «Когда ледник растаял, крупных зверей стало мало, а мелких — много. На мелких зверей с копьём не поохотишься, поэтому придумали лук и стрелы». ✏️</p>
+  </div>
+
+  <p class="total">Итого за задания 1–3: <span></span> из 15 · 13–15 — высокий уровень · 8–12 — средний · меньше 8 — повторить плакаты §1.1–§1.2 ✏️</p>
+  <p class="legend">📖 — факт из учебника НИШ (стр. указаны) · ✏️ — моя формулировка: примеры ответов, выводы, шкала уровней (в сборнике СОР уровни описаны словами, без баллов).</p>
+</section>
+
+</div>
+</body>
+</html>
