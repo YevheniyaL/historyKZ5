@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>История КЗ · §1.3–§1.5 · повторение к СОР №2</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🏺</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #F3ECDD; --paper: #FFFDF8;
+    --ink: #2E2A22; --ink-soft: #5E5847; --ink-faint: #948B74; --line: #C9BB98;
+    --c1: #3B6E8F; --c1-soft: #DCEAF3;
+    --c3: #4E7D3A; --c3-soft: #E1ECD7;
+    --c4: #B0522E; --c4-soft: #F6E0D3;
+    --c6: #6B6456; --c6-soft: #ECE8DE;
+    --hl: #FFE9A8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D16; --paper: #2A251C;
+      --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #5A503C;
+      --c1: #7FB3D5; --c1-soft: #243542; --c3: #9CC77F; --c3-soft: #2C3A24;
+      --c4: #E08F6B; --c4-soft: #452F24; --c6: #BCB29A; --c6-soft: #342E22;
+      --hl: #5C5020;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D16; --paper: #2A251C;
+    --ink: #EFE8D8; --ink-soft: #BCB29A; --ink-faint: #7C755F; --line: #5A503C;
+    --c1: #7FB3D5; --c1-soft: #243542; --c3: #9CC77F; --c3-soft: #2C3A24;
+    --c4: #E08F6B; --c4-soft: #452F24; --c6: #BCB29A; --c6-soft: #342E22;
+    --hl: #5C5020;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla', ui-sans-serif, system-ui, sans-serif; line-height: 1.38; }
+  .wrap { padding-block: 1.5rem 3rem; padding-inline: 1rem; }
+  .sheet { max-width: 800px; margin: 0 auto 2rem; background: var(--paper); border-radius: 14px; padding: 1.4rem 1.5rem; box-shadow: 0 8px 24px -12px rgba(46,42,34,0.25); }
+  h1, h2 { font-family: 'Fraunces', ui-serif, Georgia, serif; margin: 0; text-wrap: balance; }
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin: 0; }
+  h1 { font-size: 1.45rem; font-weight: 900; line-height: 1.1; margin: 0.15rem 0 0.1rem; }
+  .sheet-tag { font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); border-radius: 999px; padding: 0.15rem 0.7rem; white-space: nowrap; }
+
+  .name { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.9rem; margin: 0.5rem 0 0; }
+  .name span { flex: 1 1 12rem; border-bottom: 1px solid var(--line); padding-bottom: 0.1rem; }
+
+  table.spec { width: 100%; border-collapse: collapse; margin-top: 0.6rem; font-size: 0.8rem; }
+  table.spec td { border: 1px solid var(--line); padding: 0.25rem 0.45rem; vertical-align: top; }
+  table.spec td:first-child { width: 9.5rem; font-weight: 700; color: var(--ink-soft); background: var(--c6-soft); }
+
+  .task { border-radius: 12px; padding: 0.6rem 0.8rem 0.7rem; margin-top: 0.7rem; background: var(--soft); break-inside: avoid; }
+  .task h2 { font-size: 1.02rem; color: var(--c); margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.45rem; }
+  .num { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--c); color: var(--paper); font-family: 'Karla', sans-serif; font-size: 0.82rem; font-weight: 700; flex: none; }
+  .lb { margin-left: auto; font-family: 'Karla', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--c); background: var(--paper); border-radius: 999px; padding: 0 0.45rem; white-space: nowrap; }
+  .pts { font-family: 'Karla', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
+  .t1 { --c: var(--c1); --soft: var(--c1-soft); }
+  .t2 { --c: var(--c3); --soft: var(--c3-soft); }
+  .t3 { --c: var(--c4); --soft: var(--c4-soft); }
+  .t4 { --c: var(--c6); --soft: var(--c6-soft); }
+  .task p { margin: 0 0 0.3rem; font-size: 0.9rem; }
+  .hint { font-size: 0.8rem; color: var(--ink-soft); }
+
+  .lines { background: var(--paper); border-radius: 8px; padding: 0.1rem 0.6rem 0.4rem; }
+  .lines div { height: 1.75rem; border-bottom: 1px solid var(--line); }
+
+  table.grid { width: 100%; border-collapse: collapse; background: var(--paper); font-size: 0.86rem; }
+  table.grid th, table.grid td { border: 1px solid var(--line); padding: 0.3rem 0.45rem; vertical-align: top; text-align: left; }
+  table.grid th { background: var(--soft); color: var(--c); font-family: 'Fraunces', serif; }
+  table.grid td.q { width: 9rem; font-weight: 700; }
+  table.grid td.w { height: 3.1rem; }
+  table.match td.t { width: 9.5rem; font-weight: 700; }
+  table.match.wide td.t { width: 15rem; }
+  table.match td.l { width: 2rem; font-weight: 700; text-align: center; }
+  .answers { display: flex; gap: 1.2rem; flex-wrap: wrap; margin: 0.45rem 0 0; font-size: 0.9rem; font-weight: 700; }
+  .answers span { min-width: 4.5rem; border-bottom: 1px solid var(--line); }
+
+  .legend { font-size: 0.72rem; color: var(--ink-faint); margin: 0.6rem 0 0; }
+
+  @media (max-width: 640px) {
+    table.spec td:first-child { width: 6.5rem; }
+    table.grid td.q { width: 6rem; }
+  }
+
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-shadow: none !important; }
+    .wrap { padding: 0; }
+    .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; background: #fff; zoom: 0.92; }
+    .page2 { break-before: page; }
+  }
+  .t5 { --c: #7A4E9A; --soft: #ECE2F2; }
+  .t6 { --c: #8A6A4B; --soft: #EFE4D2; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .t5 { --c: #B994D6; --soft: #372C40; } :root:not([data-theme="light"]) .t6 { --c: #C9A87E; --soft: #3B3222; } }
+  :root[data-theme="dark"] .t5 { --c: #B994D6; --soft: #372C40; }
+  :root[data-theme="dark"] .t6 { --c: #C9A87E; --soft: #3B3222; }
+
+  .sub { font-family: 'Fraunces', serif; font-size: 0.92rem; color: var(--c); margin: 0.45rem 0 0.25rem; display: flex; align-items: center; gap: 0.4rem; }
+  .sub .lb { margin-left: 0; }
+  .chain { display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: stretch; }
+  .chain .box { flex: 1 1 0; min-width: 8rem; background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.82rem; text-align: center; }
+  .chain .box > b.h { display: block; color: var(--c); font-size: 0.9rem; }
+  .chain .box .when { display: block; font-family: 'Fraunces', serif; font-weight: 900; color: var(--c); font-size: 0.95rem; }
+  .chain .to { align-self: center; color: var(--c); font-weight: 700; }
+  .task ul { margin: 0; padding-left: 1.1rem; font-size: 0.86rem; }
+  .task li { margin-bottom: 0.1rem; }
+  .line { font-size: 0.86rem; margin: 0.3rem 0 0; }
+  .src { color: var(--ink-faint); font-size: 0.76rem; white-space: nowrap; }
+
+  .explain { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; margin-top: 0.35rem; }
+  .explain.two { grid-template-columns: 1fr 1fr; }
+  .ex { background: var(--paper); border-radius: 8px; padding: 0.35rem 0.5rem; font-size: 0.8rem; }
+  .ex > b.h { display: block; font-size: 0.92rem; color: var(--c); }
+  .ex svg { display: block; width: 100%; height: 62px; margin: 0.15rem 0; }
+  .ex svg .st { fill: none; stroke: var(--c); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  .ex svg .fl { fill: var(--soft); stroke: var(--c); stroke-width: 2; stroke-linejoin: round; }
+  .ex svg .wood { fill: var(--c6-soft); stroke: var(--ink-soft); stroke-width: 1.5; }
+  .ex svg text { font-family: 'Karla', sans-serif; font-size: 11px; fill: var(--ink-soft); }
+  .ex .easy { display: block; color: var(--ink-soft); margin-top: 0.15rem; }
+
+  .rev { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-top: 0.35rem; }
+  .rev > div { background: var(--paper); border-radius: 8px; padding: 0.35rem 0.5rem; font-size: 0.82rem; }
+  .rev > div > b.h { display: block; color: var(--c); font-size: 0.9rem; }
+  .big { background: var(--paper); border-radius: 8px; padding: 0.35rem 0.55rem; font-size: 0.86rem; text-align: center; }
+  .big b { color: var(--c); }
+
+  .cards4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; }
+  .cards4 > div { background: var(--paper); border-radius: 8px; padding: 0.3rem 0.45rem; font-size: 0.8rem; }
+  .cards4 > div > b.h { display: block; font-size: 0.95rem; color: var(--c); }
+  .cards4 i { display: block; color: var(--ink-soft); font-size: 0.76rem; margin-top: 0.15rem; }
+  .warn { font-size: 0.78rem; color: var(--ink-soft); margin: 0.3rem 0 0; }
+  .key { font-size: 0.72rem; color: var(--ink-faint); margin: 0.4rem 0 0; }
+  @media (max-width: 640px) { .cards4, .explain, .rev { grid-template-columns: 1fr 1fr; } .chain .to { transform: rotate(90deg); } }
+  @media print { .sheet { zoom: 0.80; } .task { margin-top: 0.5rem; padding-block: 0.5rem 0.55rem; } }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-top: 0.35rem; }
+  .facts > div { background: var(--paper); border-radius: 8px; padding: 0.35rem 0.5rem; font-size: 0.82rem; }
+  .facts > div > b.h { display: block; color: var(--c); font-size: 0.9rem; }
+  .proof { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.3rem; }
+  .proof > div { background: var(--paper); border-radius: 8px; padding: 0.3rem 0.4rem; font-size: 0.78rem; text-align: center; }
+  .proof > div > b.h { display: block; color: var(--c); font-size: 1.05rem; font-family: 'Fraunces', serif; }
+  @media (max-width: 640px) { .facts { grid-template-columns: 1fr; } .proof { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="sheet">
+  <div class="top">
+    <div>
+      <p class="eyebrow">История Казахстана 5 · НИШ · §1.3 ур. 2 · §1.4 ур. 1–2 · §1.5 ур. 1–2 · стр. 22–31 · лист 1 из 2</p>
+      <h1>Повторяем к СОР №2: неолит, Ботай, металл</h1>
+    </div>
+    <span class="sheet-tag">к СОР №2</span>
+  </div>
+  <p class="rq" style="font-size:0.88rem;margin:0.25rem 0 0"><b>Главная мысль ✏️:</b> люди научились <b>сами производить</b> еду (неолит), <b>приручили лошадь</b> (Ботай) и <b>освоили металл</b> (эпоха бронзы) — и с каждым шагом жизнь менялась всё сильнее.</p>
+
+  <div class="task t4">
+    <h2><span class="num">1</span>Три шага по порядку <span class="lb">§1.3 · §1.4 · §1.5</span></h2>
+    <div class="chain">
+      <div class="box"><b class="h">Неолит</b><span class="when">5–3 тыс. до н.э.</span><b>новый каменный век</b>: земледелие, скотоводство, керамика</div>
+      <span class="to">→</span>
+      <div class="box"><b class="h">Энеолит</b><span class="when">медно-каменный век</span>орудия <b>и из меди, и из камня</b>; <b>Ботай</b> — приручили лошадь</div>
+      <span class="to">→</span>
+      <div class="box"><b class="h">Эпоха бронзы</b><span class="when">II тыс. до н.э. – VIII в. до н.э.</span>орудия из <b>бронзы</b>; ею <b>завершается каменный век</b></div>
+    </div>
+    <p class="line">Подсказка ✏️: <b>нео</b> — новый, <b>лит</b> — камень; энеолит — «медно-каменный»: медь + камень.</p>
+  </div>
+
+  <div class="task t3">
+    <h2><span class="num">2</span>Неолит: неолитическая революция <span class="lb">§1.3 ур. 2 · стр. 22–23</span></h2>
+    <p class="big"><b>присваивающее хозяйство</b> — брали готовое у природы ✏️ &nbsp;→&nbsp; <b>производящее хозяйство</b> — живут за счёт выращенных растений и домашних животных 📖</p>
+    <div class="rev">
+      <div><b class="h">от охоты → к скотоводству</b>приручили животных ради <b>мяса и молока</b>; держали в загонах из тростниковых изгородей. Стоянка <b>Саксаул</b> (Южный Казахстан): <b>80%</b> костей — овцы и коровы. Охота, собирательство, рыболовство стали второстепенными. 📖</div>
+      <div><b class="h">от собирательства → к земледелию</b>тёплый климат, мягкая влажная почва — сеяли у жилища <b>пшеницу, просо, ячмень</b>. Орудия: каменный <b>топор</b>, <b>мотыга</b>, <b>серп</b>, <b>зернотёрка</b>, <b>пест</b>. 📖</div>
+    </div>
+    <div class="explain two">
+      <div class="ex"><b class="h">Керамика — изделия из обожжённой глины</b>
+        <svg viewBox="0 0 300 62" aria-hidden="true">
+          <path class="wood" d="M16 14 h40 l-6 30 h-28z"/><text x="0" y="58">форма + песок</text>
+          <path class="st" d="M76 29 h14 m-5 -4 l5 4 l-5 4"/>
+          <path class="fl" d="M102 12 h44 l-6 32 h-32z"/><text x="84" y="58">обмазали глиной</text>
+          <path class="st" d="M174 29 h14 m-5 -4 l5 4 l-5 4"/>
+          <path class="fl" d="M202 8 q22 -6 40 0 l-4 28 q-16 6 -32 0z"/>
+          <path class="st" d="M204 54 q6 -10 12 0 q6 -10 12 0 q6 -10 12 0"/><text x="252" y="38">обжиг</text>
+        </svg>
+        форму наполняли песком, обмазывали глиной, сушили, вынимали и <b>обжигали на костре</b> — обжиг давал прочность. Неолит — «<b>эпоха глиняных горшков</b>»; раньше еду хранили в плетёных корзинах. ~<b>600</b> стоянок неолита в Казахстане. 📖 <span class="src">стр. 23</span></div>
+      <div class="ex"><b class="h">Что из этого вышло</b>
+        появились <b>излишки</b> продуктов → <b>богатые и бедные</b> → <b>имущественное неравенство</b> → основа <b>частной собственности и семьи</b>. 📖 <span class="src">стр. 23</span>
+        <span class="easy" style="margin-top:0.3rem">Ещё в неолите появились <b>сверление и полировка</b> камня и <b>ткачество</b>. 📖 <span class="src">§1.8</span></span>
+        <span class="easy">✏️ Почему «революция»? Это не война, а <b>резкий переворот</b> в жизни: люди перестали зависеть только от удачной охоты.</span></div>
+    </div>
+  </div>
+
+  <div class="task t2">
+    <h2><span class="num">3</span>Ботайская культура: кто, где, как жили <span class="lb">§1.4 ур. 1 · стр. 24–25</span></h2>
+    <div class="facts">
+      <div><b class="h">Где · когда · кто</b><b>Ботай</b> — поселение энеолита в <b>Северном Казахстане</b>; найдено в <b>1980</b> году; время — <b>III–II тыс. до н.э.</b> Археолог <b>В.Ф. Зайберт</b> изучал его <b>20 лет</b> и нашёл около <b>70 тысяч</b> останков лошадей. Он и выделил особую <b>ботайскую культуру</b>. 📖</div>
+      <div><b class="h">Жилища</b>раскопали <b>158</b> жилищ — треугольные или четырёхугольные, <b>20–120 м²</b>. Куполообразная крыша из брёвен и <b>дёрна</b>, в центре — отверстие для дыма и <b>очаг</b>; в стене — углубление для продуктов. 📖</div>
+      <div><b class="h">Орудия и занятия</b><b>молотки, копья, стрелы, боласы, кинжалы, скребла</b> (обрабатывать шкуры). Есть и <b>медные</b> орудия → ботайцы <b>первыми в Казахстане начали осваивать металл</b>. Иглы, шила, проколки — шили из шкур; делали <b>чий</b>, пряли нить <b>веретеном</b>. У рек — <b>охота и рыболовство</b>. 📖</div>
+      <div><b class="h">Верования</b>умерших хоронили <b>прямо в поселении, в старых жилищах</b>; вдоль стен клали <b>десятки лошадиных черепов</b>. Найдены <b>амулеты</b> и украшения — значит, у ботайцев были религиозные верования. 📖</div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet page2">
+  <p class="eyebrow">Повторяем к СОР №2 · неолит, Ботай, металл · лист 2 из 2</p>
+
+  <div class="task t2">
+    <h2><span class="num">4</span>Ботай: как доказали, что лошадь приручили <span class="lb">§1.4 ур. 1–2 · стр. 24–27</span></h2>
+    <div class="proof">
+      <div><b class="h">1</b>застёжки для <b>уздечек</b> и <b>путы</b></div>
+      <div><b class="h">2</b>следы <b>удил</b> на зубах лошади → на ней <b>ездили</b></div>
+      <div><b class="h">3</b>в горшках хранили <b>молоко</b> (анализ в лаборатории <b>Великобритании</b>)</div>
+      <div><b class="h">4</b>на обломке керамики — <b>два колеса и лошади</b></div>
+      <div><b class="h">5</b>~70 тыс. костей: специалисты — лошади <b>не дикие</b>, а прирученные</div>
+    </div>
+    <div class="rev">
+      <div><b class="h">Календарь коневодства</b><b>зимой</b> — в постоянных жилищах; <b>весной</b> — пасли лошадей в степи <b>Улытау</b>, у реки <b>Торгай</b>, во временных жилищах. Лошадь приручили в степях Северного и Центрального Казахстана в <b>4 тыс. до н.э.</b> 📖</div>
+      <div><b class="h">Почему это так важно</b>лошадь стала <b>транспортом</b>; появились <b>новые ремёсла</b> — узда и подпруги из кожи и волос гривы; опыт передавался из поколения в поколение и разошёлся <b>по всей степи Евразии</b>. Приручение лошади — <b>одно из величайших достижений</b> человечества. 📖</div>
+    </div>
+    <p class="line">✏️ Не путай: <b>уздечка</b> надевается на голову лошади; <b>удила</b> — её часть <b>во рту</b>. От удил на зубах остаются следы.</p>
+  </div>
+
+  <div class="task t1">
+    <h2><span class="num">5</span>Зарождение металлургии <span class="lb">§1.5 ур. 1–2 · стр. 28–31</span></h2>
+    <div class="chain">
+      <div class="box"><b class="h">Медь</b>первый металл, который научились обрабатывать (II тыс. до н.э.)</div>
+      <span class="to">+</span>
+      <div class="box"><b class="h">Олово</b>месторождения — хребты Нарын и Калба</div>
+      <span class="to">=</span>
+      <div class="box"><b class="h">Бронза</b>смесь меди и олова; в природе в чистом виде <b>не встречается</b></div>
+    </div>
+    <div class="facts">
+      <div><b class="h">Где добывали руду</b><b>Жезказган</b> — медь (добыли ~<b>100 тыс. тонн</b>) · хребты <b>Нарын и Калба</b> — олово · <b>Восточный Казахстан</b> — медь, олово и золото. 📖</div>
+      <div><b class="h">Как обрабатывали</b>плавили в <b>печах</b> (Жезказган, <b>Канай</b>) · <b>отливали</b> в мастерских (Канай, Малокрасноярка) · работали в <b>кузнечных мастерских</b> (Милыкудык, Малокрасноярка, Петровка-2). 📖</div>
+      <div><b class="h">Что делали</b><b>топоры, кинжалы, ножи, копья, серпы, косы</b>. <b>Ювелирное дело</b> — украшения из золота, меди, бронзы, олова: серьга из <b>Мыншынкура</b> с двумя лошадьми, бронзовый браслет <b>Жангельды-5</b>. 📖</div>
+      <div><b class="h">Камень или бронза? ✏️</b><b>Бронза:</b> прочная, не раскалывается, можно отлить любую форму, сломанное — переплавить. <b>Но</b> нужны руда, печь и мастер. <b>Камень</b> есть везде, но хрупкий.</div>
+    </div>
+    <p class="sub">Как металл изменил жизнь — запомни 3+ примера</p>
+    <div class="rev">
+      <div><b class="h">Хозяйство</b>больше продукции, <b>больше скота</b> → пастбища всё дальше → пастухи кочуют со скотом: <b>зарождение кочевого скотоводства</b>. Земледелие — <b>мотыжное</b> (почву рыхлили мотыгой): пшеница, рожь, пшено; серпы, тяпки, мотыги, косы. 📖</div>
+      <div><b class="h">Общество</b>тяжёлый труд (руда, металл, скот) → растёт <b>роль мужчин</b> · каждая семья — в <b>отдельном жилище</b> · излишки → <b>богатые</b> люди · роды объединились в <b>племена</b> · споры за пастбища → <b>больше оружия</b>. 📖</div>
+    </div>
+  </div>
+
+  <div class="task t4">
+    <h2><span class="num">6</span>Самопроверка: закрой листы и ответь <span class="lb">всё</span></h2>
+    <table class="grid match">
+      <tr><td class="t">1. Энеолит</td><td class="l">А</td><td>Смесь меди и олова</td></tr>
+      <tr><td class="t">2. Удила</td><td class="l">Б</td><td>Объединение живших по соседству родов</td></tr>
+      <tr><td class="t">3. Бронза</td><td class="l">В</td><td>Период, когда орудия делали и из меди, и из камня</td></tr>
+      <tr><td class="t">4. Племя</td><td class="l">Г</td><td>Часть уздечки во рту лошади</td></tr>
+    </table>
+    <p style="margin-top:0.4rem"><b>Скажи вслух:</b> 1) Что такое производящее хозяйство? 2) Назови 3 доказательства, что ботайцы приручили лошадь. 3) Кто и когда исследовал Ботай? 4) Где добывали медь и олово? 5) Как металл изменил жизнь людей — 3 примера.</p>
+    <p class="key">Ответы: 1 — В · 2 — Г · 3 — А · 4 — Б. &nbsp; 📖 — учебник НИШ · ✏️ — моё пояснение.</p>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
